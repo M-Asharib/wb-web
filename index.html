@@ -26,7 +26,7 @@
 <body>
     <!-- Header - Start -->
 
-    <header class="header_main">
+    <section>
         <style>
             /* Base Header Styles */
             
@@ -153,14 +153,14 @@
                 transform: translateY(-2px);
                 box-shadow: 0 4px 1px rgba(0, 0, 0, 0.3);
             }
-            /* Mobile Menu */
+            /* Mobile Menu Button */
             
             .mobile_menu_btn {
                 display: none;
                 background: transparent;
                 color: #333;
                 border: none;
-                font-size: 24px;
+                font-size: 28px;
                 cursor: pointer;
                 padding: 5px;
             }
@@ -180,16 +180,154 @@
                     padding: 0 15px;
                 }
             }
+            /* Sidebar Styles */
+            
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -280px;
+                /* Hidden initially */
+                width: 280px;
+                height: 100vh;
+                background: #fff;
+                box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                z-index: 1500;
+                padding-top: 60px;
+                /* to avoid header overlap */
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            
+            .sidebar.active {
+                left: 0;
+            }
+            
+            .sidebar .close_btn {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                font-size: 24px;
+                cursor: pointer;
+                background: transparent;
+                border: none;
+                color: #333;
+            }
+            
+            .sidebar nav {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 0 20px;
+            }
+            
+            .sidebar nav a {
+                color: #333;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 18px;
+                padding: 10px 5px;
+                border-radius: 4px;
+                transition: background 0.3s ease, color 0.3s ease;
+            }
+            
+            .sidebar nav a:hover {
+                background: linear-gradient(90deg, #FF0066, #FF00FF);
+                color: #fff;
+            }
+            /* Sidebar Dropdown */
+            
+            .sidebar .dropdown_sidebar>a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+            }
+            
+            .sidebar .dropdown_sidebar .dropdown_sidebar_content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                flex-direction: column;
+                gap: 10px;
+                padding-left: 10px;
+                margin-top: 8px;
+                border-left: 2px solid #FF0066;
+            }
+            
+            .sidebar .dropdown_sidebar.active .dropdown_sidebar_content {
+                max-height: 500px;
+                /* big enough for all links */
+                display: flex;
+            }
+            /* Dropdown arrow */
+            
+            .sidebar .dropdown_sidebar>a::after {
+                content: "▼";
+                font-size: 12px;
+                color: #FF0066;
+                transition: transform 0.3s ease;
+            }
+            
+            .sidebar .dropdown_sidebar.active>a::after {
+                transform: rotate(-180deg);
+            }
+            /* Overlay for sidebar */
+            
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.4);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease;
+                z-index: 1400;
+            }
+            
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
         </style>
-        <div class="header_container">
-            <a href="/index.html" class="logo">
-                <img src="/assets/logo.png" alt="Company Logo">
-            </a>
+        <header class="header_main">
+            <div class="header_container">
+                <a href="/index.html" class="logo">
+                    <img src="/assets/logo.png" alt="Company Logo" />
+                </a>
 
-            <nav class="nav_links">
-                <div class="dropdown">
-                    <a href="/servies.html" class="dropbtn">Services</a>
-                    <div class="dropdown_content">
+                <nav class="nav_links">
+                    <div class="dropdown">
+                        <a href="/servies.html" class="dropbtn">Services</a>
+                        <div class="dropdown_content">
+                            <a href="/Web Design.html">Web Design</a>
+                            <a href="/App Development.html">App Development</a>
+                            <a href="/UX Development.html">UI/UX</a>
+                            <a href="/Branding.html">Branding</a>
+                        </div>
+                    </div>
+                    <a href="/Projects.html">Work</a>
+                    <a href="/about.html">About</a>
+                    <a href="/Process.html">Process</a>
+                </nav>
+
+                <a href="/Get Quote.html" class="cta_button">Get Quote</a>
+
+                <button class="mobile_menu_btn" aria-label="Open menu">
+            ☰
+        </button>
+            </div>
+        </header>
+
+        <!-- Sidebar Menu -->
+        <div class="sidebar" id="sidebar">
+            <button class="close_btn" id="closeSidebar" aria-label="Close menu">×</button>
+            <nav>
+                <div class="dropdown_sidebar" id="servicesDropdown">
+                    <a href="javascript:void(0)">Services</a>
+                    <div class="dropdown_sidebar_content">
                         <a href="/Web Design.html">Web Design</a>
                         <a href="/App Development.html">App Development</a>
                         <a href="/UX Development.html">UI/UX</a>
@@ -199,15 +337,49 @@
                 <a href="/Projects.html">Work</a>
                 <a href="/about.html">About</a>
                 <a href="/Process.html">Process</a>
+                <a href="/Get Quote.html" class="cta_button" style="margin-top: 20px; display: inline-block; text-align: center; color:white;">Get Quote</a>
             </nav>
-
-            <a href="/Get Quote.html" class="cta_button">Get Quote</a>
-
-            <button class="mobile_menu_btn">
-                    ☰
-                </button>
         </div>
-    </header>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
+
+        <script>
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const mobileMenuBtn = document.querySelector('.mobile_menu_btn');
+            const closeBtn = document.getElementById('closeSidebar');
+            const servicesDropdown = document.getElementById('servicesDropdown');
+
+            function openSidebar() {
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+            }
+
+            function closeSidebarFunc() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                // close any open dropdowns
+                servicesDropdown.classList.remove('active');
+            }
+
+            mobileMenuBtn.addEventListener('click', openSidebar);
+            closeBtn.addEventListener('click', closeSidebarFunc);
+            overlay.addEventListener('click', closeSidebarFunc);
+
+            // Toggle dropdown inside sidebar
+            servicesDropdown.querySelector('a').addEventListener('click', () => {
+                servicesDropdown.classList.toggle('active');
+            });
+
+            // Optional: close sidebar when resizing to large screens
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    closeSidebarFunc();
+                }
+            });
+        </script>
+    </section>
     <!-- Header - End -->
     <section class="hero-slider">
         <style>
