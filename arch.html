@@ -1,0 +1,450 @@
+<section class="achievements-section" id="achievements">
+    <style>
+        /* Achievements Section - Enhanced */
+        
+        .achievements-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f9f9ff 0%, #f0f2ff 100%);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Floating gradient bubbles */
+        
+        .floating-bubble {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.5;
+            z-index: 0;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .bubble-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 107, 0, 0.15) 0%, rgba(255, 107, 0, 0) 70%);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+        
+        .bubble-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 0, 104, 0.1) 0%, rgba(255, 0, 104, 0) 70%);
+            bottom: -150px;
+            left: -150px;
+            animation-delay: 3s;
+        }
+        
+        .bubble-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 119, 255, 0.1) 0%, rgba(0, 119, 255, 0) 70%);
+            top: 50%;
+            left: 10%;
+            animation-delay: 6s;
+        }
+        
+        @keyframes float {
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, 20px) rotate(5deg);
+            }
+            50% {
+                transform: translate(0, 30px) rotate(0deg);
+            }
+            75% {
+                transform: translate(-20px, 20px) rotate(-5deg);
+            }
+        }
+        /* Container */
+        
+        .achievements-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            position: relative;
+            z-index: 2;
+        }
+        /* Section Headings */
+        
+        .section-heading {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 80px;
+            color: #222;
+            font-weight: 700;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .achievements-section.in-view .section-heading {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b00, #ff0068);
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(255, 0, 104, 0.3);
+        }
+        /* Stats Grid */
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 100px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(40px);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.03), rgba(255, 0, 104, 0.03));
+            z-index: -1;
+        }
+        
+        .achievements-section.in-view .stat-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .stat-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .stat-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .stat-card:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .stat-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.1), rgba(255, 0, 104, 0.1));
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: all 0.5s ease;
+            font-size: 2rem;
+            color: #ff4d4d;
+            box-shadow: 0 10px 20px rgba(255, 0, 104, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b00, #ff0068);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .stat-number::after {
+            content: '+';
+            position: absolute;
+            right: -15px;
+            top: 5px;
+            font-size: 1.5rem;
+            color: #ff0068;
+        }
+        
+        .stat-card:nth-child(2) .stat-number::after {
+            content: '%';
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        /* Technologies Section */
+        
+        .tech-category {
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .achievements-section.in-view .tech-category {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tech-category:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .tech-category:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .tech-category:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .tech-category:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .tech-category h3 {
+            color: #333;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .tech-category-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.1), rgba(255, 0, 104, 0.1));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #ff4d4d;
+            box-shadow: 0 5px 15px rgba(255, 0, 104, 0.1);
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .tech-item {
+            background: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #555;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .tech-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.05), rgba(255, 0, 104, 0.05));
+            z-index: -1;
+        }
+        /* Hover Effects */
+        
+        .stat-card:hover {
+            transform: translateY(-15px) scale(1.03) !important;
+            box-shadow: 0 25px 50px rgba(255, 107, 0, 0.2) !important;
+        }
+        
+        .stat-card:hover .stat-icon {
+            transform: rotate(10deg) scale(1.15);
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 0, 104, 0.2));
+        }
+        
+        .tech-item:hover {
+            background: linear-gradient(135deg, #ff6b00, #ff0068) !important;
+            color: white !important;
+            transform: translateY(-5px) scale(1.05) !important;
+            box-shadow: 0 15px 30px rgba(255, 107, 0, 0.3) !important;
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 992px) {
+            .section-heading {
+                font-size: 2.5rem;
+                margin-bottom: 60px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .achievements-section {
+                padding: 80px 0;
+            }
+            .section-heading {
+                font-size: 2.2rem;
+            }
+            .stat-card {
+                padding: 30px 20px;
+            }
+            .stat-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-heading {
+                font-size: 2rem;
+            }
+            .tech-category h3 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+
+    <div class="achievements-container">
+        <!-- Stats Section -->
+        <h2 class="section-heading">My Achievements</h2>
+
+        <div class="stats-grid">
+            <!-- Stat 1 -->
+            <div class="stat-card">
+                <div class="stat-icon">🚀</div>
+                <h3 class="stat-number">150</h3>
+                <p class="stat-label">Projects Completed</p>
+            </div>
+
+            <!-- Stat 2 -->
+            <div class="stat-card">
+                <div class="stat-icon">😊</div>
+                <h3 class="stat-number">95</h3>
+                <p class="stat-label">Client Satisfaction</p>
+            </div>
+
+            <!-- Stat 3 -->
+            <div class="stat-card">
+                <div class="stat-icon">⏳</div>
+                <h3 class="stat-number">3</h3>
+                <p class="stat-label">Years Experience</p>
+            </div>
+
+            <!-- Stat 4 -->
+            <div class="stat-card">
+                <div class="stat-icon">💻</div>
+                <h3 class="stat-number">50</h3>
+                <p class="stat-label">Technologies Used</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Floating background elements -->
+    <div class="floating-bubble bubble-1"></div>
+    <div class="floating-bubble bubble-2"></div>
+    <div class="floating-bubble bubble-3"></div>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe the achievements section
+        const achievementsSection = document.querySelector('.achievements-section');
+        observer.observe(achievementsSection);
+
+        // Observe individual cards if needed (for staggered animations)
+        document.querySelectorAll('.stat-card, .tech-category').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animated counter for stats
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const speed = 200; // The lower the faster
+
+        statNumbers.forEach(statNumber => {
+            const target = +statNumber.textContent;
+            const suffix = statNumber.textContent.includes('%') ? '%' : '+';
+            const count = +statNumber.textContent.replace(/[^0-9]/g, '');
+
+            const animate = () => {
+                const value = +statNumber.textContent.replace(/[^0-9]/g, '');
+                const increment = target / speed;
+
+                if (value < target) {
+                    statNumber.textContent = Math.ceil(value + increment) + (suffix === '%' ? '%' : '');
+                    setTimeout(animate, 1);
+                } else {
+                    statNumber.textContent = target + (suffix === '%' ? '%' : '');
+                }
+            };
+
+            // Start counting when stat card is in view
+            const statObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animate();
+                        statObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            statObserver.observe(statNumber.closest('.stat-card'));
+        });
+    </script>
+</section>
