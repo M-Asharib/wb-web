@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Process | Creative Digital Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         :root {
+            --primary: #ff0066;
+            --secondary: #ff006673;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --accent: #fd79a8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 5rem 0 5rem;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 5rem 0;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 0 1.5rem;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(255, 0, 102, 0.3);
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 35px;
+            left: 50%;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary);
+            z-index: 1;
+        }
+        
+        .step h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+        
+        .step-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .step-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .phase-details {
+            padding: 5rem 0;
+            background: #f9f9ff;
+        }
+        
+        .phase {
+            margin-bottom: 4rem;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .phase-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .phase-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-right: 1.5rem;
+            background: white;
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .phase-title {
+            font-size: 1.5rem;
+        }
+        
+        .phase-body {
+            padding: 2rem;
+        }
+        
+        .phase-body h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .deliverables {
+            margin-top: 2rem;
+        }
+        
+        .deliverables h5 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .deliverables h5 i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .deliverables ul {
+            list-style-type: none;
+        }
+        
+        .deliverables li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .deliverables li::before {
+            content: '✓';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .timeline {
+            width: 100%;
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            margin: 3rem 0;
+            position: relative;
+        }
+        
+        .timeline-progress {
+            position: absolute;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+        
+        .cta-process {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        .cta-process h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .process-steps {
+                flex-direction: column;
+            }
+            .step:not(:last-child)::after {
+                display: none;
+            }
+            .step {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Our Proven Process</h1>
+            <p class="subtitle">We follow a structured approach to ensure your web project is delivered on time, on budget, and exceeds your expectations.</p>
+            <a href="#contact" class="btn">Start Your Project</a>
+        </div>
+    </header>
+
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>How We Work</h2>
+                <p>Our 5-phase process ensures clarity, efficiency, and outstanding results</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Discovery</h3>
+                        <p>We dive deep to understand your business, audience, and goals to create the perfect strategy.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <h3>Design</h3>
+                        <p>Our designers create stunning, user-friendly interfaces tailored to your brand identity.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Development</h3>
+                        <p>We build your website with clean, efficient code that performs flawlessly across all devices.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <h3>Testing</h3>
+                        <p>Rigorous quality assurance ensures your site works perfectly before launch.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Launch</h3>
+                        <p>We deploy your site and provide training and ongoing support as needed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="phase-details">
+        <div class="container">
+            <div class="section-title">
+                <h2>Detailed Process Breakdown</h2>
+                <p>What to expect at each phase of your project</p>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">1</div>
+                    <div class="phase-title">Discovery Phase</div>
+                </div>
+                <div class="phase-body">
+                    <h4>Laying the Foundation</h4>
+                    <p>We begin by thoroughly understanding your business, target audience, and project objectives. This phase ensures we're aligned on goals and sets the direction for the entire project.</p>
+
+                    <div class="deliverables">
+                        <h5><i class="fas fa-clipboard-list"></i> Key Deliverables:</h5>
+                        <ul>
+                            <li>Project brief and creative strategy</li>
+                            <li>Competitor analysis</li>
+                            <li>User personas</li>
+                            <li>Content strategy outline</li>
+                            <li>Technical requirements document</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">2</div>
+                    <div class="phase-title">Design Phase</div>
+                </div>
+                <div class="phase-body">
+                    <h4>Bringing Your Vision to Life</h4>
+                    <p>Our designers create wireframes and mockups that translate your requirements into beautiful, functional designs. We iterate based on your feedback until you're completely satisfied.</p>
+
+                    <div class="deliverables">
+                        <h5><i class="fas fa-clipboard-list"></i> Key Deliverables:</h5>
+                        <ul>
+                            <li>Site architecture and user flows</li>
+                            <li>Wireframes for key pages</li>
+                            <li>High-fidelity design mockups</li>
+                            <li>Mobile and tablet designs</li>
+                            <li>Style guide and design system</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">3</div>
+                    <div class="phase-title">Development Phase</div>
+                </div>
+                <div class="phase-body">
+                    <h4>Building Your Digital Experience</h4>
+                    <p>Our developers transform approved designs into fully functional websites using clean, efficient code. We implement all features and functionality while ensuring optimal performance.</p>
+
+                    <div class="deliverables">
+                        <h5><i class="fas fa-clipboard-list"></i> Key Deliverables:</h5>
+                        <ul>
+                            <li>Fully responsive website</li>
+                            <li>Content management system setup</li>
+                            <li>Custom functionality implementation</li>
+                            <li>Third-party integrations</li>
+                            <li>Basic SEO implementation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">4</div>
+                    <div class="phase-title">Testing Phase</div>
+                </div>
+                <div class="phase-body">
+                    <h4>Ensuring Flawless Performance</h4>
+                    <p>We rigorously test your website across devices, browsers, and scenarios to identify and fix any issues before launch. This includes performance optimization and security checks.</p>
+
+                    <div class="deliverables">
+                        <h5><i class="fas fa-clipboard-list"></i> Key Deliverables:</h5>
+                        <ul>
+                            <li>Cross-browser testing report</li>
+                            <li>Mobile responsiveness testing</li>
+                            <li>Performance optimization results</li>
+                            <li>Security audit report</li>
+                            <li>User acceptance testing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">5</div>
+                    <div class="phase-title">Launch Phase</div>
+                </div>
+                <div class="phase-body">
+                    <h4>Going Live & Beyond</h4>
+                    <p>We deploy your website to your live server and provide training on how to manage your content. Our support continues post-launch to ensure everything runs smoothly.</p>
+
+                    <div class="deliverables">
+                        <h5><i class="fas fa-clipboard-list"></i> Key Deliverables:</h5>
+                        <ul>
+                            <li>Final website deployment</li>
+                            <li>Training documentation</li>
+                            <li>Video tutorials</li>
+                            <li>Post-launch support plan</li>
+                            <li>Analytics setup</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-process" id="contact">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's discuss how we can bring your vision to life with our proven process.</p>
+            <a href="#" class="btn">Get in Touch Today</a>
+        </div>
+    </section>
+</body>
+
+</html>

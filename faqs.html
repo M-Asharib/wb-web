@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | Creative Digital Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         :root {
+            --primary: #ff0066;
+            --secondary: #ff006673;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --accent: #fd79a8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 5rem 0 6rem;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        /* FAQ Section */
+        
+        .faq-section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .faq-question:hover {
+            color: var(--primary);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        /* Categories */
+        
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .category-btn {
+            padding: 0.6rem 1.5rem;
+            background: white;
+            color: var(--dark);
+            border-radius: 50px;
+            border: 1px solid #eee;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        /* Contact CTA */
+        
+        .contact-cta {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-cta h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        /* Footer */
+        
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .faq-question {
+                padding: 1.2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p class="subtitle">Find answers to common questions about our services, process, and pricing</p>
+        </div>
+    </header>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-categories">
+                <button class="category-btn active" data-category="all">All Questions</button>
+                <button class="category-btn" data-category="general">General</button>
+                <button class="category-btn" data-category="web-design">Web Design</button>
+                <button class="category-btn" data-category="app-dev">App Development</button>
+                <button class="category-btn" data-category="desktop">Desktop Apps</button>
+                <button class="category-btn" data-category="pricing">Pricing</button>
+            </div>
+
+            <div class="faq-container">
+                <!-- General Questions -->
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <span>What services do you offer?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We specialize in custom digital solutions including web design, mobile app development (iOS/Android), cross-platform applications, and desktop software development for Windows, macOS, and Linux. Our services also include UI/UX
+                            design, branding, and ongoing maintenance/support.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <span>How do I get started with a project?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Starting a project is simple: contact us through our website form or schedule a free consultation. We'll discuss your requirements, goals, and timeline. After understanding your needs, we'll provide a detailed proposal with project
+                            scope, timeline, and pricing.</p>
+                    </div>
+                </div>
+
+                <!-- Web Design Questions -->
+                <div class="faq-item" data-category="web-design">
+                    <div class="faq-question">
+                        <span>How long does a website design project take?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The timeline varies based on project complexity. A basic brochure website typically takes 4-6 weeks, while e-commerce sites or complex web applications may take 8-12 weeks or more. During our initial consultation, we'll provide
+                            a more accurate timeline based on your specific requirements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="web-design">
+                    <div class="faq-question">
+                        <span>Do you provide website maintenance after launch?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer ongoing maintenance packages that include security updates, content updates, performance optimization, and technical support. We can customize a maintenance plan based on your needs, from basic security monitoring
+                            to full-service management.</p>
+                    </div>
+                </div>
+
+                <!-- App Development Questions -->
+                <div class="faq-item" data-category="app-dev">
+                    <div class="faq-question">
+                        <span>Should I build a native or cross-platform mobile app?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Native apps (Swift for iOS, Kotlin for Android) offer the best performance and access to device features but require separate codebases. Cross-platform (Flutter/React Native) is more cost-effective for simpler apps and faster development.
+                            We'll recommend the best approach based on your budget, timeline, and feature requirements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="app-dev">
+                    <div class="faq-question">
+                        <span>How do you handle app store submissions?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We handle the entire submission process to the Apple App Store and Google Play Store, including preparing all required assets, creating developer accounts (if needed), and ensuring your app meets all guidelines. We'll guide you
+                            through any necessary steps on your end and manage the submission until approval.</p>
+                    </div>
+                </div>
+
+                <!-- Desktop App Questions -->
+                <div class="faq-item" data-category="desktop">
+                    <div class="faq-question">
+                        <span>What technologies do you use for desktop applications?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For Windows: .NET Framework, WPF, UWP. For macOS: Swift, Objective-C. For cross-platform: Electron, Qt, Java. We choose the technology stack based on your performance requirements, target platforms, and integration needs with existing
+                            systems.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="desktop">
+                    <div class="faq-question">
+                        <span>Can you create applications that work offline?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. Desktop applications are ideal for offline functionality. We can design systems with local data storage that sync with cloud services when internet connectivity is available, or create completely standalone applications
+                            depending on your requirements.</p>
+                    </div>
+                </div>
+
+                <!-- Pricing Questions -->
+                <div class="faq-item" data-category="pricing">
+                    <div class="faq-question">
+                        <span>How much does a custom website or application cost?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Project costs vary significantly based on scope and complexity. Basic websites start around $3,000, while complex web applications can range $15,000-$50,000+. Mobile apps typically start at $10,000, and desktop applications at
+                            $15,000. We provide transparent quotes after understanding your specific requirements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="pricing">
+                    <div class="faq-question">
+                        <span>Do you offer payment plans or financing?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer flexible payment options. Most projects are divided into milestones with payments due at each stage. We can also discuss extended payment plans for larger projects. All payment terms will be clearly outlined in our
+                            proposal before work begins.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-cta">
+                <h3>Still have questions?</h3>
+                <p>Contact our team for personalized answers and consultation</p>
+                <a href="#" class="btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Creative Digital Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ toggle functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentElement;
+                    item.classList.toggle('active');
+
+                    // Close other open FAQs
+                    document.querySelectorAll('.faq-item').forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Category filter functionality
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active category button
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Filter FAQs
+                    const category = btn.dataset.category;
+                    const faqItems = document.querySelectorAll('.faq-item');
+
+                    faqItems.forEach(item => {
+                        if (category === 'all' || item.dataset.category === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                            item.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

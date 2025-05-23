@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Creative Digital Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Bebas+Neue&family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --primary: #FF0068;
+            --secondary: #ff006665;
+            --dark: #121212;
+            --light: #f5f6fa;
+            --accent: #fd79a8;
+            --tech-bg: rgba(255, 0, 104, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .about-hero {
+            /* background-image: url(/assets/bg_dark.png); */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            background: linear-gradient(135deg, rgba(255, 0, 104, 0.9), rgba(153, 0, 62, 0.9));
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+        
+        .about-hero .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .about-heading {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            /* background: linear-gradient(90deg, #00f0ff, #0dffb2); */
+            background: linear-gradient(90deg, #ffffff, #afafaf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* text-shadow: 0 0 10px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2); */
+            letter-spacing: 3px;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            /* background: linear-gradient(90deg, #00f0ff, #0dffb2); */
+            background: linear-gradient(90deg, #ffffff, #e3e3e3);
+            /* box-shadow: 0 0 10px rgba(0, 255, 255, 0.6); */
+            border-radius: 50px;
+        }
+        
+        .about-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        /* Our Story Section */
+        
+        .our-story {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .our-story::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background: url(/assets/bg_dark.png) center/cover no-repeat; */
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .story-content {
+            flex: 1;
+        }
+        
+        .story-image {
+            flex: 1;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .story-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 0, 104, 0.3), rgba(0, 240, 255, 0.3));
+            mix-blend-mode: overlay;
+            z-index: 1;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .section-text {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        /* Our Values */
+        
+        .our-values {
+            padding: 6rem 0;
+            background: rgba(10, 10, 10, 0.8);
+            position: relative;
+        }
+        
+        .our-values::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(/assets/bg_dark.png) center/cover no-repeat;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .value-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 0, 104, 0.1);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .value-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .value-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+        /* Team Section */
+        
+        .our-team {
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding: 0 2rem;
+        }
+        
+        .team-member {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 350px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .member-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-member:hover .member-image {
+            transform: scale(1.1);
+        }
+        
+        .member-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            text-align: left;
+        }
+        
+        .member-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+        
+        .member-role {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .member-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        /* Stats Section */
+        
+        .stats {
+            padding: 5rem 0;
+            background: rgba(10, 10, 10, 0.8);
+            text-align: center;
+            position: relative;
+        }
+        
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(/assets/bg_dark.png) center/cover no-repeat;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 0, 104, 0.1);
+            border-color: var(--secondary);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+        /* CTA Section */
+        
+        .cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(255, 0, 104, 0.9), rgba(153, 0, 62, 0.9));
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 992px) {
+            .section-container {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            .story-image {
+                order: -1;
+            }
+            .about-heading {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: 6rem 0 4rem;
+            }
+            .about-heading {
+                font-size: 2.2rem;
+            }
+            .about-subtitle {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .stat-number {
+                font-size: 2rem;
+            }
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-hero {
+                padding: 5rem 0 3rem;
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            }
+            .about-heading {
+                font-size: 1.8rem;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .cta {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1 class="about-heading">About Us</h1>
+            <p class="about-subtitle">We transform ideas into digital experiences that inspire, engage, and deliver measurable results</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story">
+        <div class="section-container">
+            <div class="story-content">
+                <h2 class="section-title">Our Story</h2>
+                <p class="section-text">Founded in 2015, Creative Digital Solutions began as a small team of passionate developers and designers united by a shared vision: to create digital experiences that make a real difference. What started as a modest startup in a shared
+                    workspace has grown into an award-winning digital agency serving clients worldwide.</p>
+                <p class="section-text">Our journey has been marked by continuous learning, adaptation, and an unwavering commitment to excellence. We've evolved alongside the digital landscape, mastering new technologies while maintaining our core focus on solving real business
+                    challenges through innovative solutions.</p>
+                <p class="section-text">Today, we're proud to have delivered over 200 successful projects for clients ranging from ambitious startups to Fortune 500 companies, all while maintaining the personal touch and creative energy that defined our beginnings.</p>
+            </div>
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Our Team Working">
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="our-values">
+        <div class="section-container">
+            <div class="story-content">
+                <h2 class="section-title">Our Values</h2>
+                <p class="section-text">These principles guide every decision we make and every solution we create. They're the foundation of our culture and the reason our clients choose to work with us again and again.</p>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="value-title">Innovation</h3>
+                        <p class="value-text">We challenge conventions and explore new possibilities to deliver cutting-edge solutions that give you a competitive edge.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="value-title">Integrity</h3>
+                        <p class="value-text">We believe in transparent communication, ethical practices, and delivering exactly what we promise—every time.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="value-title">Excellence</h3>
+                        <p class="value-text">Good enough never is. We pursue perfection in every detail while meeting deadlines and budget requirements.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="value-title">Passion</h3>
+                        <p class="value-text">We love what we do, and it shows in the energy, creativity, and care we bring to every project.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="value-title">Collaboration</h3>
+                        <p class="value-text">Your success is our success. We work as an extension of your team, aligning our goals with yours.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="value-title">Results</h3>
+                        <p class="value-text">We measure our success by your success, focusing on solutions that drive real business impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <!-- <section class="our-team">
+        <div class="section-container">
+            <div class="story-content">
+                <h2 class="section-title">Meet Our Team</h2>
+                <p class="section-text">Behind every great project is an exceptional team. Our diverse group of designers, developers, and strategists brings together a wide range of talents and perspectives to deliver outstanding results.</p>
+
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Alex Johnson" class="member-image">
+                        <div class="member-overlay">
+                            <h3 class="member-name">Alex Johnson</h3>
+                            <p class="member-role">CEO & Founder</p>
+                            <div class="member-social">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Sarah Chen" class="member-image">
+                        <div class="member-overlay">
+                            <h3 class="member-name">Sarah Chen</h3>
+                            <p class="member-role">Creative Director</p>
+                            <div class="member-social">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Michael Rodriguez" class="member-image">
+                        <div class="member-overlay">
+                            <h3 class="member-name">Michael Rodriguez</h3>
+                            <p class="member-role">Lead Developer</p>
+                            <div class="member-social">
+                                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Priya Patel" class="member-image">
+                        <div class="member-overlay">
+                            <h3 class="member-name">Priya Patel</h3>
+                            <p class="member-role">UX Strategist</p>
+                            <div class="member-social">
+                                <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-medium"></i></a>
+                                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">By The Numbers</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">200+</div>
+                <p class="stat-label">Projects Completed</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <p class="stat-label">Client Satisfaction</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <p class="stat-label">Countries Served</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <p class="stat-label">Team Members</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's create something amazing together. Our team is ready to bring your vision to life.</p>
+            <a href="#" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <script>
+        // Simple animation for stats counting up
+        document.addEventListener('DOMContentLoaded', function() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+
+            const animateStats = () => {
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.textContent.replace('+', ''));
+                    const suffix = stat.textContent.includes('+') ? '+' : '';
+                    const duration = 2000;
+                    const start = 0;
+                    const increment = target / (duration / 16);
+
+                    let current = start;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            clearInterval(timer);
+                            current = target;
+                        }
+                        stat.textContent = Math.floor(current) + suffix;
+                    }, 16);
+                });
+            };
+
+            // Trigger animation when stats section comes into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            observer.observe(document.querySelector('.stats'));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header with Dropdown</title>
+
+</head>
+
+<body>
+
+    <header class="header_main">
+        <style>
+            /* Base Header Styles */
+            
+            .header_main {
+                position: fixed;
+                width: 100%;
+                z-index: 1000;
+                padding: 15px 0;
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+            }
+            
+            .header_container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            /* Logo */
+            
+            .logo img {
+                height: 40px;
+                transition: transform 0.3s ease;
+            }
+            
+            .logo:hover img {
+                transform: scale(1.05);
+            }
+            /* Navigation */
+            
+            .nav_links {
+                display: flex;
+                gap: 30px;
+                position: relative;
+            }
+            
+            .nav_links a {
+                color: #333;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 16px;
+                position: relative;
+                padding: 5px 0;
+                margin-top: -5px;
+                transition: color 0.3s ease;
+            }
+            
+            .nav_links a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: linear-gradient(90deg, #FF0066, #FF00FF);
+                transition: width 0.3s ease;
+            }
+            
+            .nav_links a:hover {
+                color: #FF0066;
+            }
+            
+            .nav_links a:hover::after {
+                width: 100%;
+            }
+            /* Dropdown */
+            
+            .dropdown {
+                position: relative;
+            }
+            
+            .dropdown_content {
+                position: absolute;
+                top: 35px;
+                left: 0;
+                background: #fff;
+                min-width: 180px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+                border-radius: 8px;
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px);
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            .dropdown:hover .dropdown_content {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+            
+            .dropdown_content a {
+                display: block;
+                padding: 12px 20px;
+                color: #333;
+                text-decoration: none;
+                background: white;
+                font-weight: 500;
+                transition: background 0.3s ease, color 0.3s ease;
+            }
+            
+            .dropdown_content a:hover {
+                background: linear-gradient(90deg, #FF0066, #FF00FF);
+                color: #fff;
+            }
+            /* CTA Button */
+            
+            .cta_button {
+                background: linear-gradient(90deg, #000000, #000000);
+                color: white;
+                padding: 10px 25px;
+                border-radius: 4px;
+                font-weight: 500;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+            
+            .cta_button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 1px rgba(0, 0, 0, 0.3);
+            }
+            /* Mobile Menu */
+            
+            .mobile_menu_btn {
+                display: none;
+                background: transparent;
+                color: #333;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                padding: 5px;
+            }
+            /* Responsive */
+            
+            @media (max-width: 768px) {
+                .nav_links {
+                    display: none;
+                }
+                .cta_button {
+                    display: none;
+                }
+                .mobile_menu_btn {
+                    display: block;
+                }
+                .header_container {
+                    padding: 0 15px;
+                }
+            }
+        </style>
+        <div class="header_container">
+            <a href="/" class="logo">
+                <img src="/assets/logo.png" alt="Company Logo">
+            </a>
+
+            <nav class="nav_links">
+                <div class="dropdown">
+                    <a href="#services" class="dropbtn">Services</a>
+                    <div class="dropdown_content">
+                        <a href="#web-design">Web Design</a>
+                        <a href="#app-development">App Development</a>
+                        <a href="#ui-ux">UI/UX</a>
+                        <a href="#branding">Branding</a>
+                    </div>
+                </div>
+                <a href="#portfolio">Work</a>
+                <a href="#about">About</a>
+                <a href="#process">Process</a>
+            </nav>
+
+            <a href="#contact" class="cta_button">Get Quote</a>
+
+            <button class="mobile_menu_btn">
+                ☰
+            </button>
+        </div>
+    </header>
+
+</body>
+
+</html>

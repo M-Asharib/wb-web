@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Development Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <section class="portfolio-section">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            
+            body {
+                font-family: 'Poppins', sans-serif;
+                background-color: #f9f9f9;
+                color: #333;
+                line-height: 1.6;
+            }
+            
+            .portfolio-section {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                padding: 80px 5%;
+                background: linear-gradient(135deg, #ffffff 0%, #f6f7ff 100%);
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .portfolio-text {
+                flex: 1 1 400px;
+                padding: 30px;
+                position: relative;
+                z-index: 1;
+            }
+            
+            .portfolio-text h1 {
+                font-size: 2.8rem;
+                margin-bottom: 25px;
+                color: #222;
+                font-weight: 700;
+                line-height: 1.2;
+                background: linear-gradient(90deg, #494949, #000000);
+                /* background: linear-gradient(90deg, #ff0066, #af5cf7); */
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                animation: fadeInUp 0.8s ease;
+            }
+            
+            .portfolio-text p {
+                font-size: 1.15rem;
+                line-height: 1.8;
+                margin-bottom: 30px;
+                color: #555;
+                animation: fadeInUp 0.8s ease 0.2s forwards;
+                opacity: 0;
+            }
+            
+            .cta-button {
+                display: inline-block;
+                padding: 14px 32px;
+                background: linear-gradient(45deg, #494949, #000000);
+                color: white;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 600;
+                /* box-shadow: 0 4px 15px #6b6b6b; */
+                transition: all 0.3s ease;
+                border: none;
+                cursor: pointer;
+                font-size: 1rem;
+                animation: fadeInUp 0.8s ease 0.4s forwards;
+                opacity: 0;
+            }
+            
+            .cta-button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 205px rgba(0, 0, 0, 0.4);
+                /* background: linear-gradient(45deg, #ff0066, #9a4ae6); */
+                background: linear-gradient(45deg, #000000, #494949);
+            }
+            
+            .skills-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 20px;
+                animation: fadeInUp 0.8s ease 0.6s forwards;
+                opacity: 0;
+            }
+            
+            .skill-tag {
+                background: rgba(100, 108, 255, 0.1);
+                color: #ff0066;
+                padding: 6px 15px;
+                border-radius: 50px;
+                font-size: 0.85rem;
+                font-weight: 600;
+            }
+            
+            .portfolio-video {
+                flex: 1 1 500px;
+                padding: 30px;
+                position: relative;
+                z-index: 1;
+                animation: fadeIn 1s ease 0.3s forwards;
+                opacity: 0;
+            }
+            
+            .video-container {
+                position: relative;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+                transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+                transition: transform 0.5s ease;
+            }
+            
+            .video-container:hover {
+                transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+            }
+            
+            .video-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(45deg, rgba(100, 108, 255, 0.2), rgba(175, 92, 247, 0.2));
+                z-index: 1;
+                mix-blend-mode: overlay;
+                border-radius: 16px;
+            }
+            
+            .portfolio-video video {
+                width: 100%;
+                height: auto;
+                display: block;
+                transition: all 0.5s ease;
+            }
+            
+            .play-button {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 70px;
+                height: 70px;
+                background: rgba(255, 255, 255, 0.9);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 2;
+                opacity: 0.9;
+                transition: all 0.3s ease;
+            }
+            
+            .play-button i {
+                color: #000000;
+                font-size: 24px;
+                margin-left: 5px;
+            }
+            
+            .play-button:hover {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 1;
+            }
+            
+            @media (max-width: 768px) {
+                .portfolio-section {
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 60px 5%;
+                }
+                .portfolio-text h1 {
+                    font-size: 2.2rem;
+                }
+                .portfolio-text {
+                    padding: 20px 0;
+                }
+                .skills-list {
+                    justify-content: center;
+                }
+                .video-container {
+                    transform: none !important;
+                }
+            }
+            
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            
+            .floating-elements {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                z-index: 0;
+                overflow: hidden;
+            }
+            
+            .floating-element {
+                position: absolute;
+                background: rgba(100, 108, 255, 0.05);
+                border-radius: 50%;
+                animation: float 15s infinite linear;
+            }
+            
+            .floating-element:nth-child(1) {
+                width: 80px;
+                height: 80px;
+                top: 10%;
+                left: 5%;
+                animation-delay: 0s;
+            }
+            
+            .floating-element:nth-child(2) {
+                width: 120px;
+                height: 120px;
+                top: 70%;
+                left: 10%;
+                animation-delay: 2s;
+            }
+            
+            .floating-element:nth-child(3) {
+                width: 60px;
+                height: 60px;
+                top: 30%;
+                right: 5%;
+                animation-delay: 4s;
+            }
+            
+            .floating-element:nth-child(4) {
+                width: 100px;
+                height: 100px;
+                bottom: 10%;
+                right: 10%;
+                animation-delay: 6s;
+            }
+            
+            @keyframes float {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                }
+                50% {
+                    transform: translateY(-20px) rotate(180deg);
+                }
+                100% {
+                    transform: translateY(0) rotate(360deg);
+                }
+            }
+        </style>
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+
+        <div class="portfolio-text">
+            <h1>My Web Development Portfolio</h1>
+            <p>
+                Welcome to my creative showcase! I specialize in crafting beautiful, high-performance websites that deliver exceptional user experiences. Each project reflects my passion for clean code, intuitive design, and cutting-edge technologies.
+            </p>
+            <a href="#contact" class="cta-button">View My Work</a>
+
+            <div class="skills-list">
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">Laravel</span>
+                <span class="skill-tag">Mern Stack</span>
+                <span class="skill-tag">Next.js</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Responsive Design</span>
+            </div>
+        </div>
+
+        <div class="portfolio-video">
+            <div class="video-container">
+                <video autoplay muted loop playsinline>
+                    <source src="/assets/Vid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Simple animation trigger for demonstration
+            document.addEventListener('DOMContentLoaded', function() {
+                const playButton = document.querySelector('.play-button');
+                const video = document.querySelector('video');
+
+                playButton.addEventListener('click', function() {
+                    if (video.paused) {
+                        video.play();
+                        video.removeAttribute('muted');
+                        playButton.innerHTML = '<i class="fas fa-pause"></i>';
+                    } else {
+                        video.pause();
+                        playButton.innerHTML = '<i class="fas fa-play"></i>';
+                    }
+                });
+
+                // For demo purposes - in a real site you might want IntersectionObserver
+                setTimeout(() => {
+                    document.querySelector('.portfolio-text h1').style.animationPlayState = 'running';
+                    document.querySelector('.portfolio-text p').style.animationPlayState = 'running';
+                    document.querySelector('.cta-button').style.animationPlayState = 'running';
+                    document.querySelector('.skills-list').style.animationPlayState = 'running';
+                    document.querySelector('.portfolio-video').style.animationPlayState = 'running';
+                }, 100);
+            });
+        </script>
+    </section>
+
+
+
+</body>
+
+</html>

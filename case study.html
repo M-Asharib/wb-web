@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Project Name | Creative Digital Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         :root {
+            --primary: #ff0066;
+            --secondary: #ff006673;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --accent: #fd79a8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        /* Header */
+        
+        .case-study-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 5rem 0 4rem;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .meta-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+        }
+        /* Project Showcase */
+        
+        .project-showcase {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .showcase-image {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        /* Case Study Content */
+        
+        .case-study-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem 4rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+        }
+        /* Challenge/Solution Blocks */
+        
+        .cs-block {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .cs-block h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        /* Results */
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        /* Gallery */
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        /* CTA */
+        
+        .case-study-cta {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            margin-top: 3rem;
+        }
+        
+        .case-study-cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .case-study-cta .btn {
+            background: white;
+            color: var(--primary);
+            margin-top: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+            .project-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="case-study-header">
+        <div class="container">
+            <a href="projects.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            <h1>FitTrack Pro Mobile App</h1>
+            <p>An AI-powered fitness tracking application with personalized coaching</p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-tag"></i> Mobile App Development
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-calendar"></i> 6 Month Project
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-user"></i> HealthTech Startup
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="project-showcase">
+        <div class="container">
+            <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="FitTrack Pro App Screens" class="showcase-image">
+        </div>
+    </section>
+
+    <section class="case-study-content">
+        <div class="container">
+            <h2 class="section-title">Project Overview</h2>
+            <p>FitTrack Pro is a revolutionary fitness application that combines AI-powered workout tracking with personalized coaching. Our client, a HealthTech startup, wanted to create an app that stood out in the crowded fitness market by offering truly
+                adaptive training plans based on real-time user performance.</p>
+
+            <div class="cs-block">
+                <h3>The Challenge</h3>
+                <p>The fitness app market is saturated with basic tracking applications. Our client needed to:</p>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>Differentiate from competitors with innovative features</li>
+                    <li>Create complex AI algorithms that adapt to user progress</li>
+                    <li>Design an interface that makes advanced analytics accessible to casual users</li>
+                    <li>Ensure HIPAA compliance for health data</li>
+                </ul>
+            </div>
+
+            <div class="cs-block">
+                <h3>Our Solution</h3>
+                <p>We developed a cross-platform application using Flutter for the frontend and Python for the AI backend. Key features included:</p>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>Motion capture technology for form correction</li>
+                    <li>Adaptive workout plans that evolve with user progress</li>
+                    <li>Nutrition tracking with barcode scanning</li>
+                    <li>Community challenges with social features</li>
+                    <li>Wearable device integration</li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">Design Process</h2>
+            <p>Our design team conducted extensive user research with fitness enthusiasts of all levels. We created:</p>
+
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Wireframes">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="UI Design">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="User Testing">
+                </div>
+            </div>
+
+            <h2 class="section-title">Technical Implementation</h2>
+            <p>The app was built using:</p>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li><strong>Frontend:</strong> Flutter for cross-platform compatibility</li>
+                <li><strong>Backend:</strong> Python with TensorFlow for the AI components</li>
+                <li><strong>Database:</strong> Firebase Realtime Database</li>
+                <li><strong>APIs:</strong> Integration with Apple HealthKit and Google Fit</li>
+                <li><strong>Security:</strong> End-to-end encryption for health data</li>
+            </ul>
+
+            <h2 class="section-title">Results & Impact</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">500k+</div>
+                    <p>Downloads in First Year</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">4.9★</div>
+                    <p>Average App Store Rating</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">72%</div>
+                    <p>User Retention Rate</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">3M+</div>
+                    <p>Workouts Logged</p>
+                </div>
+            </div>
+
+            <p>The success of FitTrack Pro led to a Series A funding round of $8M for our client, allowing them to expand their team and add new features to the platform.</p>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="#" class="btn">
+                    <i class="fas fa-external-link-alt"></i> Visit Live Project
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-study-cta">
+        <div class="container">
+            <h2>Ready to Create Something Amazing?</h2>
+            <p>Let's discuss how we can bring your vision to life with exceptional design and development</p>
+            <a href="contact.html" class="btn">Start Your Project</a>
+        </div>
+    </section>
+</body>
+
+</html>

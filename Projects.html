@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects | Digital Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Bebas+Neue&family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --primary: #FF0068;
+            --secondary: #ff006665;
+            --dark: #121212;
+            --light: #f5f6fa;
+            --accent: #fd79a8;
+            --tech-bg: rgba(255, 0, 104, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .portfolio-hero {
+            /* background-image: url(/assets/bg_dark.png); */
+            /* background: linear-gradient(180deg, #ff0066d3, #5d1932d1); */
+            background: linear-gradient(180deg, #ff0066d3, #5d1932d1);
+            /* background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; */
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
+        }
+        
+        .portfolio-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+        
+        .portfolio-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .portflio_heading {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            background: linear-gradient(90deg, #ffffff, #afafaf);
+            /* background: linear-gradient(90deg, #00f0ff, #0dffb2); */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* text-shadow: 0 0 10px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2); */
+            letter-spacing: 3px;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .portflio_heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #ffffff, #e3e3e3);
+            /* background: linear-gradient(90deg, #00f0ff, #0dffb2); */
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+            border-radius: 50px;
+        }
+        
+        .portfolio-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        /* Category Titles */
+        
+        .category-title {
+            text-align: center;
+            margin: 4rem 0 2rem;
+        }
+        
+        .cms {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 62px;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-right: 10px;
+            background: linear-gradient(90deg, #999999 0%, #FFFFFF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+        
+        .wordpress {
+            font-family: 'Dancing Script', cursive;
+            font-size: 60px;
+            font-weight: 400;
+            background: linear-gradient(90deg, #FF0068 53%, #99003E 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+        /* Filter Buttons */
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 3rem 0;
+            padding: 0 2rem;
+        }
+        
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            background: transparent;
+            color: white;
+            border-radius: 50px;
+            border: 1px solid white;
+            /* border: 1px solid var(--primary); */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            background: white;
+            color: black;
+            /* box-shadow: 0 0 15px rgba(255, 0, 104, 0.5); */
+        }
+        /* Portfolio Cards */
+        
+        .portfolio-container {
+            max-width: 100%;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+        
+        .portfolio-slider {
+            display: flex;
+            width: max-content;
+            gap: 35px;
+            animation: scroll 40s linear infinite;
+            padding: 20px 0;
+            margin-bottom: 50px;
+        }
+        
+        .portfolio-slider:hover {
+            animation-play-state: paused;
+        }
+        
+        .portfolio-slider.reverse:hover {
+            animation-play-state: paused;
+        }
+        
+        .portfolio-card {
+            background: transparent;
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            width: 350px;
+            flex-shrink: 0;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 0.5px solid var(--secondary);
+            height: 450px;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .portfolio-card img {
+            width: 100%;
+            height: 200px;
+            margin-top: 10px;
+            /* object-fit: cover; */
+            transition: transform 0.4s ease;
+        }
+        
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: calc(100% - 200px);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .card-tag {
+            background: var(--tech-bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            border: 1px solid var(--secondary);
+        }
+        
+        .card-description {
+            color: #b7b7b7;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tech-item {
+            background: var(--tech-bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--primary);
+            border: 1px solid var(--secondary);
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+        
+        .visit-button {
+            background: linear-gradient(to right, var(--primary), #ff416c);
+            background: linear-gradient(to right, white, #d5d5d5);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .visit-button i {
+            font-size: 0.8rem;
+        }
+        
+        .visit-button:hover {
+            background: linear-gradient(to right, #ff4b2b, var(--primary));
+            box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
+            transform: translateY(-2px);
+        }
+        /* Stats Section */
+        
+        .stats {
+            padding: 5rem 0;
+            background: rgba(10, 10, 10, 0.8);
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(/assets/bg_dark.png) center/cover no-repeat;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 0, 104, 0.1);
+            border-color: var(--secondary);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            color: white;
+            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+        /* CTA Section */
+        
+        .cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(255, 0, 104, 0.9), rgba(153, 0, 62, 0.9));
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            margin-top: 4rem;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        /* Animations */
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        @keyframes scrollReverse {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 1200px) {
+            .portflio_heading {
+                font-size: 3rem;
+            }
+            .cms,
+            .wordpress {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .portfolio-hero {
+                padding: 6rem 0 4rem;
+            }
+            .portflio_heading {
+                font-size: 2.2rem;
+            }
+            .portfolio-subtitle {
+                font-size: 1rem;
+            }
+            .cms,
+            .wordpress {
+                font-size: 2rem;
+                display: block;
+                margin: 0 auto;
+            }
+            .filter-buttons {
+                gap: 0.5rem;
+                margin: 2rem 0;
+            }
+            .filter-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+            .portfolio-card {
+                width: 300px;
+                height: 420px;
+            }
+            .stat-number {
+                font-size: 2rem;
+            }
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .portfolio-hero {
+                padding: 5rem 0 3rem;
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            }
+            .portflio_heading {
+                font-size: 1.8rem;
+            }
+            .filter-buttons {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+            .portfolio-card {
+                width: 280px;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .cta {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="portfolio-hero">
+        <div class="container">
+            <h1 class="portflio_heading">Our Portfolio</h1>
+            <p class="portfolio-subtitle">Explore our collection of successful projects across various platforms and technologies</p>
+        </div>
+    </section>
+
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="cms">CMS Websites</button>
+        <button class="filter-btn" data-filter="custom">Custom Websites</button>
+        <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+        <button class="filter-btn" data-filter="desktop">Desktop Apps</button>
+    </div>
+
+    <!-- CMS Websites Section -->
+    <div class="category-title">
+        <span class="cms">CMS Website</span>
+        <span class="wordpress">Wordpress / Shopify</span>
+    </div>
+
+    <div class="portfolio-container">
+        <div class="portfolio-slider" id="cms-slider">
+            <!-- Project 1 -->
+            <div class="portfolio-card" data-category="cms">
+                <img src="/assets/america home plumbing service/laptop.png" alt="E-commerce Website">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Plumbing Services</h3>
+                        <span class="card-tag">WordPress</span>
+                    </div>
+                    <p class="card-description">A responsive website for plumbing services with online booking system and service areas management.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">Elementor</span>
+                        <span class="tech-item">WooCommerce</span>
+                        <span class="tech-item">PHP</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-card" data-category="cms">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="E-commerce Store">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Fashion Boutique</h3>
+                        <span class="card-tag">Shopify</span>
+                    </div>
+                    <p class="card-description">An elegant e-commerce solution for a luxury fashion brand with custom product configurator.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">Liquid</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">CSS3</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="portfolio-card" data-category="cms">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Business Website">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Corporate Portal</h3>
+                        <span class="card-tag">WordPress</span>
+                    </div>
+                    <p class="card-description">Multi-language corporate website with employee portal and document management system.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">ACF</span>
+                        <span class="tech-item">WPML</span>
+                        <span class="tech-item">React</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="portfolio-card" data-category="cms">
+                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="E-commerce Store">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Electronics Store</h3>
+                        <span class="card-tag">Shopify</span>
+                    </div>
+                    <p class="card-description">High-converting electronics store with product comparison tool and AR preview.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">Shopify API</span>
+                        <span class="tech-item">Three.js</span>
+                        <span class="tech-item">GraphQL</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Websites Section -->
+    <div class="category-title">
+        <span class="cms">Custom Website</span>
+        <span class="wordpress">Laravel / Mern Stack / Dot Net</span>
+    </div>
+
+    <div class="portfolio-container">
+        <div class="portfolio-slider reverse" id="custom-slider">
+            <!-- Project 1 -->
+            <div class="portfolio-card" data-category="custom">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="SAAS Platform">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Marketing SAAS</h3>
+                        <span class="card-tag">Laravel</span>
+                    </div>
+                    <p class="card-description">Comprehensive marketing automation platform with AI-powered content generation.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">Vue.js</span>
+                        <span class="tech-item">MySQL</span>
+                        <span class="tech-item">Redis</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-card" data-category="custom">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Healthcare System">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Hospital Management</h3>
+                        <span class="card-tag">.NET Core</span>
+                    </div>
+                    <p class="card-description">HIPAA-compliant hospital management system with patient records and scheduling.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">C#</span>
+                        <span class="tech-item">SQL Server</span>
+                        <span class="tech-item">Blazor</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="portfolio-card" data-category="custom">
+                <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Real Estate Platform">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Real Estate Portal</h3>
+                        <span class="card-tag">MERN Stack</span>
+                    </div>
+                    <p class="card-description">Interactive real estate platform with 3D property tours and mortgage calculator.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">React</span>
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">MongoDB</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="portfolio-card" data-category="custom">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Financial Dashboard">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Investment Dashboard</h3>
+                        <span class="card-tag">Laravel</span>
+                    </div>
+                    <p class="card-description">Real-time financial dashboard with portfolio tracking and market analytics.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">Livewire</span>
+                        <span class="tech-item">Alpine.js</span>
+                        <span class="tech-item">WebSockets</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Apps Section -->
+    <div class="category-title">
+        <span class="cms">Mobile App</span>
+        <span class="wordpress">iOS / Android / Cross-Platform</span>
+    </div>
+
+    <div class="portfolio-container">
+        <div class="portfolio-slider" id="mobile-slider">
+            <!-- Project 1 -->
+            <div class="portfolio-card" data-category="mobile">
+                <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Fitness App">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">FitTrack Pro</h3>
+                        <span class="card-tag">Flutter</span>
+                    </div>
+                    <p class="card-description">AI-powered fitness tracking app with personalized workout plans and nutrition guides.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">Dart</span>
+                        <span class="tech-item">Firebase</span>
+                        <span class="tech-item">ML Kit</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-card" data-category="mobile">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="E-commerce App">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">ShopEase Mobile</h3>
+                        <span class="card-tag">React Native</span>
+                    </div>
+                    <p class="card-description">AR-powered shopping experience with personalized recommendations.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">Redux</span>
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">ARKit</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="portfolio-card" data-category="mobile">
+                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Social App">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Social Network</h3>
+                        <span class="card-tag">Swift</span>
+                    </div>
+                    <p class="card-description">Location-based social networking app with real-time messaging and events.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">UIKit</span>
+                        <span class="tech-item">SwiftUI</span>
+                        <span class="tech-item">WebRTC</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="portfolio-card" data-category="mobile">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Health App">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Health Monitor</h3>
+                        <span class="card-tag">Kotlin</span>
+                    </div>
+                    <p class="card-description">Wearable health monitoring app with ECG analysis and doctor connectivity.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">Jetpack Compose</span>
+                        <span class="tech-item">Room DB</span>
+                        <span class="tech-item">BLE</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Apps Section -->
+    <div class="category-title">
+        <span class="cms">Desktop App</span>
+        <span class="wordpress">Windows / Mac / Linux</span>
+    </div>
+
+    <div class="portfolio-container">
+        <div class="portfolio-slider reverse" id="desktop-slider">
+            <!-- Project 1 -->
+            <div class="portfolio-card" data-category="desktop">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Video Editor">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Video Editor Pro</h3>
+                        <span class="card-tag">Electron</span>
+                    </div>
+                    <p class="card-description">Professional video editing software with AI-powered tools and effects.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">React</span>
+                        <span class="tech-item">FFmpeg</span>
+                        <span class="tech-item">WebGL</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-card" data-category="desktop">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Accounting Software">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Financial Suite</h3>
+                        <span class="card-tag">.NET WPF</span>
+                    </div>
+                    <p class="card-description">Comprehensive accounting solution with tax calculation and reporting.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">C#</span>
+                        <span class="tech-item">Entity Framework</span>
+                        <span class="tech-item">MVVM</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="portfolio-card" data-category="desktop">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Music Production">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">Music Studio</h3>
+                        <span class="card-tag">Qt</span>
+                    </div>
+                    <p class="card-description">Digital audio workstation with virtual instruments and effects.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">C++</span>
+                        <span class="tech-item">JUCE</span>
+                        <span class="tech-item">VST</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="portfolio-card" data-category="desktop">
+                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="CAD Software">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">3D Design Suite</h3>
+                        <span class="card-tag">Cocoa</span>
+                    </div>
+                    <p class="card-description">Professional CAD software for architects and engineers.</p>
+                    <div class="tech-list">
+                        <span class="tech-item">Swift</span>
+                        <span class="tech-item">Metal</span>
+                        <span class="tech-item">Core Data</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">200+</div>
+                <p class="stat-label">Projects Completed</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <p class="stat-label">Client Satisfaction</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <p class="stat-label">Technologies Used</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10M+</div>
+                <p class="stat-label">Users Worldwide</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's create something amazing together. Our team is ready to bring your vision to life.</p>
+            <a href="#" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.portfolio-card');
+            const sliders = document.querySelectorAll('.portfolio-slider');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Get filter value
+                    const filter = btn.dataset.filter;
+
+                    // Show/hide projects and sliders
+                    if (filter === 'all') {
+                        projectCards.forEach(card => card.style.display = 'block');
+                        sliders.forEach(slider => slider.style.display = 'flex');
+                        document.querySelectorAll('.category-title').forEach(title => title.style.display = 'block');
+                    } else {
+                        // Hide all first
+                        projectCards.forEach(card => card.style.display = 'none');
+                        sliders.forEach(slider => slider.style.display = 'none');
+                        document.querySelectorAll('.category-title').forEach(title => title.style.display = 'none');
+
+                        // Show matching projects
+                        const matchingCards = document.querySelectorAll(`.portfolio-card[data-category="${filter}"]`);
+                        matchingCards.forEach(card => card.style.display = 'block');
+
+                        // Show the slider containing the first matching card (if any)
+                        if (matchingCards.length > 0) {
+                            const parentSlider = matchingCards[0].closest('.portfolio-slider');
+                            if (parentSlider) {
+                                parentSlider.style.display = 'flex';
+                                parentSlider.previousElementSibling.style.display = 'block'; // Show category title
+                            }
+                        }
+                    }
+                });
+            });
+
+            // Pause animation on hover for all sliders
+            sliders.forEach(slider => {
+                slider.addEventListener('mouseenter', () => {
+                    slider.style.animationPlayState = 'paused';
+                });
+                slider.addEventListener('mouseleave', () => {
+                    slider.style.animationPlayState = 'running';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

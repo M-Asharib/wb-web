@@ -1,0 +1,473 @@
+<section class="blog-section" id="blog">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+        .blog-section {
+            background: #121212;
+            color: #fff;
+            padding: 80px 0;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            min-height: 600px;
+        }
+        
+        .blog-header {
+            width: 30%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .blog-header h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #FF0066, #ff4d8d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        
+        .blog-header p {
+            font-size: 1.2rem;
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(45deg, #FF0066, #ff4d8d);
+            color: white;
+            padding: 16px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(255, 0, 102, 0.3);
+            transition: all 0.3s ease;
+            gap: 10px;
+            width: fit-content;
+        }
+        
+        .view-all-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 0, 102, 0.4);
+            gap: 15px;
+        }
+        
+        .view-all-btn i {
+            transition: transform 0.3s ease;
+        }
+        
+        .view-all-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        .blog-scroll-container {
+            width: 70%;
+            padding: 40px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            /* Firefox */
+        }
+        
+        .blog-scroll-container::-webkit-scrollbar {
+            display: none;
+            /* Chrome/Safari */
+        }
+        
+        .blog-grid {
+            display: flex;
+            gap: 30px;
+            width: max-content;
+            padding-bottom: 20px;
+        }
+        
+        .blog-card {
+            background: #1e1e1e;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 350px;
+            flex-shrink: 0;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 0, 102, 0.2);
+        }
+        
+        .blog-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-category {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #FF0066;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-date {
+            color: #FF0066;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .blog-date i {
+            font-size: 0.9rem;
+        }
+        
+        .blog-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .blog-excerpt {
+            color: #bbb;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: #FF0066;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            gap: 8px;
+        }
+        
+        .read-more:hover {
+            color: #ff4d8d;
+            gap: 12px;
+        }
+        
+        .read-more i {
+            transition: transform 0.3s ease;
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        /* Floating elements */
+        /* Navigation arrows */
+        
+        .scroll-nav {
+            position: absolute;
+            right: 30px;
+            bottom: 50px;
+            display: flex;
+            gap: 15px;
+            z-index: 3;
+        }
+        
+        .scroll-arrow {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .scroll-arrow:hover {
+            background: #FF0066;
+            transform: scale(1.1);
+        }
+        /* Responsive */
+        
+        @media (max-width: 1200px) {
+            .blog-header h2 {
+                font-size: 2.5rem;
+            }
+            .blog-card {
+                width: 320px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .blog-container {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .blog-header,
+            .blog-scroll-container {
+                width: 100%;
+                padding: 30px;
+            }
+            .blog-header {
+                text-align: center;
+                align-items: center;
+            }
+            .blog-header p {
+                max-width: 600px;
+            }
+            .scroll-nav {
+                right: 50%;
+                transform: translateX(50%);
+                bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-section {
+                padding: 60px 0;
+            }
+            .blog-header h2 {
+                font-size: 2rem;
+            }
+            .blog-image {
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .blog-card {
+                width: 280px;
+            }
+            .blog-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+
+    <div class="blog-container">
+        <!-- Left Side (30%) -->
+        <div class="blog-header">
+            <h2>Latest Insights</h2>
+            <p>Discover our thoughts on web development, design trends, and digital innovation</p>
+            <a href="#" class="view-all-btn">
+                View All Articles <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Right Side (70%) - Scrollable -->
+        <div class="blog-scroll-container">
+            <div class="blog-grid">
+                <!-- Blog Card 1 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Web Development">
+                        <span class="blog-category">Development</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> June 15, 2025
+                        </div>
+                        <h3 class="blog-title">The Future of React in 2025</h3>
+                        <p class="blog-excerpt">Exploring the latest trends and updates in React ecosystem and how they're shaping modern web development.</p>
+                        <a href="#" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 2 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="UI Design">
+                        <span class="blog-category">Design</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> May 28, 2025
+                        </div>
+                        <h3 class="blog-title">Dark Mode UI Best Practices</h3>
+                        <p class="blog-excerpt">How to implement dark mode in your designs while maintaining accessibility and visual appeal.</p>
+                        <a href="#" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 3 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mobile Apps">
+                        <span class="blog-category">Mobile</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> April 10, 2025
+                        </div>
+                        <h3 class="blog-title">Cross-Platform Development in 2025</h3>
+                        <p class="blog-excerpt">Comparing Flutter, React Native, and other frameworks for building performant cross-platform apps.</p>
+                        <a href="#" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 4 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="AI Technology">
+                        <span class="blog-category">Technology</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> March 22, 2025
+                        </div>
+                        <h3 class="blog-title">AI in Web Development: 2025 Trends</h3>
+                        <p class="blog-excerpt">How artificial intelligence is revolutionizing the way we build and interact with websites.</p>
+                        <a href="#" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 5 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="SEO">
+                        <span class="blog-category">Marketing</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> February 15, 2025
+                        </div>
+                        <h3 class="blog-title">SEO Strategies That Work in 2025</h3>
+                        <p class="blog-excerpt">The most effective search engine optimization techniques for the modern web landscape.</p>
+                        <a href="#" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Scroll Navigation -->
+        <div class="scroll-nav">
+            <div class="scroll-arrow left-arrow">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="scroll-arrow right-arrow">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollContainer = document.querySelector('.blog-scroll-container');
+            const blogGrid = document.querySelector('.blog-grid');
+            const leftArrow = document.querySelector('.left-arrow');
+            const rightArrow = document.querySelector('.right-arrow');
+
+            // Scroll functionality
+            rightArrow.addEventListener('click', () => {
+                scrollContainer.scrollBy({
+                    left: 400,
+                    behavior: 'smooth'
+                });
+            });
+
+            leftArrow.addEventListener('click', () => {
+                scrollContainer.scrollBy({
+                    left: -400,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Hide/show arrows based on scroll position
+            scrollContainer.addEventListener('scroll', function() {
+                leftArrow.style.display = this.scrollLeft > 0 ? 'flex' : 'none';
+
+                const maxScroll = blogGrid.scrollWidth - this.clientWidth;
+                rightArrow.style.display = this.scrollLeft < maxScroll - 10 ? 'flex' : 'none';
+            });
+
+            // Initialize arrow visibility
+            leftArrow.style.display = 'none';
+            if (blogGrid.scrollWidth <= scrollContainer.clientWidth) {
+                rightArrow.style.display = 'none';
+            }
+
+            // Touch/swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            scrollContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {
+                passive: true
+            });
+
+            scrollContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {
+                passive: true
+            });
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) {
+                    // Swipe left
+                    scrollContainer.scrollBy({
+                        left: 300,
+                        behavior: 'smooth'
+                    });
+                }
+
+                if (touchEndX > touchStartX + 50) {
+                    // Swipe right
+                    scrollContainer.scrollBy({
+                        left: -300,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    </script>
+</section>

@@ -1,0 +1,2871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Showcase</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        body {
+            font-family: "Poppins", sans-serif;
+            font-weight: 100;
+            font-style: normal;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Header - Start -->
+
+    <header class="header_main">
+        <style>
+            body {}
+            /* Base Header Styles */
+            
+            .header_main {
+                position: fixed;
+                width: 100%;
+                z-index: 1000;
+                padding: 15px 0;
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+            }
+            
+            .header_container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            /* Logo */
+            
+            .logo img {
+                height: 40px;
+                transition: transform 0.3s ease;
+            }
+            
+            .logo:hover img {
+                transform: scale(1.05);
+            }
+            /* Navigation */
+            
+            .nav_links {
+                display: flex;
+                gap: 30px;
+                position: relative;
+            }
+            
+            .nav_links a {
+                color: #333;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 16px;
+                position: relative;
+                padding: 5px 0;
+                margin-top: -5px;
+                transition: color 0.3s ease;
+            }
+            
+            .nav_links a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: linear-gradient(90deg, #FF0066, #FF00FF);
+                transition: width 0.3s ease;
+            }
+            
+            .nav_links a:hover {
+                color: #FF0066;
+            }
+            
+            .nav_links a:hover::after {
+                width: 100%;
+            }
+            /* Dropdown */
+            
+            .dropdown {
+                position: relative;
+            }
+            
+            .dropdown_content {
+                position: absolute;
+                top: 35px;
+                left: 0;
+                background: #fff;
+                min-width: 180px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+                border-radius: 8px;
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px);
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            .dropdown:hover .dropdown_content {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+            
+            .dropdown_content a {
+                display: block;
+                padding: 12px 20px;
+                color: #333;
+                text-decoration: none;
+                background: white;
+                font-weight: 500;
+                transition: background 0.3s ease, color 0.3s ease;
+            }
+            
+            .dropdown_content a:hover {
+                background: linear-gradient(90deg, #FF0066, #FF00FF);
+                color: #fff;
+            }
+            /* CTA Button */
+            
+            .cta_button {
+                background: linear-gradient(90deg, #000000, #000000);
+                color: white;
+                padding: 10px 25px;
+                border-radius: 4px;
+                font-weight: 500;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+            
+            .cta_button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 1px rgba(0, 0, 0, 0.3);
+            }
+            /* Mobile Menu */
+            
+            .mobile_menu_btn {
+                display: none;
+                background: transparent;
+                color: #333;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                padding: 5px;
+            }
+            /* Responsive */
+            
+            @media (max-width: 768px) {
+                .nav_links {
+                    display: none;
+                }
+                .cta_button {
+                    display: none;
+                }
+                .mobile_menu_btn {
+                    display: block;
+                }
+                .header_container {
+                    padding: 0 15px;
+                }
+            }
+        </style>
+        <div class="header_container">
+            <a href="/index.html" class="logo">
+                <img src="/assets/logo.png" alt="Company Logo">
+            </a>
+
+            <nav class="nav_links">
+                <div class="dropdown">
+                    <a href="#services" class="dropbtn">Services</a>
+                    <div class="dropdown_content">
+                        <a href="/Web Design.html">Web Design</a>
+                        <a href="/App Development.html">App Development</a>
+                        <a href="/UX Development.html">UI/UX</a>
+                        <a href="/Branding.html">Branding</a>
+                    </div>
+                </div>
+                <a href="/Projects.html">Work</a>
+                <a href="/ab">About</a>
+                <a href="/Our Process.html">Process</a>
+            </nav>
+
+            <a href="/Get Quote.html" class="cta_button">Get Quote</a>
+
+            <button class="mobile_menu_btn">
+                    ☰
+                </button>
+        </div>
+    </header>
+    <!-- Header - End -->
+    <style>
+        .bg_one {
+            min-height: 200vh;
+            background-image: url(/assets/bg_light.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 70px 0px 0 0;
+        }
+    </style>
+    <!-- Hero - Start -->
+    <section class="bg_one">
+        <section class="hero_main">
+            <style>
+                * {
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                body {
+                    font-family: 'Segoe UI', sans-serif;
+                    background: #f6f6f6;
+                }
+                
+                .hero_main {
+                    min-height: 100vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                    position: relative;
+                    padding: 60px 20px;
+                }
+                
+                .hero_container {
+                    max-width: 1200px;
+                    width: 100%;
+                    position: relative;
+                }
+                
+                .hero_slide {
+                    display: none;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 40px;
+                    flex-wrap: wrap;
+                    opacity: 0;
+                    transform: scale(0.98) translateY(20px);
+                    transition: all 1s ease;
+                    position: absolute;
+                    width: 100%;
+                }
+                
+                .hero_slide.active {
+                    display: flex;
+                    opacity: 1;
+                    transform: scale(1) translateY(0);
+                    position: relative;
+                    z-index: 1;
+                }
+                
+                .hero_content {
+                    flex: 1;
+                    animation: fadeInUp 1s ease forwards;
+                }
+                
+                .hero_title {
+                    font-size: 48px;
+                    font-weight: 700;
+                    margin-bottom: 20px;
+                    line-height: 1.2;
+                    opacity: 0;
+                    animation: slideUpFade 1s ease forwards;
+                    color: black;
+                }
+                
+                .hero_title span {
+                    color: #ff0066;
+                }
+                
+                .hero_subtitle {
+                    font-size: 18px;
+                    margin-bottom: 30px;
+                    color: #000000a6;
+                    max-width: 500px;
+                    opacity: 0;
+                    animation: slideUpFade 1s ease 0.2s forwards;
+                }
+                
+                .hero_buttons {
+                    display: flex;
+                    gap: 20px;
+                    opacity: 0;
+                    animation: fadeInUp 1s ease 0.4s forwards;
+                }
+                
+                .hero_btn {
+                    padding: 12px 30px;
+                    border-radius: 50px;
+                    text-decoration: none;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                }
+                
+                .btn_primary {
+                    background: #000000;
+                    color: white;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                
+                .btn_primary:hover {
+                    transform: translateY(-3px) scale(1.05);
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                }
+                
+                .hero_image {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    animation: fadeInScale 1s ease 0.6s forwards;
+                    opacity: 0;
+                }
+                
+                .hero_image img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 20px;
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                    transition: transform 0.5s ease;
+                }
+                
+                .hero_image img:hover {
+                    transform: scale(1.03);
+                }
+                /* Navigation Dots */
+                
+                .hero_dots {
+                    position: absolute;
+                    bottom: -100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    display: flex;
+                    gap: 10px;
+                    z-index: 10;
+                }
+                
+                .hero_dot {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background: rgba(0, 0, 0, 0.3);
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+                
+                .hero_dot.active {
+                    background: #000;
+                    transform: scale(1.2);
+                }
+                /* Navigation Arrows */
+                
+                .hero_arrow {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 50px;
+                    height: 50px;
+                    background: rgba(0, 0, 0, 0.212);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    z-index: 10;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                }
+                
+                .hero_arrow:hover {
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                }
+                
+                .hero_arrow.prev {
+                    left: -120px;
+                    /* left: 20px; */
+                }
+                
+                .hero_arrow.next {
+                    right: -120px;
+                    /* right: 20px; */
+                }
+                
+                .hero_arrow i {
+                    font-size: 20px;
+                }
+                
+                @media (max-width: 992px) {
+                    .hero_slide {
+                        flex-direction: column;
+                        text-align: center;
+                    }
+                    .hero_buttons {
+                        justify-content: center;
+                    }
+                    .hero_arrow {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+                
+                @media (max-width: 576px) {
+                    .hero_title {
+                        font-size: 36px;
+                    }
+                    .hero_subtitle {
+                        font-size: 16px;
+                    }
+                    .hero_buttons {
+                        flex-direction: column;
+                        gap: 15px;
+                    }
+                    .hero_btn {
+                        width: 100%;
+                        text-align: center;
+                    }
+                    .hero_arrow {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+                
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                
+                @keyframes slideUpFade {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                
+                @keyframes fadeInScale {
+                    0% {
+                        opacity: 0;
+                        transform: scale(0.95);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }
+            </style>
+            <div class="hero_container">
+                <!-- Slides -->
+                <div class="hero_slide active">
+                    <div class="hero_content">
+                        <h1 class="hero_title">We Create <span>Digital
+                                    Experiences</span> That Matter</h1>
+                        <p class="hero_subtitle">Web development, mobile apps, and digital marketing solutions tailored to your needs.</p>
+                        <div class="hero_buttons">
+                            <a href="#portfolio" class="hero_btn btn_primary">Explore
+                                    Work</a>
+                        </div>
+                    </div>
+                    <div class="hero_image">
+                        <img src="https://plus.unsplash.com/premium_photo-1661397056780-b5330b6bb015?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                    </div>
+                </div>
+
+                <div class="hero_slide">
+                    <div class="hero_content">
+                        <h1 class="hero_title">Build <span>Powerful
+                                    Brands</span> Online</h1>
+                        <p class="hero_subtitle">From strategy to execution — we help you make a lasting digital impression.
+                        </p>
+                        <div class="hero_buttons">
+                            <a href="#portfolio" class="hero_btn btn_primary">See
+                                    Portfolio</a>
+                        </div>
+                    </div>
+                    <div class="hero_image">
+                        <img src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?q=80&w=1986&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                    </div>
+                </div>
+
+                <div class="hero_slide">
+                    <div class="hero_content">
+                        <h1 class="hero_title">Your <span>Success</span> Starts Here</h1>
+                        <p class="hero_subtitle">We deliver scalable digital products that drive real business results.</p>
+                        <div class="hero_buttons">
+                            <a href="#portfolio" class="hero_btn btn_primary">Start
+                                    Project</a>
+                        </div>
+                    </div>
+                    <div class="hero_image">
+                        <img src="https://images.unsplash.com/photo-1601972602237-8c79241e468b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                    </div>
+                </div>
+
+                <div class="hero_slide">
+                    <div class="hero_content">
+                        <h1 class="hero_title">Crafting
+                            <span>High-Performance Websites</span> That Convert
+                        </h1>
+                        <p class="hero_subtitle">From sleek portfolios to robust e-commerce platforms, we build websites that blend speed, design, and functionality to elevate your online presence.</p>
+                        <div class="hero_buttons">
+                            <a href="#portfolio" class="hero_btn btn_primary">Explore
+                                    Work</a>
+                        </div>
+                    </div>
+                    <div class="hero_image">
+                        <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=2010&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                    </div>
+                </div>
+
+                <div class="hero_slide">
+                    <div class="hero_content">
+                        <h1 class="hero_title">Designing <span>Intuitive
+                                    Interfaces</span> That Delight Users</h1>
+                        <p class="hero_subtitle">Our UI/UX designs are user-centered and conversion-driven—crafted to deliver seamless experiences that keep users engaged and coming back. </p>
+                        <div class="hero_buttons">
+                            <a href="#portfolio" class="hero_btn btn_primary">See
+                                    Portfolio</a>
+                        </div>
+                    </div>
+                    <div class="hero_image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                    </div>
+                </div>
+
+                <div class="hero_slide">
+                    <div class="hero_content">
+                        <h1 class="hero_title">Custom <span>Software
+                                    Solutions</span> That Drive Innovation</h1>
+                        <p class="hero_subtitle">We build scalable, secure, and efficient software tailored to solve your unique business challenges—automating processes and unlocking growth. Engaging </p>
+                        <div class="hero_buttons">
+                            <a href="#portfolio" class="hero_btn btn_primary">Start
+                                    Project</a>
+                        </div>
+                    </div>
+                    <div class="hero_image">
+                        <img src="https://images.unsplash.com/photo-1601972602237-8c79241e468b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                    </div>
+                </div>
+
+                <div class="hero_slide">
+                    <div class="hero_content">
+                        <h1 class="hero_title">Engaging <span>Mobile
+                                    Apps</span> That Put You in Every Pocket
+                        </h1>
+                        <p class="hero_subtitle">We develop fast, functional, and feature-rich mobile applications for iOS and Android to connect your business with users on the go. </p>
+                        <div class="hero_buttons">
+                            <a href="#portfolio" class="hero_btn btn_primary">Start
+                                    Project</a>
+                        </div>
+                    </div>
+                    <div class="hero_image">
+                        <img src="https://images.unsplash.com/photo-1601972602237-8c79241e468b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <div class="hero_arrow prev">
+                    <i>❮</i>
+                </div>
+                <div class="hero_arrow next">
+                    <i>❯</i>
+                </div>
+
+                <!-- Navigation Dots -->
+                <div class="hero_dots"></div>
+            </div>
+
+            <script>
+                const slides = document.querySelectorAll('.hero_slide');
+                const dotsContainer = document.querySelector('.hero_dots');
+                const prevBtn = document.querySelector('.hero_arrow.prev');
+                const nextBtn = document.querySelector('.hero_arrow.next');
+                let currentSlide = 0;
+                let slideInterval;
+                const slideIntervalTime = 6000; // 6 seconds per slide
+
+                // Create dots
+                function createDots() {
+                    slides.forEach((_, i) => {
+                        dotsContainer.insertAdjacentHTML('beforeend',
+                            `<div class="hero_dot" data-slide="${i}"></div>`
+                        );
+                    });
+                }
+
+                // Activate dot for current slide
+                function activateDot(slide) {
+                    document.querySelectorAll('.hero_dot').forEach(dot => {
+                        dot.classList.remove('active');
+                    });
+                    document.querySelector(`.hero_dot[data-slide="${slide}"]`).classList.add('active');
+                }
+
+                // Show slide
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.classList.remove('active');
+                        if (i === index) {
+                            slide.classList.add('active');
+                        }
+                    });
+                    activateDot(index);
+                }
+
+                // Next slide
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                    resetInterval();
+                }
+
+                // Previous slide
+                function prevSlide() {
+                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                    showSlide(currentSlide);
+                    resetInterval();
+                }
+
+                // Reset autoplay interval
+                function resetInterval() {
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, slideIntervalTime);
+                }
+
+                // Initialize
+                function init() {
+                    createDots();
+                    activateDot(0);
+                    showSlide(0);
+                    slideInterval = setInterval(nextSlide, slideIntervalTime);
+
+                    // Event listeners
+                    nextBtn.addEventListener('click', nextSlide);
+                    prevBtn.addEventListener('click', prevSlide);
+
+                    dotsContainer.addEventListener('click', function(e) {
+                        if (e.target.classList.contains('hero_dot')) {
+                            currentSlide = parseInt(e.target.dataset.slide);
+                            showSlide(currentSlide);
+                            resetInterval();
+                        }
+                    });
+                }
+
+                init();
+            </script>
+        </section>
+        <!-- Hero - End -->
+        <!-- services - Start -->
+        <style>
+            .services_main {
+                /* background-image: url(/assets/bg_light.png); */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                padding: 70px 0px;
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+        <style>
+            /* Reset & Base Styles */
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            /* body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(270deg, #f5f5f5, #eaeaea);
+            background-size: 400% 400%;
+            animation: bgFlow 20s ease infinite;
+            padding: 20px;
+        } */
+            
+            @keyframes bgFlow {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+            
+            .cards-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+                max-width: 1400px;
+            }
+            
+            .service-card {
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                position: relative;
+                transition: all 0.5s ease;
+                flex: 1 1 300px;
+                max-width: 320px;
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            
+            .service-card-bg {
+                padding: 30px;
+                color: white;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                backdrop-filter: blur(10px);
+                background-color: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            
+            .card-1 .service-card-bg {
+                background: linear-gradient(135deg, rgba(255, 0, 102, 0.9), rgba(153, 0, 61, 0.9));
+            }
+            
+            .card-2 .service-card-bg {
+                background: linear-gradient(135deg, rgba(0, 102, 255, 0.9), rgba(0, 61, 153, 0.9));
+            }
+            
+            .card-3 .service-card-bg {
+                background: linear-gradient(135deg, rgba(0, 204, 102, 0.9), rgba(0, 153, 77, 0.9));
+            }
+            
+            .card-4 .service-card-bg {
+                background: linear-gradient(135deg, rgba(255, 153, 0, 0.9), rgba(204, 102, 0, 0.9));
+            }
+            
+            .service-card:hover {
+                transform: translateY(-10px) scale(1.02);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            }
+            
+            .service-card-bg::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+                transform: rotate(30deg);
+                transition: all 0.5s ease;
+            }
+            
+            .service-card:hover .service-card-bg::before {
+                transform: rotate(45deg) translate(20px, -20px);
+            }
+            
+            .service-title {
+                font-size: 28px;
+                font-weight: 700;
+                margin-bottom: 15px;
+                line-height: 1.3;
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+            
+            .service-description {
+                font-size: 14px;
+                margin-bottom: 25px;
+                opacity: 0.9;
+            }
+            
+            .tech-logos {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin: 0 auto 20px;
+                flex-wrap: wrap;
+            }
+            
+            .tech-image {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+                filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+                transition: all 0.3s ease;
+            }
+            
+            .tech-image:hover {
+                transform: scale(1.2) rotate(10deg);
+            }
+            
+            .service-image {
+                width: 180px;
+                height: 120px;
+                margin: 0 auto;
+                display: block;
+                object-fit: cover;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+            
+            .button-container {
+                display: flex;
+                gap: 15px;
+                margin-top: 25px;
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 14px;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .btn::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                background: white;
+                bottom: -6px;
+                left: 0;
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: transform 0.3s ease;
+            }
+            
+            .btn:hover::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+            
+            .btn-more {
+                border: 2px solid white;
+                color: white;
+                background: transparent;
+            }
+            
+            .btn-work {
+                background: white;
+            }
+            
+            .card-1 .btn-work {
+                color: #FF0066;
+            }
+            
+            .card-2 .btn-work {
+                color: #0066FF;
+            }
+            
+            .card-3 .btn-work {
+                color: #00CC66;
+            }
+            
+            .card-4 .btn-work {
+                color: #FF9900;
+            }
+            
+            .card-1 .btn-more:hover {
+                color: #FF0066;
+            }
+            
+            .card-2 .btn-more:hover {
+                color: #0066FF;
+            }
+            
+            .card-3 .btn-more:hover {
+                color: #00CC66;
+            }
+            
+            .card-4 .btn-more:hover {
+                color: #FF9900;
+            }
+            
+            .circle {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.1);
+            }
+            
+            .circle-1 {
+                width: 100px;
+                height: 100px;
+                top: -30px;
+                right: -30px;
+            }
+            
+            .circle-2 {
+                width: 60px;
+                height: 60px;
+                bottom: -20px;
+                left: -20px;
+            }
+            
+            @media (max-width: 1300px) {
+                .cards-container {
+                    max-width: 1000px;
+                }
+            }
+            
+            @media (max-width: 768px) {
+                .service-card {
+                    flex: 1 1 250px;
+                }
+                .service-title {
+                    font-size: 24px;
+                }
+                .tech-logos {
+                    gap: 10px;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .cards-container {
+                    gap: 15px;
+                }
+                .service-card {
+                    flex: 1 1 100%;
+                }
+                .tech-logos {
+                    gap: 8px;
+                }
+            }
+            /* Fade-in Animation */
+            
+            @keyframes fadeInCard {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        </style>
+        <section class="services_main">
+            <div class="cards-container">
+                <!-- Card 1 -->
+                <div class="service-card card-2">
+                    <div class="service-card-bg">
+                        <div class="circle circle-1"></div>
+                        <div class="circle circle-2"></div>
+                        <h2 class="service-title">E-COMMERCE
+                            <br>SOLUTIONS</h2>
+                        <p class="service-description">Complete online store setup with payment integration</p>
+                        <div class="tech-logos">
+                            <img class="tech-image" src="/assets/laravellogo.png" alt="Laravel" title="Laravel">
+                            <img class="tech-image" src="/assets/mysql.png" alt="MySQL" title="MySQL">
+                        </div>
+                        <img class="service-image" src="/assets/service_img_2.png" alt="Ecommerce">
+                        <div class="button-container">
+                            <a href="#" class="btn btn-more">More Info</a>
+                            <a href="#" class="btn btn-work">Our Work</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card card-1">
+                    <div class="service-card-bg">
+                        <div class="circle circle-1"></div>
+                        <div class="circle circle-2"></div>
+                        <h2 class="service-title">CMS WEBSITE
+                            <br>DEVELOPMENT</h2>
+                        <p class="service-description">Best for New Business OR Start Ups cost effective</p>
+                        <div class="tech-logos">
+                            <img class="tech-image" src="/assets/wordpress.png" alt="WordPress" title="WordPress">
+                        </div>
+                        <img class="service-image" src="/assets/service_img_1.png" alt="CMS Website">
+                        <div class="button-container">
+                            <a href="#" class="btn btn-more">More Info</a>
+                            <a href="#" class="btn btn-work">Our Work</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card card-3">
+                    <div class="service-card-bg">
+                        <div class="circle circle-1"></div>
+                        <div class="circle circle-2"></div>
+                        <h2 class="service-title">MOBILE APP
+                            <br>DEVELOPMENT</h2>
+                        <p class="service-description">Custom mobile applications for iOS and Android</p>
+                        <div class="tech-logos">
+                            <img class="tech-image" src="/assets/flutter.png" alt="Flutter" title="Flutter">
+                            <img class="tech-image" src="/assets/firebase.png" alt="Firebase" title="Firebase">
+                        </div>
+                        <img class="service-image" src="/assets/service_img_3.png" alt="Mobile App">
+                        <div class="button-container">
+                            <a href="#" class="btn btn-more">More Info</a>
+                            <a href="#" class="btn btn-work">Our Work</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card card-4">
+                    <div class="service-card-bg">
+                        <div class="circle circle-1"></div>
+                        <div class="circle circle-2"></div>
+                        <h2 class="service-title">DIGITAL <br>MARKETING</h2>
+                        <p class="service-description">Boost your online presence with our marketing strategies</p>
+                        <div class="tech-logos">
+                            <img class="tech-image" src="/assets/google-ads.png" alt="Google Ads" title="Google Ads">
+                            <img class="tech-image" src="/assets/analytics.png" alt="Analytics" title="Analytics">
+                        </div>
+                        <img class="service-image" src="/assets/service_img_4.png" alt="Digital Marketing">
+                        <div class="button-container">
+                            <a href="#" class="btn btn-more">More Info</a>
+                            <a href="#" class="btn btn-work">Our Work</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                // Animate cards on load
+                document.querySelectorAll('.service-card').forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.animation = 'fadeInCard 0.7s ease forwards';
+                    }, index * 150);
+                });
+            </script>
+        </section>
+    </section>
+    <!-- services - End -->
+
+    <!-- portfolio - Start -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            /* padding: 50px 0px; */
+            overflow-x: hidden;
+            color: #ffffff;
+            /* background-image: url(/assets/bg_dark.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; */
+        }
+        
+        h6 {
+            font-size: 14px;
+            font-weight: 700;
+        }
+        
+        p {
+            color: #b7b7b7;
+            font-size: 14px;
+        }
+        
+        .portfolio-container {
+            max-width: 100%;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-slider {
+            display: flex;
+            width: max-content;
+            gap: 35px;
+            animation: scroll 40s linear infinite;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        .portfolio-slider:hover {
+            animation-play-state: paused;
+        }
+        
+        .portfolio-slider.reverse:hover {
+            animation-play-state: paused;
+        }
+        
+        .portfolio-card {
+            background: transparent;
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            width: 350px;
+            flex-shrink: 0;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 0.5px solid #ff006665;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .portfolio-card img {
+            width: 100%;
+            height: 200px;
+            /* height: 200px; */
+            /* object-fit: cover; */
+            transition: transform 0.4s ease;
+            padding: 10px;
+        }
+        
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 10px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .card-details {
+            flex: 1 1 auto;
+        }
+        
+        .visit-button {
+            background: linear-gradient(#FF0068);
+            padding: 10px 18px;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .visit-button:hover {
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
+            box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        @keyframes scrollReverse {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        
+        .portfolio-slider.reverse {
+            animation: scrollReverse 40s linear infinite;
+        }
+        
+        .portfolio-container::before,
+        .portfolio-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .portfolio-container::before {
+            left: 0;
+        }
+        
+        .portfolio-container::after {
+            right: 0;
+        }
+        /* Modal Styles */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background: #1a1a1a;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 900px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid #ff006665;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            color: #b7b7b7;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 100;
+        }
+        
+        .close-modal:hover {
+            color: #ff0068;
+        }
+        
+        .modal-header {
+            margin-bottom: 25px;
+        }
+        
+        .modal-header h2 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+        
+        .modal-header p {
+            font-size: 16px;
+            color: #b7b7b7;
+        }
+        
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .modal-image {
+            width: 100%;
+            /* height: 200px; */
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .modal-details {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .modal-description {
+            flex: 2;
+        }
+        
+        .modal-description h3 {
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        .modal-description p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .modal-tech {
+            flex: 1;
+        }
+        
+        .modal-tech h3 {
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tech-item {
+            background: rgba(255, 0, 104, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #ff0068;
+            border: 1px solid #ff006665;
+        }
+        
+        .modal-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .modal-link {
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .live-link {
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
+            color: white;
+        }
+        
+        .live-link:hover {
+            box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .github-link {
+            background: transparent;
+            border: 1px solid #ff0068;
+            color: #ff0068;
+        }
+        
+        .github-link:hover {
+            background: rgba(255, 0, 104, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .portfolio-card {
+                width: 260px;
+            }
+            .portfolio-slider {
+                gap: 20px;
+            }
+            .portfolio-container::before,
+            .portfolio-container::after {
+                width: 50px;
+            }
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+                margin: 10% auto;
+            }
+            .modal-details {
+                flex-direction: column;
+            }
+            .modal-image {
+                height: 250px;
+            }
+        }
+    </style>
+    <style>
+        .portfolio_main {
+            min-height: 100vh;
+            background-image: url(/assets/bg_dark.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 70px 0px 0 0;
+            position: relative;
+            overflow: hidden;
+            opacity: 0.9
+        }
+    </style>
+    <section id="portfolio" class="portfolio_main">
+        <div class="portfolio-container">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+                .portflio_heading {
+                    font-family: 'Orbitron', sans-serif;
+                    font-size: 4rem;
+                    background: linear-gradient(90deg, #00f0ff, #0dffb2);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2);
+                    letter-spacing: 3px;
+                    position: relative;
+                    padding-bottom: 10px;
+                    text-align: center;
+                }
+                
+                .portflio_heading::after {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    transform: translateX(-50%);
+                    width: 60%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #00f0ff, #0dffb2);
+                    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+                    border-radius: 50px;
+                }
+            </style>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@700&display=swap');
+                .cms {
+                    font-family: 'Bebas Neue', sans-serif;
+                    font-size: 62px;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    margin-right: 10px;
+                    background: linear-gradient(90deg, #999999 0%, #FFFFFF 100%);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    color: transparent;
+                }
+                
+                .wordpress {
+                    font-family: 'Dancing Script', cursive;
+                    font-size: 60px;
+                    font-weight: 400;
+                    background: linear-gradient(90deg, #FF0068 53%, #99003E 100%);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    color: transparent;
+                }
+            </style>
+
+            <div style="text-align: center;" class>
+                <span class="cms">CMS website</span>
+                <span class="wordpress">Wordpress / Shopify</span>
+            </div>
+            <br>
+
+            <div class="portfolio-slider" id="slider1"></div>
+            <hr>
+            <br>
+            <br>
+            <br>
+            <div style="text-align: center;" class>
+                <span class="cms">Custom website</span>
+                <span class="wordpress">Laravel / Mern Stack / Dot
+                        Net</span>
+            </div>
+            <br>
+            <div class="portfolio-slider reverse" id="slider2"></div>
+            <!-- <hr>
+            <br>
+            <br>
+            <br>
+            <div style="text-align: center;" class="">
+                <span class="cms">Mobile Application</span>
+                <span class="wordpress">Flutter / Firebase / Mysql</span>
+            </div>
+            <br>
+            <div class="portfolio-slider" id="slider3"></div>
+            <hr>
+            <br>
+            <br>
+            <br>
+            <div style="text-align: center;" class="">
+                <span class="cms">Desktop Application</span>
+                <span class="wordpress">Flutter / Firebase</span>
+            </div>
+            <br>
+            <div class="portfolio-slider reverse" id="slider4"></div> -->
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="projectModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-header">
+                    <h2 id="modalTitle">Project Title</h2>
+                    <p id="modalSubtitle">Project Description</p>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" src alt="Project Screenshot" class="modal-image">
+                    <div class="modal-details">
+                        <div class="modal-description">
+                            <h3>Project Overview</h3>
+                            <p id="modalOverview">Detailed project overview will go here...</p>
+                            <h3>Key Features</h3>
+                            <ul id="modalFeatures" class="feature-list"></ul>
+                        </div>
+                        <div class="modal-tech">
+                            <h3>Technologies Used</h3>
+                            <div id="modalTech" class="tech-list"></div>
+                            <div class="modal-links">
+                                <a href="#" id="liveLink" class="modal-link live-link" target="_blank">Live Demo</a>
+                                <a href="#" id="githubLink" class="modal-link github-link" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Project data with detailed information
+            const projects = {
+                1: {
+                    title: "Banish",
+                    description: "Clothing E-commerce",
+                    imageUrl: "/assets/Banish - banish webberners com/laptop.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "CODEHUB is a comprehensive developer platform that provides tools, resources, and collaboration features for software developers of all levels. The platform includes code sharing, real-time collaboration, version control integration, and a learning center with interactive tutorials.",
+                    features: [
+                        "Real-time collaborative coding environment",
+                        "Integration with GitHub, GitLab, and Bitbucket",
+                        "Interactive coding tutorials and challenges",
+                        "Developer community with forums and Q&A",
+                        "Code review and pair programming tools"
+                    ],
+                    technologies: ["Wordpress"],
+                    githubUrl: "#"
+                },
+                2: {
+                    title: "Highline Car Detailing",
+                    description: "Services",
+                    imageUrl: "/assets/high line car detailing - highlinecardetailing com/laptop.png",
+                    modalImage: "/assets/high line car detailing - highlinecardetailing com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "AIDEV is an AI development platform that simplifies the process of building, training, and deploying machine learning models. It provides a visual interface for creating AI workflows and integrates with popular ML frameworks.",
+                    features: [
+                        "Drag-and-drop AI model builder",
+                        "Pre-trained model marketplace",
+                        "Automated hyperparameter tuning",
+                        "Model deployment with one click",
+                        "Performance monitoring and analytics"
+                    ],
+                    technologies: ["Wordpress"],
+                    githubUrl: "#"
+                },
+                3: {
+                    title: "MT Services",
+                    description: "Services",
+                    imageUrl: "/assets/mtservices - mtservices pk/laptop.png",
+                    modalImage: "/assets/mtservices - mtservices pk/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "CLOUDX is a cloud management platform that helps businesses optimize their cloud infrastructure across multiple providers. It provides cost analysis, performance monitoring, and automation tools for cloud environments.",
+                    features: [
+                        "Multi-cloud management dashboard",
+                        "Cost optimization recommendations",
+                        "Automated scaling policies",
+                        "Security compliance monitoring",
+                        "Infrastructure as code templates"
+                    ],
+                    technologies: ["Wordpress"],
+                    githubUrl: "#"
+                },
+                4: {
+                    title: "America Home Plumbing",
+                    description: "Services",
+                    imageUrl: "/assets/america home plumbing service/laptop.png",
+                    modalImage: "/assets/america home plumbing service/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "CYBERSEC is an advanced cybersecurity platform that provides threat detection, vulnerability scanning, and security monitoring for enterprises. It uses AI to detect anomalies and potential threats in real-time.",
+                    features: [
+                        "Real-time network threat detection",
+                        "Vulnerability assessment scanner",
+                        "SIEM integration",
+                        "Automated incident response",
+                        "Compliance reporting"
+                    ],
+                    technologies: ["Wordpress"],
+                    githubUrl: "#"
+                },
+                5: {
+                    title: "Roofers",
+                    description: "Construction",
+                    imageUrl: "/assets/Roofers - roofers webberners com/laptop.png",
+                    modalImage: "/assets/Roofers - roofers webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "PIXELART is a digital design studio platform that offers tools for graphic designers, UI/UX designers, and digital artists. It includes collaborative design tools, asset management, and client presentation features.",
+                    features: [
+                        "Real-time collaborative design canvas",
+                        "Version history and design iterations",
+                        "Design system management",
+                        "Prototyping and animation tools",
+                        "Client feedback and approval system"
+                    ],
+                    technologies: ["Wordpress"],
+                    githubUrl: "#"
+                },
+                6: {
+                    title: "Frontier Flyers",
+                    description: "Travel & Tour",
+                    imageUrl: "/assets/httpsfrontierflyers com/laptop.png",
+                    modalImage: "/assets/httpsfrontierflyers com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "MOTIONFX is a web-based animation studio that allows creators to produce professional animations directly in the browser. It includes timeline editing, motion graphics templates, and rendering in the cloud.",
+                    features: [
+                        "Browser-based animation editor",
+                        "Keyframe animation tools",
+                        "Motion graphics template library",
+                        "Cloud rendering service",
+                        "Collaboration and review tools"
+                    ],
+                    technologies: ["Wordpress"],
+                    githubUrl: "#"
+                },
+                // 
+                7: {
+                    title: "North Face Garden",
+                    description: "Services",
+                    imageUrl: "/assets/North Face Garden/laptop.png",
+                    modalImage: "/assets/North Face Garden/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "PHOTOGEN is a professional photography platform that offers editing tools, portfolio hosting, and client management for photographers. It includes AI-powered editing and automated workflow features.",
+                    features: [
+                        "AI-powered photo enhancement",
+                        "Online portfolio builder",
+                        "Client proofing and selection",
+                        "Print and digital product ordering",
+                        "Scheduling and booking system"
+                    ],
+                    technologies: ["Wordpress"],
+                    githubUrl: "#"
+                },
+                8: {
+                    title: "Sun Plastic",
+                    description: "Manufacturing",
+                    imageUrl: "/assets/sun plastic - httpssunplastic com/laptop.png",
+                    modalImage: "/assets/sun plastic - httpssunplastic com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SHOPLY is an e-commerce platform that enables businesses to create beautiful online stores with minimal technical knowledge. It includes product management, payment processing, and marketing tools.",
+                    features: [
+                        "Drag-and-drop store builder",
+                        "Multi-channel sales integration",
+                        "Inventory management",
+                        "AI-powered product recommendations",
+                        "Built-in marketing automation"
+                    ],
+                    technologies: ["Wordpress"],
+                    githubUrl: "#"
+                },
+                9: {
+                    title: "Afaan International",
+                    description: "Manufacturing | PPE",
+                    imageUrl: "/assets/Afaan International - afaanintl com/laptop.png",
+                    modalImage: "/assets/Afaan International - afaanintl com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "MARKETZ is a marketplace platform that connects buyers and sellers across multiple categories. It includes vendor management, escrow payments, and review systems for trust and safety.",
+                    features: [
+                        "Multi-vendor marketplace",
+                        "Escrow payment system",
+                        "Advanced search and filtering",
+                        "Seller analytics dashboard",
+                        "Dispute resolution center"
+                    ],
+                    technologies: ["Wordpress"],
+                    githubUrl: "#"
+                },
+                10: {
+                    title: "king of kings fonint",
+                    description: "Foundation",
+                    imageUrl: "/assets/king of kings fonint/laptop.png",
+                    modalImage: "/assets/king of kings fonint/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "PAYFAST is a payment processing platform that offers seamless integration for online businesses. It supports multiple payment methods, subscription billing, and global currency conversion.",
+                    features: [
+                        "One-click checkout",
+                        "Recurring billing",
+                        "Multi-currency support",
+                        "Fraud detection",
+                        "Developer-friendly API"
+                    ],
+                    technologies: ["Wordpress"],
+                    githubUrl: "#"
+                },
+                // 
+                11: {
+                    title: "Fazal Ahmed Enterprises",
+                    description: "Manufacturing | PPE",
+                    imageUrl: "/assets/Fazal Ahmed Enterprises - fa-ent com/laptop.png",
+                    modalImage: "/assets/Fazal Ahmed Enterprises - fa-ent com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "BRANDLY is a branding platform that helps businesses create and maintain consistent brand identities. It includes logo design, brand guidelines generation, and asset management tools.",
+                    features: [
+                        "AI-assisted logo design",
+                        "Brand guideline generator",
+                        "Digital asset management",
+                        "Social media template creator",
+                        "Brand consistency checker"
+                    ],
+                    technologies: ["Next.js"],
+                    githubUrl: "#"
+                },
+                12: {
+                    title: "Coffee",
+                    description: "Mobile Development",
+                    imageUrl: "/assets/Banish - banish webberners com/laptop.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "APPIFY is a platform that simplifies mobile app development with low-code tools and pre-built components. It allows businesses to create native iOS and Android apps without extensive coding knowledge.",
+                    features: [
+                        "Visual app builder",
+                        "Cross-platform compilation",
+                        "API integration",
+                        "App store publishing",
+                        "Analytics and crash reporting"
+                    ],
+                    technologies: ["MongoDB", "Express.js", "Next.js", "Node.js"],
+                    githubUrl: "#"
+                },
+                13: {
+                    title: "Zain Haleem",
+                    description: "Mobile Games",
+                    imageUrl: "/assets/Banish - banish webberners com/laptop.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "GAMESTUDIO is a game development platform that enables creators to build, test, and publish mobile games. It includes game templates, physics engines, and monetization tools.",
+                    features: [
+                        "Game template library",
+                        "Physics engine",
+                        "In-app purchase setup",
+                        "Ad mediation",
+                        "Player analytics"
+                    ],
+                    technologies: ["MongoDB", "Express.js", "Next.js", "Node.js"],
+                    githubUrl: "#"
+                },
+                14: {
+                    title: "Cargo Managment System",
+                    description: "Cargo Managment System",
+                    imageUrl: "/assets/Banish - banish webberners com/laptop.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "FITTRACK is a comprehensive fitness app that tracks workouts, nutrition, and health metrics. It includes personalized training plans and integration with wearable devices.",
+                    features: [
+                        "Workout tracking",
+                        "Nutrition logging",
+                        "Wearable integration",
+                        "Personalized plans",
+                        "Community challenges"
+                    ],
+                    technologies: ["Laravel", "MySQL"],
+                    githubUrl: "#"
+                },
+                15: {
+                    title: "Customize Windows",
+                    description: "E-commerce",
+                    imageUrl: "/assets/Banish - banish webberners com/laptop.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Laravel", "MySQL"],
+                    githubUrl: "#"
+                },
+                16: {
+                    title: "Bazzaristan",
+                    description: "E-commerce",
+                    imageUrl: "/assets/Banish - banish webberners com/mobile-white.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Flutter", "Firebase", "Next.js"],
+                    githubUrl: "#"
+                },
+                17: {
+                    title: "Recovery Master",
+                    description: "Payment Recovery",
+                    imageUrl: "/assets/Banish - banish webberners com/mobile-white.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Flutter", "Firebase", "Next.js"],
+                    githubUrl: "#"
+                },
+                18: {
+                    title: "Pay Point",
+                    description: "POS - (Point Of Sale)",
+                    imageUrl: "/assets/Banish - banish webberners com/mobile-white.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Flutter", "Firebase", "MySQL", "Next.js"],
+
+                    githubUrl: "#"
+                },
+                19: {
+                    title: "Tax Doctor",
+                    description: "Social Network",
+                    imageUrl: "/assets/Banish - banish webberners com/lmobile-whiteaptop.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Flutter", "Firebase", "Next.js"],
+                    githubUrl: "#"
+                },
+                20: {
+                    title: "London Computer",
+                    description: "Social Network",
+                    imageUrl: "/assets/Banish - banish webberners com/mobile-white.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Flutter", "Firebase", "Next.js"],
+                    githubUrl: "#"
+                },
+                21: {
+                    title: "Sindh Health Commission",
+                    description: "Social Network",
+                    imageUrl: "/assets/Banish - banish webberners com/mobile-white.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Flutter", "Firebase", "Next.js"],
+                    githubUrl: "#"
+                },
+                22: {
+                    title: "QR Code Scanner",
+                    description: "Social Network",
+                    imageUrl: "/assets/Banish - banish webberners com/mobile-white.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Laravel"],
+                    githubUrl: "#"
+                },
+                23: {
+                    title: "All in one Courier",
+                    description: "Social Network",
+                    imageUrl: "/assets/Banish - banish webberners com/mobile-white.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Flutter"],
+                    githubUrl: "#"
+                },
+                24: {
+                    title: "Gatepass Managment",
+                    description: "Social Network",
+                    imageUrl: "/assets/Banish - banish webberners com/desktop.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Flutter", "Firebase"],
+                    githubUrl: "#"
+                },
+                25: {
+                    title: "Inventory Managment",
+                    description: "Social Network",
+                    imageUrl: "/assets/Banish - banish webberners com/desktop.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Flutter", "Firebase"],
+                    githubUrl: "#"
+                },
+                26: {
+                    title: "Accounting",
+                    description: "Social Network",
+                    imageUrl: "/assets/Banish - banish webberners com/desktop.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Flutter", "Firebase"],
+                    githubUrl: "#"
+                },
+                26: {
+                    title: "Pay Point",
+                    description: "POS - (Point Of Sale)",
+                    imageUrl: "/assets/Banish - banish webberners com/desktop.png",
+                    modalImage: "/assets/Banish - banish webberners com/all-devices-white.png",
+                    websiteUrl: "#",
+                    overview: "SOCIALZ is a next-generation social networking platform that focuses on meaningful connections and content discovery. It includes advanced algorithms for content relevance and community building.",
+                    features: [
+                        "Interest-based communities",
+                        "Content recommendation engine",
+                        "Real-time messaging",
+                        "Video streaming",
+                        "Creator monetization"
+                    ],
+                    technologies: ["Flutter", "Firebase"],
+                    githubUrl: "#"
+                },
+            };
+
+            // First row portfolio items (Technology focus)
+            const techPortfolioItems = [{
+                id: 1,
+                ...projects[1]
+            }, {
+                id: 2,
+                ...projects[2]
+            }, {
+                id: 3,
+                ...projects[3]
+            }, {
+                id: 4,
+                ...projects[4]
+            }, {
+                id: 5,
+                ...projects[5]
+            }, {
+                id: 6,
+                ...projects[6]
+            }, {
+                id: 7,
+                ...projects[7]
+            }, {
+                id: 8,
+                ...projects[8]
+            }, {
+                id: 9,
+                ...projects[9]
+            }, {
+                id: 10,
+                ...projects[10]
+            }, ];
+
+            // Second row portfolio items (Creative focus)
+            const creativePortfolioItems = [{
+                id: 11,
+                ...projects[11]
+            }, {
+                id: 12,
+                ...projects[12]
+            }, {
+                id: 13,
+                ...projects[13]
+            }, {
+                id: 14,
+                ...projects[14]
+            }, {
+                id: 15,
+                ...projects[15]
+            }, {
+                id: 26,
+                ...projects[26]
+            }, ];
+
+            // Third row portfolio items (E-commerce focus)
+            const ecommercePortfolioItems = [{
+                id: 16,
+                ...projects[16]
+            }, {
+                id: 17,
+                ...projects[17]
+            }, {
+                id: 18,
+                ...projects[18]
+            }, {
+                id: 19,
+                ...projects[19]
+            }, {
+                id: 20,
+                ...projects[20]
+            }, {
+                id: 21,
+                ...projects[21]
+            }, {
+                id: 22,
+                ...projects[22]
+            }, {
+                id: 23,
+                ...projects[23]
+            }, {
+                id: 24,
+                ...projects[24]
+            }, ];
+
+            // Fourth row portfolio items (Mobile Apps)
+            const mobilePortfolioItems = [{
+                id: 24,
+                ...projects[24]
+            }, {
+                id: 25,
+                ...projects[25]
+            }, {
+                id: 26,
+                ...projects[26]
+            }, ];
+
+            // Function to create portfolio card HTML
+            function createPortfolioCard(item) {
+                return `
+                <div class="portfolio-card" data-id="${item.id}">
+                    <img src="${item.imageUrl}" alt="${item.title} Project" />
+                    <div class="card-content">
+                        <div class="card-details">
+                            <h6>${item.title}</h6>
+                            <p>${item.description}</p>
+                        </div>
+                        <button class="visit-button view-project" data-id="${item.id}">View Project</button>
+                    </div>
+                </div>
+            `;
+            }
+
+            // Function to initialize slider with portfolio items
+            function initializeSlider(sliderId, items, reverse = false) {
+                const slider = document.getElementById(sliderId);
+
+                // Add initial cards
+                items.forEach(item => {
+                    slider.innerHTML += createPortfolioCard(item);
+                });
+
+                // Clone cards for infinite scroll effect
+                const cards = Array.from(slider.children);
+                for (let i = 0; i < 2; i++) {
+                    cards.forEach(card => {
+                        const clone = card.cloneNode(true);
+                        slider.appendChild(clone);
+                    });
+                }
+            }
+
+            // Function to open modal with project details
+            function openProjectModal(projectId) {
+                const project = projects[projectId];
+                if (!project) return;
+
+                const modal = document.getElementById('projectModal');
+                document.getElementById('modalTitle').textContent = project.title;
+                document.getElementById('modalSubtitle').textContent = project.description;
+
+                // Set modal image with error handling
+                const modalImg = document.getElementById('modalImage');
+                modalImg.src = project.modalImage || project.imageUrl;
+                modalImg.onerror = function() {
+                    console.error('Failed to load project image:', this.src);
+                    this.style.display = 'none'; // Hide if image fails to load
+                };
+
+                document.getElementById('modalOverview').textContent = project.overview;
+
+                // Set features
+                const featuresList = document.getElementById('modalFeatures');
+                featuresList.innerHTML = '';
+                project.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    featuresList.appendChild(li);
+                });
+
+                // Set technologies
+                const techList = document.getElementById('modalTech');
+                techList.innerHTML = '';
+                project.technologies.forEach(tech => {
+                    const span = document.createElement('span');
+                    span.className = 'tech-item';
+                    span.textContent = tech;
+                    techList.appendChild(span);
+                });
+
+                // Set links
+                document.getElementById('liveLink').href = project.websiteUrl;
+                document.getElementById('githubLink').href = project.githubUrl;
+
+                // Show modal
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Initialize sliders and event listeners when DOM is loaded
+            document.addEventListener('DOMContentLoaded', () => {
+                initializeSlider('slider1', techPortfolioItems); // First row (tech)
+                initializeSlider('slider2', creativePortfolioItems, true); // Second row (creative)
+                initializeSlider('slider3', ecommercePortfolioItems); // Third row (e-commerce)
+                initializeSlider('slider4', mobilePortfolioItems, true); // Fourth row (mobile)
+
+                // Close modal when clicking X
+                document.querySelector('.close-modal').addEventListener('click', () => {
+                    document.getElementById('projectModal').style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+
+                // Close modal when clicking outside content
+                document.getElementById('projectModal').addEventListener('click', (e) => {
+                    if (e.target === document.getElementById('projectModal')) {
+                        document.getElementById('projectModal').style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+
+                // Add event listeners to all view project buttons (including cloned ones)
+                document.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('view-project')) {
+                        const projectId = parseInt(e.target.getAttribute('data-id'));
+                        openProjectModal(projectId);
+                    }
+                });
+            });
+        </script>
+    </section>
+    <!-- portfolio - End -->
+    <a href="/Web Design.html">
+        <style>
+            .web_bg {
+                height: 100vh;
+                width: 100vw;
+                background-image: url(/assets/web_bg.png);
+                background-size: cover;
+                background-position: center;
+                /* background-position: 0 -60px; */
+            }
+        </style>
+
+        <section class="web_bg">
+
+        </section>
+    </a>
+    <style>
+        /* Achievements Section */
+        
+        .achievements-section {
+            padding: 80px 0;
+            background-color: #f9f9ff;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Subtle gradient backgrounds */
+        
+        .achievements-section::before,
+        .achievements-section::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 1s ease, transform 2s ease;
+        }
+        
+        .achievements-section::before {
+            top: 10%;
+            right: 5%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 107, 0, 0.08) 0%, rgba(255, 107, 0, 0) 70%);
+        }
+        
+        .achievements-section::after {
+            bottom: 10%;
+            left: 5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 0, 104, 0.05) 0%, rgba(255, 0, 104, 0) 70%);
+        }
+        
+        .achievements-section.in-view::before,
+        .achievements-section.in-view::after {
+            opacity: 1;
+        }
+        /* Container */
+        
+        .achievements-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        /* Section Headings */
+        
+        .section-heading {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #222;
+            font-weight: 700;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .achievements-section.in-view .section-heading {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b00, #ff0068);
+            border-radius: 3px;
+        }
+        /* Stats Grid */
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .achievements-section.in-view .stat-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .stat-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .stat-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .stat-card:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.1), rgba(255, 0, 104, 0.1));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.4s ease;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b00, #ff0068);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        /* Technologies Section */
+        
+        .tech-category {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .achievements-section.in-view .tech-category {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tech-category:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .tech-category:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .tech-category:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .tech-category:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .tech-category h3 {
+            color: #444;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .tech-category-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.1), rgba(255, 0, 104, 0.1));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tech-item {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #555;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        /* Hover Effects */
+        
+        .stat-card:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 15px 30px rgba(255, 107, 0, 0.15) !important;
+        }
+        
+        .stat-card:hover .stat-icon {
+            transform: rotate(5deg) scale(1.1);
+        }
+        
+        .tech-item:hover {
+            background: linear-gradient(135deg, #000000, #8f8f8f) !important;
+            color: white !important;
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 15px rgba(255, 107, 0, 0.2) !important;
+        }
+    </style>
+
+    <section class="achievements-section" id="achievements">
+        <div class="achievements-container">
+            <!-- Stats Section -->
+            <h2 class="section-heading">My Achievements</h2>
+
+            <div class="stats-grid">
+                <!-- Stat 1 -->
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <h3 class="stat-number">150+</h3>
+                    <p class="stat-label">Projects Completed</p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="stat-card">
+                    <div class="stat-icon">😊</div>
+                    <h3 class="stat-number">95%</h3>
+                    <p class="stat-label">Client Satisfaction</p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="stat-card">
+                    <div class="stat-icon">⏳</div>
+                    <h3 class="stat-number">3+</h3>
+                    <p class="stat-label">Years Experience</p>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="stat-card">
+                    <div class="stat-icon">💻</div>
+                    <h3 class="stat-number">50+</h3>
+                    <p class="stat-label">Technologies Used</p>
+                </div>
+            </div>
+
+            <!-- Technologies Section -->
+            <h2 class="section-heading">Technologies I Work With</h2>
+
+            <div class="tech-categories">
+                <!-- Frontend Technologies -->
+                <div class="tech-category">
+                    <h3>
+                        <span class="tech-category-icon">📱</span> Frontend Development
+                    </h3>
+                    <div class="tech-list">
+                        <span class="tech-item">React</span>
+                        <span class="tech-item">Vue.js</span>
+                        <span class="tech-item">Angular</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">TypeScript</span>
+                        <span class="tech-item">HTML5</span>
+                        <span class="tech-item">CSS3/Sass</span>
+                        <span class="tech-item">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <!-- Backend Technologies -->
+                <div class="tech-category">
+                    <h3>
+                        <span class="tech-category-icon">⚙️</span> Backend Development
+                    </h3>
+                    <div class="tech-list">
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">Express</span>
+                        <span class="tech-item">PHP</span>
+                        <span class="tech-item">Laravel</span>
+                    </div>
+                </div>
+
+                <!-- Database & Cloud -->
+                <div class="tech-category">
+                    <h3>
+                        <span class="tech-category-icon">📊</span> Database & Cloud
+                    </h3>
+                    <div class="tech-list">
+                        <span class="tech-item">MongoDB</span>
+                        <span class="tech-item">MySQL</span>
+                        <span class="tech-item">Firebase</span>
+                        <span class="tech-item">Google Cloud</span>
+                    </div>
+                </div>
+
+                <!-- Mobile & Others -->
+                <div class="tech-category">
+                    <h3>
+                        <span class="tech-category-icon">📱</span> Mobile & Others
+                    </h3>
+                    <div class="tech-list">
+                        <span class="tech-item">Flutter</span>
+                        <span class="tech-item">GraphQL</span>
+                        <span class="tech-item">REST API</span>
+                        <span class="tech-item">Git</span>
+                        <span class="tech-item">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe the achievements section
+        const achievementsSection = document.querySelector('.achievements-section');
+        observer.observe(achievementsSection);
+
+        // Observe individual cards if needed (for staggered animations)
+        document.querySelectorAll('.stat-card, .tech-category').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+    <a href="/App Development.html" style="display: block; height: 100%; width: 100%;">
+        <style>
+            .mob_bg {
+                height: 98vh;
+                width: 100vw;
+                background-image: url('/assets/mob_bg.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            
+            @media (max-width: 768px) {
+                .mob_bg {
+                    height: 40vh;
+                    width: 100vw;
+                    background-size: contain;
+                    border: 2px solid red;
+                }
+            }
+        </style>
+
+        <section class="mob_bg">
+
+        </section>
+    </a>
+
+    <!-- Footer - Start -->
+    <style>
+        .footer {
+            background: #f9f9f9;
+            padding: 60px 0 20px;
+            color: #333;
+            font-family: 'Segoe UI', sans-serif;
+            border-top: 1px solid #eee;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .footer-about p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        /* Genuine social media colors */
+        
+        .fa-github {
+            background: #333;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .fa-linkedin-in {
+            background: rgb(0, 119, 181);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .fa-facebook {
+            background: #1da1f2;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .fa-instagram {
+            background: #e1306c;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer-links h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #222;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #ff6b00, #ff0080);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 15px;
+        }
+        
+        .footer-links a:hover {
+            color: #ff6b00;
+            padding-left: 5px;
+        }
+        
+        .footer-newsletter p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            background: #fff;
+            color: #333;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #ff6b00;
+            box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.1);
+        }
+        
+        .newsletter-input::placeholder {
+            color: #999;
+        }
+        
+        .newsletter-btn {
+            padding: 0 20px;
+            background: linear-gradient(135deg, #000000, #ff008051);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .newsletter-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 50px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .footer-section {
+                text-align: center;
+            }
+            .footer-links h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .footer-social {
+                justify-content: center;
+            }
+            .footer-links a:hover {
+                padding-left: 0;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+                border-right: 1px solid #ddd;
+            }
+            .newsletter-btn {
+                border-radius: 4px;
+                padding: 12px;
+            }
+        }
+    </style>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section footer-about">
+                <img src="/assets/logo.png" alt="Portfolio Logo" class="footer-logo">
+                <p>Creating innovative digital experiences with cutting-edge technology and creative design.</p>
+                <div class="footer-social">
+                    <!-- <a href="#" class="social-icon"><i class="fab fa-github"></i></a> -->
+                    <a href="#" class="social-icon"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i
+                                class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">App Development</a></li>
+                    <li><a href="#">UI/UX</a></li>
+                    <li><a href="#">Branding</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Get the latest updates and offers directly to your inbox.
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Footer - End -->
+</body>
+
+</html>

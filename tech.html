@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Stack</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- <script src="https://kit.fontawesome.com/a2e4e5c054.js" crossorigin="anonymous"></script> -->
+
+    <!-- Font Awesome -->
+</head>
+
+<body>
+    <section class="tech-section">
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Poppins', sans-serif;
+                background-color: #0f0f1a;
+                color: #fff;
+            }
+            
+            .tech-section {
+                padding: 60px 20px;
+                text-align: center;
+            }
+            
+            .tech-section h1 {
+                font-size: 48px;
+                margin-bottom: 10px;
+                color: #ffffff;
+            }
+            
+            .description {
+                font-size: 18px;
+                color: #aaa;
+                max-width: 700px;
+                margin: 0 auto 40px;
+            }
+            
+            .filters {
+                margin-bottom: 30px;
+            }
+            
+            .filter-button {
+                background: transparent;
+                border: 2px solid rgb(215, 215, 215);
+                color: rgb(215, 215, 215);
+                padding: 10px 20px;
+                margin: 5px;
+                border-radius: 30px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            
+            .filter-button.active,
+            .filter-button:hover {
+                background-color: #FF0066;
+                color: white;
+            }
+            
+            .tech-grid {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                animation: fadeInUp 1s ease forwards;
+            }
+            
+            .tech-card {
+                background: #1c1c2e;
+                border: 1px solid #29293d;
+                padding: 20px;
+                border-radius: 20px;
+                width: 150px;
+                text-align: center;
+                font-size: 16px;
+                color: white;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                opacity: 0;
+                animation: fadeInUp 0.8s ease forwards;
+                animation-delay: calc(var(--i) * 0.05s);
+            }
+            
+            .tech-card i {
+                font-size: 32px;
+                margin-bottom: 10px;
+                display: block;
+            }
+            
+            .tech-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px #ffffff50;
+            }
+            
+            .cta_button_tech {
+                margin-top: 40px;
+                background: linear-gradient(90deg, #ffffff, #c3c3c3);
+                border: none;
+                padding: 14px 36px;
+                font-size: 16px;
+                border-radius: 30px;
+                color: rgb(0, 0, 0);
+                cursor: pointer;
+                transition: 0.3s ease;
+            }
+            
+            .cta_button_tech:hover {
+                opacity: 0.9;
+            }
+            
+            @keyframes fadeInUp {
+                0% {
+                    transform: translateY(20px);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+            }
+        </style>
+        <h1>Our Technology Stack</h1>
+        <p class="description">
+            Tools and technologies we master to build cutting-edge digital solutions.
+        </p>
+
+        <div class="filters">
+            <button class="filter-button active" data-category="all">All</button>
+            <button class="filter-button" data-category="frontend">Frontend</button>
+            <button class="filter-button" data-category="backend">Backend</button>
+            <button class="filter-button" data-category="database">Database & Cloud</button>
+            <button class="filter-button" data-category="mobile">Mobile & Others</button>
+        </div>
+
+        <div class="tech-grid">
+            <!-- Frontend -->
+            <div class="tech-card" data-category="frontend"><i class="fab fa-react"></i>React</div>
+            <div class="tech-card" data-category="frontend"><i class="fab fa-vuejs"></i>Vue.js</div>
+            <div class="tech-card" data-category="frontend"><i class="fab fa-angular"></i>Angular</div>
+            <div class="tech-card" data-category="frontend"><i class="fab fa-js-square"></i>JavaScript</div>
+            <div class="tech-card" data-category="frontend"><i class="fab fa-html5"></i>HTML5</div>
+            <div class="tech-card" data-category="frontend"><i class="fab fa-css3-alt"></i>CSS3/Sass</div>
+            <div class="tech-card" data-category="frontend"><i class="fas fa-wind"></i>Tailwind CSS</div>
+            <div class="tech-card" data-category="frontend"><i class="fas fa-code"></i>TypeScript</div>
+
+            <!-- Backend -->
+            <div class="tech-card" data-category="backend"><i class="fab fa-node-js"></i>Node.js</div>
+            <div class="tech-card" data-category="backend"><i class="fas fa-network-wired"></i>Express</div>
+            <div class="tech-card" data-category="backend"><i class="fab fa-php"></i>PHP</div>
+            <div class="tech-card" data-category="backend"><i class="fab fa-laravel"></i>Laravel</div>
+
+            <!-- Database -->
+            <div class="tech-card" data-category="database"><i class="fas fa-database"></i>MongoDB</div>
+            <div class="tech-card" data-category="database"><i class="fas fa-server"></i>MySQL</div>
+            <div class="tech-card" data-category="database"><i class="fas fa-fire"></i>Firebase</div>
+            <div class="tech-card" data-category="database"><i class="fab fa-google"></i>Google Cloud</div>
+
+            <!-- Mobile -->
+            <div class="tech-card" data-category="mobile"><i class="fab fa-android"></i>Flutter</div>
+            <div class="tech-card" data-category="mobile"><i class="fas fa-project-diagram"></i>GraphQL</div>
+            <div class="tech-card" data-category="mobile"><i class="fas fa-plug"></i>REST API</div>
+            <div class="tech-card" data-category="mobile"><i class="fab fa-git-alt"></i>Git</div>
+            <div class="tech-card" data-category="mobile"><i class="fas fa-sync-alt"></i>CI/CD</div>
+        </div>
+
+        <div class="learn-more">
+            <button class="cta_button_tech">Learn More</button>
+        </div>
+        <script>
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const techCards = document.querySelectorAll('.tech-card');
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelector('.filter-button.active').classList.remove('active');
+                    btn.classList.add('active');
+
+                    const category = btn.getAttribute('data-category');
+                    techCards.forEach((card, index) => {
+                        const match = category === 'all' || card.dataset.category === category;
+                        card.style.display = match ? 'block' : 'none';
+                        card.style.setProperty('--i', index);
+                    });
+                });
+            });
+
+            // Set animation order on load
+            techCards.forEach((card, index) => {
+                card.style.setProperty('--i', index);
+            });
+        </script>
+    </section>
+
+
+</body>
+
+</html>

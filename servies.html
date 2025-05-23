@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Pink Theme</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            padding: 40px 20px;
+        }
+        
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h1 {
+            font-size: 2.5rem;
+            color: #FF0068;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(255, 0, 104, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: -1;
+            filter: blur(0px);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 0, 104, 0.15);
+        }
+        
+        .service-card:hover::before {
+            opacity: 0.2;
+            filter: blur(4px);
+        }
+        /* Individual card backgrounds */
+        
+        .service-card:nth-child(1)::before {
+            background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+        }
+        
+        .service-card:nth-child(2)::before {
+            background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80');
+        }
+        
+        .service-card:nth-child(3)::before {
+            background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+        }
+        
+        .service-card:nth-child(4)::before {
+            background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+        }
+        
+        .service-content {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover .service-content {
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .service-header {
+            margin-bottom: 15px;
+        }
+        
+        .service-header h2 {
+            font-size: 1.5rem;
+            color: #FF0068;
+            margin-bottom: 10px;
+        }
+        
+        .service-body {
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        
+        .service-body p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .service-footer {
+            margin-top: auto;
+        }
+        
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: #FF0068;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .service-link:hover {
+            color: #d8005a;
+        }
+        
+        .service-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 0, 104, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .icon-container i {
+            font-size: 1.8rem;
+            color: #FF0068;
+        }
+        
+        @media (max-width: 768px) {
+            .section-header h1 {
+                font-size: 2rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-card {
+                min-height: 300px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="services-container">
+        <div class="section-header">
+            <h1>Our Digital Solutions</h1>
+            <p>Comprehensive services to transform your business for the digital age</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service Card 1 -->
+            <div class="service-card">
+                <div class="service-content">
+                    <div class="service-header">
+                        <div class="icon-container">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h2>Custom Website Development</h2>
+                    </div>
+                    <div class="service-body">
+                        <p>Tailored web solutions designed to your exact specifications, ensuring a unique digital presence that stands out from competitors and drives engagement.</p>
+                    </div>
+                    <div class="service-footer">
+                        <a href="/Web Design.html" class="service-link">Explore service <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 2 -->
+            <div class="service-card">
+                <div class="service-content">
+                    <div class="service-header">
+                        <div class="icon-container">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h2>CMS Website Development</h2>
+                    </div>
+                    <div class="service-body">
+                        <p>Powerful content management systems that put you in control, with intuitive interfaces for easy updates and seamless content management.</p>
+                    </div>
+                    <div class="service-footer">
+                        <a href="/Web Design.html" class="service-link">Explore service <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 3 -->
+            <div class="service-card">
+                <div class="service-content">
+                    <div class="service-header">
+                        <div class="icon-container">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h2>Mobile App Development</h2>
+                    </div>
+                    <div class="service-body">
+                        <p>Native and cross-platform mobile applications that deliver exceptional user experiences and drive customer engagement on all devices.</p>
+                    </div>
+                    <div class="service-footer">
+                        <a href="/App Development.html" class="service-link">Explore service <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 4 -->
+            <div class="service-card">
+                <div class="service-content">
+                    <div class="service-header">
+                        <div class="icon-container">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h2>Custom Software Development</h2>
+                    </div>
+                    <div class="service-body">
+                        <p>Bespoke software solutions designed to streamline your operations, automate processes, and give you a competitive edge in your industry.</p>
+                    </div>
+                    <div class="service-footer">
+                        <a href="/" class="service-link">Explore service <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
