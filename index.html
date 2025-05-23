@@ -1819,120 +1819,129 @@
     <!-- portfolio - End -->
 
     <section>
-        <style>
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-            
-            body {
-                overflow-x: hidden;
-                font-family: sans-serif;
-            }
-            
-            .slider-container {
-                display: flex;
-                flex-direction: column;
-            }
-            
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            overflow-x: hidden;
+            font-family: sans-serif;
+        }
+        
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .slider {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .slide-wrapper {
+            display: flex;
+            width: 100%;
+            /* 3 slides */
+            transition: transform 1s ease-in-out;
+        }
+        
+        .slide {
+            flex: 0 0 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .web-slide {
+            background-image: url('/assets/web_bg.png');
+        }
+        
+        .mob-slide {
+            background-image: url('/assets/mob_bg.png');
+        }
+        
+        .slide a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        
+        @media (max-width: 768px) {
             .slider {
-                position: relative;
-                width: 100vw;
-                height: 100vh;
-                overflow: hidden;
+                height: 50vh; /* Reduced height for mobile */
             }
-            
-            .slide-wrapper {
-                display: flex;
-                width: 100%;
-                /* 3 slides */
-                transition: transform 1s ease-in-out;
-            }
-            
             .slide {
-                flex: 0 0 100%;
-                height: 100vh;
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
+                height: 50vh; /* Match slider height */
+                background-size: cover; /* Changed from contain to cover for better filling */
             }
-            
-            .web-slide {
-                background-image: url('/assets/web_bg.png');
+        }
+        
+        @media (max-width: 480px) {
+            .slider {
+                height: 40vh; /* Even smaller for very small devices */
             }
-            
-            .mob-slide {
-                background-image: url('/assets/mob_bg.png');
+            .slide {
+                height: 40vh;
             }
-            
-            .slide a {
-                display: block;
-                width: 100%;
-                height: 100%;
-            }
-            
-            @media (max-width: 768px) {
-                .slider {
-                    height: 40vh;
-                }
-                .slide {
-                    height: 40vh;
-                    background-size: contain;
-                }
-            }
-        </style>
-        <div class="slider-container">
-            
+        }
+    </style>
+    <div class="slider-container">
+        
 
-            <!-- App Development Slider -->
-            <div class="slider" id="mob-slider">
-                <div class="slide-wrapper">
-                    <div class="slide mob-slide">
-                        <a href="/App Development.html"></a>
-                    </div>
-                    <div class="slide mob-slide">
-                        <a href="/App Development.html"></a>
-                    </div>
-                    <div class="slide mob-slide">
-                        <a href="/App Development.html"></a>
-                    </div>
+        <!-- App Development Slider -->
+        <div class="slider" id="mob-slider">
+            <div class="slide-wrapper">
+                <div class="slide mob-slide">
+                    <a href="/App Development.html"></a>
                 </div>
-            </div>
-
-            <!-- Web Design Slider -->
-            <div class="slider" id="web-slider">
-                <div class="slide-wrapper">
-                    <div class="slide web-slide">
-                        <a href="/Web Design.html"></a>
-                    </div>
-                    <div class="slide web-slide">
-                        <a href="/Web Design.html"></a>
-                    </div>
-                    <div class="slide web-slide">
-                        <a href="/Web Design.html"></a>
-                    </div>
+                <div class="slide mob-slide">
+                    <a href="/App Development.html"></a>
+                </div>
+                <div class="slide mob-slide">
+                    <a href="/App Development.html"></a>
                 </div>
             </div>
         </div>
 
-        <script>
-            function startSlider(sliderId, slideCount, interval = 3000) {
-                const slider = document.getElementById(sliderId);
-                const wrapper = slider.querySelector('.slide-wrapper');
-                let index = 0;
+        <!-- Web Design Slider -->
+        <div class="slider" id="web-slider">
+            <div class="slide-wrapper">
+                <div class="slide web-slide">
+                    <a href="/Web Design.html"></a>
+                </div>
+                <div class="slide web-slide">
+                    <a href="/Web Design.html"></a>
+                </div>
+                <div class="slide web-slide">
+                    <a href="/Web Design.html"></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                setInterval(() => {
-                    index = (index + 1) % slideCount;
-                    wrapper.style.transform = `translateX(-${index * 100}%)`;
-                }, interval);
-            }
+    <script>
+        function startSlider(sliderId, slideCount, interval = 3000) {
+            const slider = document.getElementById(sliderId);
+            const wrapper = slider.querySelector('.slide-wrapper');
+            let index = 0;
 
-            // Start both sliders independently
-            startSlider('web-slider', 3, 4000); // slides every 4 seconds
-            startSlider('mob-slider', 3, 5000); // slides every 5 seconds
-        </script>
-    </section>
+            setInterval(() => {
+                index = (index + 1) % slideCount;
+                wrapper.style.transform = `translateX(-${index * 100}%)`;
+            }, interval);
+        }
+
+        // Start both sliders independently
+        startSlider('web-slider', 3, 4000); // slides every 4 seconds
+        startSlider('mob-slider', 3, 5000); // slides every 5 seconds
+    </script>
+</section>
 
     <!-- Tech - start -->
     <section class="tech-section">
