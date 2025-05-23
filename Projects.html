@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Bebas+Neue&family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-         :root {
+        :root {
             --primary: #FF0068;
             --secondary: #ff006665;
             --dark: #121212;
             --light: #f5f6fa;
             --accent: #fd79a8;
             --tech-bg: rgba(255, 0, 104, 0.1);
+            --modal-bg: rgba(0, 0, 0, 0.9);
         }
         
         * {
@@ -31,17 +31,19 @@
             overflow-x: hidden;
         }
         
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
         .portfolio-hero {
-            /* background-image: url(/assets/bg_dark.png); */
-            /* background: linear-gradient(180deg, #ff0066d3, #5d1932d1); */
-            background: linear-gradient(180deg, #ff0066d3, #5d1932d1);
-            /* background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover; */
+            background: linear-gradient(135deg, #ff0066d3, #5d1932d1);
             padding: 8rem 0 6rem;
             text-align: center;
             position: relative;
-            /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
         
         .portfolio-hero::before {
@@ -51,7 +53,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
             z-index: 1;
         }
         
@@ -62,12 +64,10 @@
         
         .portflio_heading {
             font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 6vw, 4rem);
             background: linear-gradient(90deg, #ffffff, #afafaf);
-            /* background: linear-gradient(90deg, #00f0ff, #0dffb2); */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            /* text-shadow: 0 0 10px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2); */
             letter-spacing: 3px;
             position: relative;
             padding-bottom: 15px;
@@ -83,27 +83,34 @@
             width: 60%;
             height: 3px;
             background: linear-gradient(90deg, #ffffff, #e3e3e3);
-            /* background: linear-gradient(90deg, #00f0ff, #0dffb2); */
             box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
             border-radius: 50px;
         }
         
         .portfolio-subtitle {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             max-width: 700px;
             margin: 0 auto 2rem;
             color: rgba(255, 255, 255, 0.8);
         }
-        /* Category Titles */
         
+        /* Category Titles */
         .category-title {
             text-align: center;
             margin: 4rem 0 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .category-title.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .cms {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 62px;
+            font-size: clamp(2.5rem, 6vw, 3.8rem);
             font-weight: 400;
             text-transform: uppercase;
             margin-right: 10px;
@@ -112,20 +119,22 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             color: transparent;
+            display: inline-block;
         }
         
         .wordpress {
             font-family: 'Dancing Script', cursive;
-            font-size: 60px;
+            font-size: clamp(2.4rem, 6vw, 3.6rem);
             font-weight: 400;
             background: linear-gradient(90deg, #FF0068 53%, #99003E 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             color: transparent;
+            display: inline-block;
         }
-        /* Filter Buttons */
         
+        /* Filter Buttons */
         .filter-buttons {
             display: flex;
             justify-content: center;
@@ -141,24 +150,45 @@
             color: white;
             border-radius: 50px;
             border: 1px solid white;
-            /* border: 1px solid var(--primary); */
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        
+        .filter-btn:hover::before,
+        .filter-btn.active::before {
+            transform: scaleX(1);
+            transform-origin: left;
         }
         
         .filter-btn:hover,
         .filter-btn.active {
-            background: var(--primary);
-            background: white;
-            color: black;
-            /* box-shadow: 0 0 15px rgba(255, 0, 104, 0.5); */
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(255, 0, 104, 0.5);
         }
-        /* Portfolio Cards */
         
+        /* Portfolio Cards */
         .portfolio-container {
             max-width: 100%;
             margin: auto;
@@ -171,21 +201,20 @@
             display: flex;
             width: max-content;
             gap: 35px;
-            animation: scroll 40s linear infinite;
             padding: 20px 0;
             margin-bottom: 50px;
         }
         
-        .portfolio-slider:hover {
-            animation-play-state: paused;
+        .portfolio-slider.animate {
+            animation: scroll 40s linear infinite;
         }
         
-        .portfolio-slider.reverse:hover {
-            animation-play-state: paused;
+        .portfolio-slider.reverse.animate {
+            animation: scrollReverse 40s linear infinite;
         }
         
         .portfolio-card {
-            background: transparent;
+            background: rgba(30, 30, 30, 0.6);
             backdrop-filter: blur(12px);
             border-radius: 18px;
             overflow: hidden;
@@ -193,21 +222,41 @@
             width: 350px;
             flex-shrink: 0;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 0.5px solid var(--secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             height: 450px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease;
+        }
+        
+        .portfolio-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 0, 104, 0.1), rgba(255, 0, 104, 0));
+            z-index: -1;
         }
         
         .portfolio-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(255, 0, 104, 0.2);
+            border-color: var(--primary);
         }
         
         .portfolio-card img {
             width: 100%;
             height: 200px;
-            margin-top: 10px;
-            /* object-fit: cover; */
+            object-fit: cover;
             transition: transform 0.4s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .portfolio-card:hover img {
@@ -276,10 +325,9 @@
         
         .visit-button {
             background: linear-gradient(to right, var(--primary), #ff416c);
-            background: linear-gradient(to right, white, #d5d5d5);
             padding: 0.6rem 1.5rem;
             border-radius: 8px;
-            color: rgb(0, 0, 0);
+            color: white;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
@@ -287,25 +335,52 @@
             display: inline-flex;
             align-items: center;
             gap: 5px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .visit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #ff4b2b, var(--primary));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .visit-button:hover::before {
+            opacity: 1;
         }
         
         .visit-button i {
             font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .visit-button:hover i {
+            transform: translateX(3px);
         }
         
         .visit-button:hover {
-            background: linear-gradient(to right, #ff4b2b, var(--primary));
             box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
             transform: translateY(-2px);
         }
-        /* Stats Section */
         
+        /* Stats Section */
         .stats {
             padding: 5rem 0;
             background: rgba(10, 10, 10, 0.8);
             text-align: center;
             margin-top: 4rem;
             position: relative;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 90%);
         }
         
         .stats::before {
@@ -315,8 +390,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url(/assets/bg_dark.png) center/cover no-repeat;
-            opacity: 0.2;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMCwxMDIsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
+            opacity: 0.3;
             z-index: -1;
         }
         
@@ -336,6 +411,14 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .stat-item:hover {
@@ -345,10 +428,9 @@
         }
         
         .stat-number {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 700;
             color: var(--primary);
-            color: white;
             margin-bottom: 0.5rem;
             font-family: 'Orbitron', sans-serif;
         }
@@ -357,8 +439,8 @@
             color: rgba(255, 255, 255, 0.8);
             font-size: 1rem;
         }
-        /* CTA Section */
         
+        /* CTA Section */
         .cta {
             padding: 6rem 0;
             background: linear-gradient(135deg, rgba(255, 0, 104, 0.9), rgba(153, 0, 62, 0.9));
@@ -366,10 +448,28 @@
             text-align: center;
             clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
             margin-top: 4rem;
+            position: relative;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .cta .container {
+            position: relative;
+            z-index: 2;
         }
         
         .cta h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             margin-bottom: 1.5rem;
             font-weight: 700;
         }
@@ -377,7 +477,7 @@
         .cta p {
             max-width: 600px;
             margin: 0 auto 2rem;
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2vw, 1.1rem);
             opacity: 0.9;
         }
         
@@ -393,33 +493,223 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             text-transform: uppercase;
             letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), #ff416c);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .cta .btn:hover::before {
+            opacity: 1;
         }
         
         .cta .btn:hover {
+            color: white;
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
-        /* Animations */
         
+        /* Project Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--modal-bg);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: #1a1a1a;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 30px rgba(255, 0, 104, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+        }
+        
+        .modal-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .modal-subtitle {
+            color: #aaa;
+            font-size: 1rem;
+        }
+        
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .modal-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-images img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+        
+        .modal-images img:hover {
+            transform: scale(1.02);
+        }
+        
+        .modal-description {
+            color: #ccc;
+            line-height: 1.7;
+        }
+        
+        .modal-features {
+            padding-left: 20px;
+            color: #ccc;
+            line-height: 1.7;
+        }
+        
+        .modal-features li {
+            margin-bottom: 8px;
+        }
+        
+        .modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .modal-tech-item {
+            background: var(--tech-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            border: 1px solid var(--secondary);
+        }
+        
+        .modal-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .modal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-link.live {
+            background: var(--primary);
+        }
+        
+        .modal-link.code {
+            background: #333;
+        }
+        
+        .modal-link.store {
+            background: #555;
+        }
+        
+        .modal-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Animations */
         @keyframes scroll {
             0% {
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(calc(-50% - 17.5px));
             }
         }
         
         @keyframes scrollReverse {
             0% {
-                transform: translateX(-50%);
+                transform: translateX(calc(-50% - 17.5px));
             }
             100% {
                 transform: translateX(0);
             }
         }
-        /* Responsive Design */
         
+        /* Responsive Design */
         @media (max-width: 1200px) {
             .portflio_heading {
                 font-size: 3rem;
@@ -430,65 +720,122 @@
             }
         }
         
-        @media (max-width: 768px) {
-            .portfolio-hero {
-                padding: 6rem 0 4rem;
-            }
-            .portflio_heading {
-                font-size: 2.2rem;
-            }
-            .portfolio-subtitle {
-                font-size: 1rem;
-            }
-            .cms,
-            .wordpress {
-                font-size: 2rem;
-                display: block;
-                margin: 0 auto;
-            }
-            .filter-buttons {
-                gap: 0.5rem;
-                margin: 2rem 0;
-            }
-            .filter-btn {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.8rem;
-            }
+        @media (max-width: 992px) {
             .portfolio-card {
                 width: 300px;
                 height: 420px;
             }
-            .stat-number {
-                font-size: 2rem;
+            
+            .modal-content {
+                width: 95%;
+                padding: 20px;
             }
-            .cta h2 {
-                font-size: 2rem;
+            
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .portfolio-hero {
+                padding: 6rem 0 4rem;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+            
+            .portflio_heading {
+                font-size: 2.2rem;
+            }
+            
+            .filter-buttons {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding: 0 1rem 10px;
+                margin: 2rem 0;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            
+            .filter-buttons::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .filter-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.8rem;
+                white-space: nowrap;
+            }
+            
+            .portfolio-container {
+                padding: 0 1rem;
+            }
+            
+            .portfolio-slider {
+                gap: 20px;
+            }
+            
+            .portfolio-card {
+                width: 280px;
+                height: 400px;
+            }
+            
+            .stats {
+                clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%);
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .cta {
+                padding: 4rem 0;
+                clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .modal-images {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .modal-link {
+                justify-content: center;
             }
         }
         
         @media (max-width: 480px) {
             .portfolio-hero {
                 padding: 5rem 0 3rem;
-                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
             }
-            .portflio_heading {
-                font-size: 1.8rem;
-            }
-            .filter-buttons {
-                justify-content: flex-start;
-                overflow-x: auto;
-                padding-bottom: 10px;
-                flex-wrap: nowrap;
-                -webkit-overflow-scrolling: touch;
-            }
+            
             .portfolio-card {
-                width: 280px;
+                width: 260px;
+                height: 380px;
             }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+            
+            .card-description {
+                font-size: 0.85rem;
+            }
+            
             .stats-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
-            .cta {
-                padding: 4rem 0;
+            
+            .modal-content {
+                width: 100%;
+                border-radius: 0;
+                max-height: 100vh;
+            }
+            
+            .modal-title {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -517,10 +864,10 @@
     </div>
 
     <div class="portfolio-container">
-        <div class="portfolio-slider" id="cms-slider">
+        <div class="portfolio-slider animate" id="cms-slider">
             <!-- Project 1 -->
             <div class="portfolio-card" data-category="cms">
-                <img src="/assets/america home plumbing service/laptop.png" alt="E-commerce Website">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Plumbing Services Website">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">Plumbing Services</h3>
@@ -533,14 +880,14 @@
                         <span class="tech-item">PHP</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="plumbing-services">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
 
             <!-- Project 2 -->
             <div class="portfolio-card" data-category="cms">
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="E-commerce Store">
+                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Fashion Boutique Website">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">Fashion Boutique</h3>
@@ -553,14 +900,14 @@
                         <span class="tech-item">CSS3</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="fashion-boutique">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
 
             <!-- Project 3 -->
             <div class="portfolio-card" data-category="cms">
-                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Business Website">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Corporate Portal Website">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">Corporate Portal</h3>
@@ -573,14 +920,14 @@
                         <span class="tech-item">React</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="corporate-portal">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
 
             <!-- Project 4 -->
             <div class="portfolio-card" data-category="cms">
-                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="E-commerce Store">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Electronics Store Website">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">Electronics Store</h3>
@@ -593,7 +940,7 @@
                         <span class="tech-item">GraphQL</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="electronics-store">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -607,10 +954,10 @@
     </div>
 
     <div class="portfolio-container">
-        <div class="portfolio-slider reverse" id="custom-slider">
+        <div class="portfolio-slider reverse animate" id="custom-slider">
             <!-- Project 1 -->
             <div class="portfolio-card" data-category="custom">
-                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="SAAS Platform">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Marketing SAAS Platform">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">Marketing SAAS</h3>
@@ -623,14 +970,14 @@
                         <span class="tech-item">Redis</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="marketing-saas">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
 
             <!-- Project 2 -->
             <div class="portfolio-card" data-category="custom">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Healthcare System">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Hospital Management System">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">Hospital Management</h3>
@@ -643,7 +990,7 @@
                         <span class="tech-item">Blazor</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="hospital-management">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -663,14 +1010,14 @@
                         <span class="tech-item">MongoDB</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="real-estate">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
 
             <!-- Project 4 -->
             <div class="portfolio-card" data-category="custom">
-                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Financial Dashboard">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Investment Dashboard">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">Investment Dashboard</h3>
@@ -683,7 +1030,7 @@
                         <span class="tech-item">WebSockets</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="investment-dashboard">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -697,10 +1044,10 @@
     </div>
 
     <div class="portfolio-container">
-        <div class="portfolio-slider" id="mobile-slider">
+        <div class="portfolio-slider animate" id="mobile-slider">
             <!-- Project 1 -->
             <div class="portfolio-card" data-category="mobile">
-                <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Fitness App">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Fitness App">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">FitTrack Pro</h3>
@@ -713,14 +1060,14 @@
                         <span class="tech-item">ML Kit</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="fittrack-pro">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
 
             <!-- Project 2 -->
             <div class="portfolio-card" data-category="mobile">
-                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="E-commerce App">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="E-commerce App">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">ShopEase Mobile</h3>
@@ -733,7 +1080,7 @@
                         <span class="tech-item">ARKit</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="shopease-mobile">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -753,14 +1100,14 @@
                         <span class="tech-item">WebRTC</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="social-network">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
 
             <!-- Project 4 -->
             <div class="portfolio-card" data-category="mobile">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Health App">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Health App">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">Health Monitor</h3>
@@ -773,7 +1120,7 @@
                         <span class="tech-item">BLE</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="health-monitor">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -787,7 +1134,7 @@
     </div>
 
     <div class="portfolio-container">
-        <div class="portfolio-slider reverse" id="desktop-slider">
+        <div class="portfolio-slider reverse animate" id="desktop-slider">
             <!-- Project 1 -->
             <div class="portfolio-card" data-category="desktop">
                 <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Video Editor">
@@ -803,14 +1150,14 @@
                         <span class="tech-item">WebGL</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="video-editor">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
 
             <!-- Project 2 -->
             <div class="portfolio-card" data-category="desktop">
-                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Accounting Software">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Accounting Software">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">Financial Suite</h3>
@@ -823,14 +1170,14 @@
                         <span class="tech-item">MVVM</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="financial-suite">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
 
             <!-- Project 3 -->
             <div class="portfolio-card" data-category="desktop">
-                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Music Production">
+                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Music Production">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">Music Studio</h3>
@@ -843,14 +1190,14 @@
                         <span class="tech-item">VST</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="music-studio">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
 
             <!-- Project 4 -->
             <div class="portfolio-card" data-category="desktop">
-                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="CAD Software">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="CAD Software">
                 <div class="card-content">
                     <div class="card-header">
                         <h3 class="card-title">3D Design Suite</h3>
@@ -863,7 +1210,7 @@
                         <span class="tech-item">Core Data</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="visit-button">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <button class="visit-button view-project" data-project="design-suite">View Project <i class="fas fa-external-link-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -901,12 +1248,262 @@
         </div>
     </section>
 
+    <!-- Project Modal -->
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Project Title</h2>
+                <p class="modal-subtitle">Project Category</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-images">
+                    <img src="" alt="Project Screenshot 1" class="modal-image">
+                    <img src="" alt="Project Screenshot 2" class="modal-image">
+                    <img src="" alt="Project Screenshot 3" class="modal-image">
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="section-title">Project Overview</h3>
+                    <p class="modal-description">Project description will be loaded here...</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="section-title">Key Features</h3>
+                    <ul class="modal-features">
+                        <!-- Features will be added dynamically -->
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="section-title">Technologies Used</h3>
+                    <div class="modal-tech">
+                        <!-- Tech items will be added dynamically -->
+                    </div>
+                </div>
+                
+                <div class="modal-links">
+                    <a href="#" class="modal-link live" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                    <a href="#" class="modal-link code" target="_blank">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                    <a href="#" class="modal-link store" target="_blank">
+                        <i class="fab fa-apple"></i> App Store
+                    </a>
+                    <a href="#" class="modal-link store" target="_blank">
+                        <i class="fab fa-google-play"></i> Play Store
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Project data for modals
+            const projects = {
+                'plumbing-services': {
+                    title: 'Plumbing Services Website',
+                    category: 'WordPress CMS',
+                    description: 'A fully responsive website for a plumbing services company featuring online booking system, service area management, and customer testimonials. The site was built with WordPress using Elementor for easy content management by the client.',
+                    features: [
+                        'Online booking system with calendar integration',
+                        'Service area management with zip code checker',
+                        'Customer review and testimonial system',
+                        'Emergency call-out feature with SMS notifications',
+                        'SEO optimized for local search results'
+                    ],
+                    tech: ['WordPress', 'Elementor', 'WooCommerce', 'PHP', 'JavaScript', 'MySQL'],
+                    images: [
+                        'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                        'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+                    ],
+                    liveUrl: '#',
+                    codeUrl: '#',
+                    appStoreUrl: '',
+                    playStoreUrl: ''
+                },
+                'fashion-boutique': {
+                    title: 'Fashion Boutique E-commerce',
+                    category: 'Shopify Store',
+                    description: 'An elegant e-commerce solution for a luxury fashion brand featuring custom product configurator, size guides, and AR try-on functionality. The store includes advanced filtering and personalized recommendations.',
+                    features: [
+                        'Custom product configurator with real-time preview',
+                        'AR virtual try-on using device camera',
+                        'Personalized size recommendations',
+                        'Advanced product filtering system',
+                        'Subscription model for VIP customers'
+                    ],
+                    tech: ['Shopify', 'Liquid', 'JavaScript', 'CSS3', 'Three.js', 'ARCore'],
+                    images: [
+                        'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                        'https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                        'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+                    ],
+                    liveUrl: '#',
+                    codeUrl: '#',
+                    appStoreUrl: '',
+                    playStoreUrl: ''
+                },
+                'fittrack-pro': {
+                    title: 'FitTrack Pro Mobile App',
+                    category: 'Flutter Application',
+                    description: 'AI-powered fitness tracking app with personalized workout plans, nutrition guides, and progress tracking. The app includes motion detection for form correction and integrates with wearable devices.',
+                    features: [
+                        'AI-generated personalized workout plans',
+                        'Nutrition tracking with barcode scanner',
+                        'Real-time form correction using device camera',
+                        'Integration with Apple Health and Google Fit',
+                        'Social features for community challenges',
+                        'Detailed analytics and progress reports'
+                    ],
+                    tech: ['Flutter', 'Dart', 'Firebase', 'ML Kit', 'Health API', 'TensorFlow Lite'],
+                    images: [
+                        'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                        'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                        'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+                    ],
+                    liveUrl: '#',
+                    codeUrl: '#',
+                    appStoreUrl: '#',
+                    playStoreUrl: '#'
+                },
+                'marketing-saas': {
+                    title: 'Marketing Automation SAAS',
+                    category: 'Laravel Application',
+                    description: 'Comprehensive marketing automation platform with AI-powered content generation, email campaign management, and analytics dashboard. The system supports multi-tenancy and integrates with major social platforms.',
+                    features: [
+                        'AI-powered content generation',
+                        'Multi-channel campaign management',
+                        'Advanced analytics dashboard',
+                        'Multi-tenancy support',
+                        'Social media integration',
+                        'A/B testing for campaigns'
+                    ],
+                    tech: ['Laravel', 'Vue.js', 'MySQL', 'Redis', 'AI Integration', 'AWS'],
+                    images: [
+                        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80',
+                        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+                    ],
+                    liveUrl: '#',
+                    codeUrl: '#',
+                    appStoreUrl: '',
+                    playStoreUrl: ''
+                }
+                // Add more projects as needed
+            };
+
+            // DOM elements
+            const modal = document.getElementById('project-modal');
+            const modalTitle = modal.querySelector('.modal-title');
+            const modalSubtitle = modal.querySelector('.modal-subtitle');
+            const modalDescription = modal.querySelector('.modal-description');
+            const modalFeatures = modal.querySelector('.modal-features');
+            const modalTech = modal.querySelector('.modal-tech');
+            const modalImages = modal.querySelectorAll('.modal-image');
+            const modalLiveLink = modal.querySelector('.modal-link.live');
+            const modalCodeLink = modal.querySelector('.modal-link.code');
+            const modalAppStoreLink = modal.querySelectorAll('.modal-link.store')[0];
+            const modalPlayStoreLink = modal.querySelectorAll('.modal-link.store')[1];
+            const closeModalBtn = modal.querySelector('.close-modal');
+            const viewProjectBtns = document.querySelectorAll('.view-project');
+
+            // Open modal with project data
+            function openModal(projectId) {
+                const project = projects[projectId];
+                if (!project) return;
+
+                modalTitle.textContent = project.title;
+                modalSubtitle.textContent = project.category;
+                modalDescription.textContent = project.description;
+                
+                // Clear previous features
+                modalFeatures.innerHTML = '';
+                
+                // Add features
+                project.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    modalFeatures.appendChild(li);
+                });
+                
+                // Clear previous tech items
+                modalTech.innerHTML = '';
+                
+                // Add tech items
+                project.tech.forEach(tech => {
+                    const techItem = document.createElement('span');
+                    techItem.className = 'modal-tech-item';
+                    techItem.textContent = tech;
+                    modalTech.appendChild(techItem);
+                });
+                
+                // Set images
+                modalImages.forEach((img, index) => {
+                    img.src = project.images[index % project.images.length];
+                    img.alt = `${project.title} Screenshot ${index + 1}`;
+                });
+                
+                // Set links
+                modalLiveLink.href = project.liveUrl;
+                modalCodeLink.href = project.codeUrl;
+                modalAppStoreLink.href = project.appStoreUrl;
+                modalPlayStoreLink.href = project.playStoreUrl;
+                
+                // Show/hide store links based on availability
+                modalAppStoreLink.style.display = project.appStoreUrl ? 'flex' : 'none';
+                modalPlayStoreLink.style.display = project.playStoreUrl ? 'flex' : 'none';
+                
+                // Show modal
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Close modal
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            // Event listeners
+            viewProjectBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const projectId = btn.dataset.project;
+                    openModal(projectId);
+                });
+            });
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Close with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+
+            // Image click to enlarge (would need additional implementation)
+            modalImages.forEach(img => {
+                img.addEventListener('click', () => {
+                    // This would open a lightbox or enlarge the image
+                    console.log('Image clicked - would open lightbox in full implementation');
+                });
+            });
+
             // Filter functionality
             const filterBtns = document.querySelectorAll('.filter-btn');
             const projectCards = document.querySelectorAll('.portfolio-card');
             const sliders = document.querySelectorAll('.portfolio-slider');
+            const categoryTitles = document.querySelectorAll('.category-title');
 
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -921,12 +1518,12 @@
                     if (filter === 'all') {
                         projectCards.forEach(card => card.style.display = 'block');
                         sliders.forEach(slider => slider.style.display = 'flex');
-                        document.querySelectorAll('.category-title').forEach(title => title.style.display = 'block');
+                        categoryTitles.forEach(title => title.style.display = 'block');
                     } else {
                         // Hide all first
                         projectCards.forEach(card => card.style.display = 'none');
                         sliders.forEach(slider => slider.style.display = 'none');
-                        document.querySelectorAll('.category-title').forEach(title => title.style.display = 'none');
+                        categoryTitles.forEach(title => title.style.display = 'none');
 
                         // Show matching projects
                         const matchingCards = document.querySelectorAll(`.portfolio-card[data-category="${filter}"]`);
@@ -937,7 +1534,7 @@
                             const parentSlider = matchingCards[0].closest('.portfolio-slider');
                             if (parentSlider) {
                                 parentSlider.style.display = 'flex';
-                                parentSlider.previousElementSibling.style.display = 'block'; // Show category title
+                                parentSlider.previousElementSibling.style.display = 'block';
                             }
                         }
                     }
@@ -947,14 +1544,33 @@
             // Pause animation on hover for all sliders
             sliders.forEach(slider => {
                 slider.addEventListener('mouseenter', () => {
-                    slider.style.animationPlayState = 'paused';
+                    slider.classList.remove('animate');
                 });
                 slider.addEventListener('mouseleave', () => {
-                    slider.style.animationPlayState = 'running';
+                    slider.classList.add('animate');
                 });
             });
+
+            // Intersection Observer for animations
+            const animateOnScroll = (elements, className) => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add(className);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                elements.forEach(element => {
+                    observer.observe(element);
+                });
+            };
+
+            // Animate elements when they come into view
+            animateOnScroll(document.querySelectorAll('.portfolio-card'), 'visible');
+            animateOnScroll(document.querySelectorAll('.category-title'), 'visible');
+            animateOnScroll(document.querySelectorAll('.stat-item'), 'visible');
         });
     </script>
 </body>
-
 </html>

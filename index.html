@@ -34,7 +34,7 @@
                 position: fixed;
                 width: 100%;
                 z-index: 1000;
-                padding: 15px 0;
+                padding: 10px 0;
                 background: rgba(255, 255, 255, 0.98);
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
                 transition: all 0.3s ease;
@@ -83,8 +83,9 @@
                 bottom: 0;
                 left: 0;
                 width: 0;
-                height: 2px;
-                background: linear-gradient(90deg, #FF0066, #FF00FF);
+                height: 1px;
+                background: linear-gradient(90deg, #000000, #3a3a3a);
+                /* background: linear-gradient(90deg, #FF0066, #FF00FF); */
                 transition: width 0.3s ease;
             }
             
@@ -134,7 +135,9 @@
             }
             
             .dropdown_content a:hover {
-                background: linear-gradient(90deg, #FF0066, #FF00FF);
+                /* background: linear-gradient(90deg, #f7f7f7, #ebebeb); */
+                /* background: linear-gradient(90deg, #FF0066, #FF00FF); */
+                background: linear-gradient(90deg, #FF0066, #e5005cda);
                 color: #fff;
             }
             /* CTA Button */
@@ -300,19 +303,32 @@
                 </a>
 
                 <nav class="nav_links">
+                    <a href="/about.html">About</a>
                     <div class="dropdown">
-                        <a href="/servies.html" class="dropbtn">Services</a>
+                        <a href="/servies.html" class="dropbtn">Solution</a>
                         <div class="dropdown_content">
                             <a href="/Web Design.html">Web Design</a>
-                            <a href="/App Development.html">App
-                                    Development</a>
+                            <a href="/App Development.html">Mobile Application Development</a>
                             <a href="/UX Development.html">UI/UX</a>
                             <a href="/Branding.html">Branding</a>
                         </div>
                     </div>
-                    <a href="/Projects.html">Work</a>
-                    <a href="/about.html">About</a>
-                    <a href="/Process.html">Process</a>
+                    <div class="dropdown">
+                        <a href="/servies.html" class="dropbtn">Case Studies</a>
+                        <div class="dropdown_content">
+                            <a href="/Web Design.html">Pay Point</a>
+                            <a href="/App Development.html">Recovery Master</a>
+                            <a href="/UX Development.html">Bazaristan</a>
+                            <a href="/UX Development.html">Sindh Health Comission</a>
+                            <a href="/Branding.html">Tax Doctor</a>
+                            <a href="/Branding.html">OS Bazar</a>
+                            <a href="/Branding.html">Currency Convertor</a>
+                        </div>
+                    </div>
+
+                    <a href="/Projects.html">Blogs</a>
+                    <!-- <a href="/Projects.html">Work</a>
+                    <a href="/Process.html">Process</a> -->
                 </nav>
 
                 <a href="/Get Quote.html" class="cta_button">Get Quote</a>
@@ -568,13 +584,13 @@
 
         <div class="video-slide">
             <video autoplay muted loop playsinline>
-                    <source src="/assets/hero_bg_2.mp4" type="video/mp4">
+                    <source src="/assets/hero_bg_1.mp4" type="video/mp4">
                 </video>
         </div>
 
         <div class="video-slide">
             <video autoplay muted loop playsinline>
-                    <source src="/assets/hero_bg_3.mp4" type="video/mp4">
+                    <source src="/assets/hero_bg_1.mp4" type="video/mp4">
                 </video>
         </div>
 
