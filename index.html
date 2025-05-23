@@ -16,7 +16,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
         body {
             font-family: "Poppins", sans-serif;
-            font-weight: 100;
+            font-weight: 300;
             font-style: normal;
         }
     </style>
@@ -1626,7 +1626,7 @@
         }
     </style>
     <style>
-        .portfolio_main {
+        /* .portfolio_main {
             min-height: 100vh;
             background-image: url(/assets/bg_dark.png);
             background-position: center;
@@ -1636,60 +1636,125 @@
             position: relative;
             overflow: hidden;
             opacity: 0.9
-        }
+        } */
     </style>
 
     <!-- portfolio - End -->
-    <a href="/Web Design.html">
+
+    <section>
         <style>
-            .web_bg {
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            
+            body {
+                overflow-x: hidden;
+                font-family: sans-serif;
+            }
+            
+            .slider-container {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .slider {
+                position: relative;
+                width: 100vw;
                 height: 100vh;
-                width: 100vw;
+                overflow: hidden;
+            }
+            
+            .slide-wrapper {
+                display: flex;
+                width: 100%;
+                /* 3 slides */
+                transition: transform 1s ease-in-out;
+            }
+            
+            .slide {
+                flex: 0 0 100%;
+                height: 100vh;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            
+            .web-slide {
                 background-image: url('/assets/web_bg.png');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
             }
             
-            @media (max-width: 768px) {
-                .web_bg {
-                    height: 40vh;
-                    width: 100vw;
-                    background-size: contain;
-                    /* border: 2px solid red; */
-                }
-            }
-        </style>
-
-        <section class="web_bg">
-
-        </section>
-    </a>
-    <a href="/App Development.html" style="display: block; height: 100%; width: 100%;">
-        <style>
-            .mob_bg {
-                height: 98vh;
-                width: 100vw;
+            .mob-slide {
                 background-image: url('/assets/mob_bg.png');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
+            }
+            
+            .slide a {
+                display: block;
+                width: 100%;
+                height: 100%;
             }
             
             @media (max-width: 768px) {
-                .mob_bg {
+                .slider {
                     height: 40vh;
-                    width: 100vw;
+                }
+                .slide {
+                    height: 40vh;
                     background-size: contain;
-                    /* border: 2px solid red; */
                 }
             }
         </style>
+        <div class="slider-container">
+            <!-- Web Design Slider -->
+            <div class="slider" id="web-slider">
+                <div class="slide-wrapper">
+                    <div class="slide web-slide">
+                        <a href="/Web Design.html"></a>
+                    </div>
+                    <div class="slide web-slide">
+                        <a href="/Web Design.html"></a>
+                    </div>
+                    <div class="slide web-slide">
+                        <a href="/Web Design.html"></a>
+                    </div>
+                </div>
+            </div>
 
-        <section class="mob_bg">
+            <!-- App Development Slider -->
+            <div class="slider" id="mob-slider">
+                <div class="slide-wrapper">
+                    <div class="slide mob-slide">
+                        <a href="/App Development.html"></a>
+                    </div>
+                    <div class="slide mob-slide">
+                        <a href="/App Development.html"></a>
+                    </div>
+                    <div class="slide mob-slide">
+                        <a href="/App Development.html"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        </section>
-    </a>
+        <script>
+            function startSlider(sliderId, slideCount, interval = 3000) {
+                const slider = document.getElementById(sliderId);
+                const wrapper = slider.querySelector('.slide-wrapper');
+                let index = 0;
+
+                setInterval(() => {
+                    index = (index + 1) % slideCount;
+                    wrapper.style.transform = `translateX(-${index * 100}%)`;
+                }, interval);
+            }
+
+            // Start both sliders independently
+            startSlider('web-slider', 3, 4000); // slides every 4 seconds
+            startSlider('mob-slider', 3, 5000); // slides every 5 seconds
+        </script>
+    </section>
+
 
     <section class="achievements-section" id="achievements">
         <style>
