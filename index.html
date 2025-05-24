@@ -107,7 +107,9 @@
                 top: 35px;
                 left: 0;
                 background: #fff;
-                min-width: 180px;
+                min-width: 250px;
+                /* min-width: 282px; */
+                /* min-width: 180px; */
                 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
                 border-radius: 8px;
                 overflow: hidden;
@@ -127,11 +129,13 @@
             .dropdown_content a {
                 display: block;
                 padding: 12px 20px;
-                color: #333;
+                color: #333333be;
                 text-decoration: none;
                 background: white;
-                font-weight: 500;
+                font-weight: 400;
                 transition: background 0.3s ease, color 0.3s ease;
+                border: 1px solid rgba(0, 0, 0, 0.07);
+                line-height: 20px;
             }
             
             .dropdown_content a:hover {
@@ -307,10 +311,12 @@
                     <div class="dropdown">
                         <a href="/servies.html" class="dropbtn">Solution</a>
                         <div class="dropdown_content">
-                            <a href="/Web Design.html">Web Design</a>
                             <a href="/App Development.html">Mobile Application Development</a>
-                            <a href="/UX Development.html">UI/UX</a>
-                            <a href="/Branding.html">Branding</a>
+                            <a href="/Web Design.html">Web App Development</a>
+                            <a href="/Web Design.html">CMS & Custom Website Development</a>
+                            <!-- <a href="/UX Development.html">UI/UX</a> -->
+                            <!-- <a href="/UX Development.html">UI/UX</a> -->
+                            <!-- <a href="/Branding.html">Branding</a> -->
                         </div>
                     </div>
                     <div class="dropdown">
@@ -323,6 +329,7 @@
                             <a href="/Branding.html">Tax Doctor</a>
                             <a href="/Branding.html">OS Bazar</a>
                             <a href="/Branding.html">Currency Convertor</a>
+                            <a href="/Branding.html">Cargo Managment Sytstem</a>
                         </div>
                     </div>
 
@@ -1074,7 +1081,7 @@
         <!-- services - Start -->
         <style>
             .services_main {
-                background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5)), url('/assets/bg_light.png');
+                /* background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5)), url('/assets/bg_light.png'); */
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -1153,7 +1160,8 @@
             
             .service-card-bg {
                 /* background: linear-gradient(135deg, rgba(255, 0, 102, 0.9), rgba(153, 0, 61, 0.9)); */
-                background: linear-gradient(135deg, rgba(124, 0, 33, 0.9), rgba(53, 53, 53, 0.9));
+                /* background: linear-gradient(135deg, rgba(124, 0, 33, 0.9), rgba(53, 53, 53, 0.9)); */
+                background: linear-gradient(135deg, #FE2C80, rgba(53, 53, 53, 0.9));
             }
             
             .ard-2 .service-card-bg {
@@ -1394,8 +1402,8 @@
                     <!-- Card 1 -->
                     <div class="service-card card-2">
                         <div class="service-card-bg">
-                            <div class="circle circle-1"></div>
-                            <div class="circle circle-2"></div>
+                            <!-- <div class="circle circle-1"></div> -->
+                            <!-- <div class="circle circle-2"></div> -->
                             <h2 class="service-title">E-COMMERCE
                                 <br>SOLUTIONS</h2>
                             <p class="service-description">Complete online store setup with payment integration</p>
@@ -1416,8 +1424,8 @@
                     <!-- Card 2 -->
                     <div class="service-card card-1">
                         <div class="service-card-bg">
-                            <div class="circle circle-1"></div>
-                            <div class="circle circle-2"></div>
+                            <!-- <div class="circle circle-1"></div>
+                            <div class="circle circle-2"></div> -->
                             <h2 class="service-title">CMS WEBSITE
                                 <br>DEVELOPMENT</h2>
                             <p class="service-description">Best for New Business OR Start Ups cost effective</p>
@@ -1437,8 +1445,8 @@
                     <!-- Card 3 -->
                     <div class="service-card card-3">
                         <div class="service-card-bg">
-                            <div class="circle circle-1"></div>
-                            <div class="circle circle-2"></div>
+                            <!-- <div class="circle circle-1"></div>
+                            <div class="circle circle-2"></div> -->
                             <h2 class="service-title">MOBILE APP
                                 <br>DEVELOPMENT</h2>
                             <p class="service-description">Custom mobile applications for iOS and Android</p>
@@ -1459,8 +1467,8 @@
                     <!-- Card 4 -->
                     <div class="service-card card-4">
                         <div class="service-card-bg">
-                            <div class="circle circle-1"></div>
-                            <div class="circle circle-2"></div>
+                            <!-- <div class="circle circle-1"></div>
+                            <div class="circle circle-2"></div> -->
                             <h2 class="service-title">DIGITAL
                                 <br>MARKETING</h2>
                             <p class="service-description">Boost your online presence with our marketing strategies</p>
@@ -1835,129 +1843,133 @@
     <!-- portfolio - End -->
 
     <section>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            overflow-x: hidden;
-            font-family: sans-serif;
-        }
-        
-        .slider-container {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .slider {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-        }
-        
-        .slide-wrapper {
-            display: flex;
-            width: 100%;
-            /* 3 slides */
-            transition: transform 1s ease-in-out;
-        }
-        
-        .slide {
-            flex: 0 0 100%;
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-        .web-slide {
-            background-image: url('/assets/web_bg.png');
-        }
-        
-        .mob-slide {
-            background-image: url('/assets/mob_bg.png');
-        }
-        
-        .slide a {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        
-        @media (max-width: 768px) {
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            
+            body {
+                overflow-x: hidden;
+                font-family: sans-serif;
+            }
+            
+            .slider-container {
+                display: flex;
+                flex-direction: column;
+            }
+            
             .slider {
-                height: 50vh; /* Reduced height for mobile */
+                position: relative;
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
             }
+            
+            .slide-wrapper {
+                display: flex;
+                width: 100%;
+                /* 3 slides */
+                transition: transform 1s ease-in-out;
+            }
+            
             .slide {
-                height: 50vh; /* Match slider height */
-                background-size: cover; /* Changed from contain to cover for better filling */
+                flex: 0 0 100%;
+                height: 100vh;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .slider {
-                height: 28vh; /* Even smaller for very small devices */
+            
+            .web-slide {
+                background-image: url('/assets/web_bg.png');
             }
-            .slide {
-                height: 28vh;
+            
+            .mob-slide {
+                background-image: url('/assets/mob_bg.png');
             }
-        }
-    </style>
-    <div class="slider-container">
-        
+            
+            .slide a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            
+            @media (max-width: 768px) {
+                .slider {
+                    height: 50vh;
+                    /* Reduced height for mobile */
+                }
+                .slide {
+                    height: 50vh;
+                    /* Match slider height */
+                    background-size: cover;
+                    /* Changed from contain to cover for better filling */
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .slider {
+                    height: 28vh;
+                    /* Even smaller for very small devices */
+                }
+                .slide {
+                    height: 28vh;
+                }
+            }
+        </style>
+        <div class="slider-container">
 
-        <!-- App Development Slider -->
-        <div class="slider" id="mob-slider">
-            <div class="slide-wrapper">
-                <div class="slide mob-slide">
-                    <a href="/App Development.html"></a>
+
+            <!-- App Development Slider -->
+            <div class="slider" id="mob-slider">
+                <div class="slide-wrapper">
+                    <div class="slide mob-slide">
+                        <a href="/App Development.html"></a>
+                    </div>
+                    <div class="slide mob-slide">
+                        <a href="/App Development.html"></a>
+                    </div>
+                    <div class="slide mob-slide">
+                        <a href="/App Development.html"></a>
+                    </div>
                 </div>
-                <div class="slide mob-slide">
-                    <a href="/App Development.html"></a>
-                </div>
-                <div class="slide mob-slide">
-                    <a href="/App Development.html"></a>
+            </div>
+
+            <!-- Web Design Slider -->
+            <div class="slider" id="web-slider">
+                <div class="slide-wrapper">
+                    <div class="slide web-slide">
+                        <a href="/Web Design.html"></a>
+                    </div>
+                    <div class="slide web-slide">
+                        <a href="/Web Design.html"></a>
+                    </div>
+                    <div class="slide web-slide">
+                        <a href="/Web Design.html"></a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Web Design Slider -->
-        <div class="slider" id="web-slider">
-            <div class="slide-wrapper">
-                <div class="slide web-slide">
-                    <a href="/Web Design.html"></a>
-                </div>
-                <div class="slide web-slide">
-                    <a href="/Web Design.html"></a>
-                </div>
-                <div class="slide web-slide">
-                    <a href="/Web Design.html"></a>
-                </div>
-            </div>
-        </div>
-    </div>
+        <script>
+            function startSlider(sliderId, slideCount, interval = 3000) {
+                const slider = document.getElementById(sliderId);
+                const wrapper = slider.querySelector('.slide-wrapper');
+                let index = 0;
 
-    <script>
-        function startSlider(sliderId, slideCount, interval = 3000) {
-            const slider = document.getElementById(sliderId);
-            const wrapper = slider.querySelector('.slide-wrapper');
-            let index = 0;
+                setInterval(() => {
+                    index = (index + 1) % slideCount;
+                    wrapper.style.transform = `translateX(-${index * 100}%)`;
+                }, interval);
+            }
 
-            setInterval(() => {
-                index = (index + 1) % slideCount;
-                wrapper.style.transform = `translateX(-${index * 100}%)`;
-            }, interval);
-        }
-
-        // Start both sliders independently
-        startSlider('web-slider', 3, 4000); // slides every 4 seconds
-        startSlider('mob-slider', 3, 5000); // slides every 5 seconds
-    </script>
-</section>
+            // Start both sliders independently
+            startSlider('web-slider', 3, 4000); // slides every 4 seconds
+            startSlider('mob-slider', 3, 5000); // slides every 5 seconds
+        </script>
+    </section>
 
     <!-- Tech - start -->
     <section class="tech-section">
@@ -1965,7 +1977,7 @@
             body {
                 margin: 0;
                 font-family: 'Poppins', sans-serif;
-                background-color: #0f0f1a;
+                background-color: #ffffff;
                 color: #fff;
             }
             
@@ -1977,7 +1989,7 @@
             .tech-section h1 {
                 font-size: 48px;
                 margin-bottom: 10px;
-                color: #ffffff;
+                color: rgb(0, 0, 0)
             }
             
             .description {
@@ -1994,7 +2006,7 @@
             .filter-button {
                 background: transparent;
                 border: 2px solid rgb(215, 215, 215);
-                color: rgb(215, 215, 215);
+                color: rgb(123, 123, 123);
                 padding: 10px 20px;
                 margin: 5px;
                 border-radius: 30px;
@@ -2004,8 +2016,8 @@
             
             .filter-button.active,
             .filter-button:hover {
-                background-color: #ffffff;
-                color: rgb(0, 0, 0);
+                background-color: #000000;
+                color: rgb(255, 255, 255);
             }
             
             .tech-grid {
@@ -2017,7 +2029,7 @@
             }
             
             .tech-card {
-                background: #1c1c2e;
+                background: #505050;
                 border: 1px solid #29293d;
                 padding: 20px;
                 border-radius: 20px;
@@ -2044,14 +2056,15 @@
             
             .cta_button_tech {
                 margin-top: 40px;
-                background: linear-gradient(90deg, #ffffff, #c3c3c3);
+                background: linear-gradient(90deg, #000000, #505050);
                 border: none;
                 padding: 14px 36px;
                 font-size: 16px;
                 border-radius: 30px;
-                color: rgb(0, 0, 0);
+                color: rgb(255, 255, 255);
                 cursor: pointer;
                 transition: 0.3s ease;
+                display: none;
             }
             
             .cta_button_tech:hover {
@@ -2452,7 +2465,7 @@
             </div>
 
             <!-- Right Contact Form -->
-            <div class="contact-right">
+            <div class="contact-right" style="border-top: 10px solid #fe2c80;">
                 <form class="contact-form" onsubmit="handleSubmit(event)">
                     <div class="input-group">
                         <input type="text" id="name" name="name" placeholder=" " required />
@@ -3155,6 +3168,18 @@
                 border-radius: 10px;
             }
             
+            .fa-envelope {
+                background: #D44638;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .fa-whatsapp {
+                background: #25D366;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
             .social-icon:hover {
                 transform: translateY(-3px);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -3261,52 +3286,62 @@
                 font-size: 14px;
                 color: #888;
             }
+            /* Mobile-specific styles */
+            
+            .mobile-footer {
+                display: none;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            
+            .mobile-footer .footer-logo {
+                margin: 0 auto 20px;
+            }
+            
+            .mobile-footer .footer-social {
+                justify-content: center;
+                margin-bottom: 30px;
+            }
+            
+            .mobile-footer .footer-bottom {
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+            }
+            
+            .mobile-divider {
+                height: 1px;
+                background: #eee;
+                width: 80%;
+                margin: 20px auto;
+            }
             
             @media (max-width: 768px) {
                 .footer-container {
-                    grid-template-columns: 1fr;
-                    gap: 40px;
+                    display: none;
                 }
-                .footer-section {
-                    text-align: left;
+                .mobile-footer {
+                    display: block;
                 }
-                .footer-links h3::after {
-                    /* left: 50%; */
-                    /* transform: translateX(-100%); */
-                }
-                .footer-social {
-                    justify-content: start;
-                }
-                .footer-links a:hover {
-                    padding-left: 0;
-                }
-                .newsletter-form {
-                    flex-direction: column;
-                }
-                .newsletter-input {
-                    border-radius: 4px;
-                    margin-bottom: 10px;
-                    border-right: 1px solid #ddd;
-                }
-                .newsletter-btn {
-                    border-radius: 4px;
-                    padding: 12px;
+                .footer-bottom {
+                    display: none;
                 }
             }
         </style>
+
+        <!-- Desktop Footer -->
         <div class="footer-container">
             <div class="footer-section footer-about">
                 <img src="/assets/logo.png" alt="Portfolio Logo" class="footer-logo">
                 <p>Creating innovative digital experiences with cutting-edge technology and creative design.</p>
                 <div class="footer-social">
-                    <!-- <a href="#" class="social-icon"><i class="fab fa-github"></i></a> -->
                     <a href="https://www.linkedin.com/company/web-berners/" class="social-icon">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                     <a href="https://www.instagram.com/web_berners/" class="social-icon"><i
-                                class="fab fa-instagram"></i></a>
+                            class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/webberners" class="social-icon"><i
-                                class="fab fa-facebook"></i></a>
+                            class="fab fa-facebook"></i></a>
                 </div>
             </div>
 
@@ -3325,7 +3360,7 @@
                 <ul>
                     <li><a href="/Web Design.html">Web Design</a></li>
                     <li><a href="/App Development.html">App
-                                Development</a></li>
+                            Development</a></li>
                     <li><a href="/UX Development.html">UI/UX</a></li>
                     <li><a href="/Branding.html">Branding</a></li>
                 </ul>
@@ -3344,6 +3379,35 @@
 
         <div class="footer-bottom">
             <p>&copy; 2025 Portfolio. All rights reserved.</p>
+        </div>
+
+        <!-- Mobile Footer -->
+        <div class="mobile-footer">
+            <img src="/assets/logo.png" alt="Portfolio Logo" class="footer-logo">
+            <p>Creating innovative digital experiences with cutting-edge technology and creative design.</p>
+
+            <div class="mobile-divider"></div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/web-berners/" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/web_berners/" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/webberners" class="social-icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="mailto:contact@example.com" class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/1234567890" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Portfolio. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
