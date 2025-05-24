@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Feed</title>
+    <style>
+        .instagram-feed {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .instagram-feed h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .instagram-feed-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .instagram-post {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .instagram-post:hover {
+            transform: translateY(-5px);
+        }
+        
+        .instagram-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .instagram-caption {
+            padding: 15px;
+            text-align: left;
+            color: #333;
+        }
+        
+        .instagram-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .instagram-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(193, 53, 132, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .instagram-feed-container {
+                grid-template-columns: 1fr;
+            }
+            .instagram-feed h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="instagram-feed">
+        <h2>Our Instagram Feed</h2>
+        <div class="instagram-feed-container" id="instagramFeed">
+            <!-- Posts will be loaded here by JavaScript -->
+        </div>
+        <a href="https://www.instagram.com/web_berners/" class="instagram-link" target="_blank">Follow @yourusername</a>
+    </section>
+
+    <script>
+        // Replace with your access token (you'll need to set up a Facebook Developer account)
+        const ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN';
+        const USER_ID = 'YOUR_USER_ID';
+        const LIMIT = 6; // Number of posts to display
+
+        async function fetchInstagramFeed() {
+            try {
+                const response = await fetch(`https://graph.instagram.com/${USER_ID}/media?fields=id,media_type,media_url,caption,permalink&access_token=${ACCESS_TOKEN}&limit=${LIMIT}`);
+                const data = await response.json();
+
+                if (data.data) {
+                    displayPosts(data.data);
+                }
+            } catch (error) {
+                console.error('Error fetching Instagram feed:', error);
+                document.getElementById('instagramFeed').innerHTML = '<p>Unable to load Instagram feed at this time.</p>';
+            }
+        }
+
+        function displayPosts(posts) {
+            const feedContainer = document.getElementById('instagramFeed');
+            feedContainer.innerHTML = '';
+
+            posts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.className = 'instagram-post';
+
+                let mediaContent = '';
+                if (post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM') {
+                    mediaContent = `<img src="${post.media_url}" alt="Instagram post" class="instagram-image">`;
+                } else if (post.media_type === 'VIDEO') {
+                    mediaContent = `<video controls class="instagram-image"><source src="${post.media_url}" type="video/mp4"></video>`;
+                }
+
+                postElement.innerHTML = `
+                    <a href="${post.permalink}" target="_blank">
+                        ${mediaContent}
+                        <div class="instagram-caption">
+                            ${post.caption ? post.caption.substring(0, 100) + (post.caption.length > 100 ? '...' : '') : ''}
+                        </div>
+                    </a>
+                `;
+
+                feedContainer.appendChild(postElement);
+            });
+        }
+
+        // Load the feed when page loads
+        document.addEventListener('DOMContentLoaded', fetchInstagramFeed);
+    </script>
+</body>
+
+</html>
