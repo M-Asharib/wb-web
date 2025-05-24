@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon | Web Berners</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+         :root {
+            --primary: #ff0066;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ffffff, #f4f4f4);
+            color: var(--dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 60px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(90deg, var(--primary), #333);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .progress-bar {
+            width: 75%;
+            max-width: 400px;
+            height: 10px;
+            background: #eee;
+            border-radius: 50px;
+            overflow: hidden;
+            margin: 20px auto;
+        }
+        
+        .progress-bar-fill {
+            width: 75%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), #000);
+            border-radius: 50px;
+        }
+        
+        .socials {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .socials a {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        
+        .socials a:hover {
+            transform: scale(1.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="/assets/logo.png" alt="Web Berners Logo">
+        </div>
+        <h1>Coming Soon</h1>
+        <p>We’re almost ready! Stay tuned while we build something awesome for you.</p>
+
+        <div class="progress-bar">
+            <div class="progress-bar-fill"></div>
+        </div>
+        <p>75% Complete</p>
+
+        <div class="socials">
+            <a href="https://www.instagram.com/web_berners/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/web-berners/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/webberners" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Web Berners. All rights reserved.
+    </footer>
+</body>
+
+</html>

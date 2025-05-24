@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS & Custom Website Development | Web Berners</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         :root {
+            --primary: #FF0066;
+            --secondary: #000000;
+            --accent: #3a3a3a;
+            --light: #f9f9f9;
+            --dark: #222222;
+            --text: #333333;
+            --text-light: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* Hero Section */
+        
+        .hero {
+            padding: 180px 5% 100px;
+            /* background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.98) 100%), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat; */
+            background-image: url('/assets/wb-bg-abstract.png');
+            background-position: right;
+            /* text-align: center; */
+            color: white;
+            position: relative;
+        }
+        /* .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 0, 102, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%);
+        } */
+        
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2rem;
+            /* font-size: 3.5rem; */
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, white, white);
+            /* background: linear-gradient(90deg, var(--primary), var(--accent)); */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.642);
+            /* color: var(--text-light); */
+            max-width: 550px;
+            /* margin: 0 auto 40px; */
+            margin-bottom: 30px;
+            margin-left: 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 7px 30px;
+            background: linear-gradient(90deg, white, rgba(255, 255, 255, 0.681));
+            /* background: linear-gradient(90deg, var(--primary), var(--secondary)); */
+            color: black;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+        }
+        /* CMS Platforms Section */
+        
+        .cms-platforms {
+            padding: 100px 5%;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .platform-card {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .platform-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            font-size: 30px;
+        }
+        
+        .platform-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .platform-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .platform-features {
+            text-align: left;
+            margin-top: 20px;
+        }
+        
+        .platform-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+            color: var(--text-light);
+        }
+        
+        .platform-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        /* Custom Development Section */
+        
+        .custom-dev {
+            padding: 100px 5%;
+            background-color: var(--light);
+        }
+        
+        .dev-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .dev-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .dev-content p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+        
+        .dev-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .feature-list li i {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--primary);
+            font-size: 20px;
+        }
+        /* Portfolio Section */
+        
+        .portfolio {
+            padding: 100px 5%;
+            background-color: white;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-item {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+        
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+        /* CTA Section */
+        
+        .cta-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .secondary-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        /* Footer */
+        
+        .footer {
+            padding: 60px 5% 30px;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        /* Responsive Styles */
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p,
+            .section-title p,
+            .cta-section p {
+                font-size: 1rem;
+            }
+            .section-title h2,
+            .cta-section h2,
+            .dev-content h2 {
+                font-size: 2rem;
+            }
+            .dev-container {
+                grid-template-columns: 1fr;
+            }
+            .dev-image {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <!-- Add Font Awesome CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <style>
+            /* Base Header Styles */
+            
+            .header_main {
+                position: fixed;
+                width: 100%;
+                z-index: 1000;
+                padding: 10px 0;
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+            }
+            
+            .header_container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            /* Logo */
+            
+            .logo img {
+                height: 40px;
+                transition: transform 0.3s ease;
+            }
+            
+            .logo:hover img {
+                transform: scale(1.05);
+            }
+            /* Navigation */
+            
+            .nav_links {
+                display: flex;
+                gap: 30px;
+                position: relative;
+            }
+            
+            .nav_links a {
+                color: #333;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 16px;
+                position: relative;
+                padding: 5px 0;
+                margin-top: -5px;
+                transition: color 0.3s ease;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            
+            .nav_links a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background: linear-gradient(90deg, #000000, #3a3a3a);
+                transition: width 0.3s ease;
+            }
+            
+            .nav_links a:hover {
+                color: #FF0066;
+            }
+            
+            .nav_links a:hover::after {
+                width: 100%;
+            }
+            /* Dropdown */
+            
+            .dropdown {
+                position: relative;
+            }
+            
+            .dropdown>a .dropdown-icon {
+                font-size: 12px;
+                margin-left: 5px;
+                transition: transform 0.3s ease;
+            }
+            
+            .dropdown:hover>a .dropdown-icon {
+                transform: rotate(180deg);
+            }
+            
+            .dropdown_content {
+                position: absolute;
+                top: 35px;
+                left: 0;
+                background: #fff;
+                min-width: 250px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+                border-radius: 8px;
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px);
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            .dropdown:hover .dropdown_content {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+            
+            .dropdown_content a {
+                display: block;
+                padding: 12px 20px;
+                color: #333333be;
+                text-decoration: none;
+                background: white;
+                font-weight: 400;
+                transition: background 0.3s ease, color 0.3s ease;
+                border: 1px solid rgba(0, 0, 0, 0.07);
+                line-height: 20px;
+            }
+            
+            .dropdown_content a:hover {
+                background: linear-gradient(90deg, #FF0066, #e5005cda);
+                color: #fff;
+            }
+            /* CTA Button */
+            
+            .cta_button {
+                background: linear-gradient(90deg, #000000, #000000);
+                color: white;
+                padding: 10px 25px;
+                border-radius: 4px;
+                font-weight: 500;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+            
+            .cta_button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 1px rgba(0, 0, 0, 0.3);
+            }
+            /* Mobile Menu Button */
+            
+            .mobile_menu_btn {
+                display: none;
+                background: transparent;
+                color: #333;
+                border: none;
+                font-size: 28px;
+                cursor: pointer;
+                padding: 5px;
+            }
+            /* Responsive */
+            
+            @media (max-width: 768px) {
+                .nav_links {
+                    display: none;
+                }
+                .cta_button {
+                    display: none;
+                }
+                .mobile_menu_btn {
+                    display: block;
+                }
+                .header_container {
+                    padding: 0 15px;
+                }
+            }
+            /* Sidebar Styles */
+            
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -280px;
+                width: 280px;
+                height: 100vh;
+                background: #fff;
+                box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                z-index: 1500;
+                padding-top: 60px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            
+            .sidebar.active {
+                left: 0;
+            }
+            
+            .sidebar .close_btn {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                font-size: 24px;
+                cursor: pointer;
+                background: transparent;
+                border: none;
+                color: #333;
+            }
+            
+            .sidebar nav {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 0 20px;
+            }
+            
+            .sidebar nav a {
+                color: #333;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 18px;
+                padding: 10px 5px;
+                border-radius: 4px;
+                transition: background 0.3s ease, color 0.3s ease;
+            }
+            
+            .sidebar nav a:hover {
+                background: linear-gradient(90deg, #FF0066, #ffffff1f);
+                color: #fff;
+            }
+            /* Sidebar Dropdown */
+            
+            .sidebar .dropdown_sidebar>a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+            }
+            
+            .sidebar .dropdown_sidebar .dropdown_sidebar_content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                flex-direction: column;
+                gap: 10px;
+                padding-left: 10px;
+                margin-top: 8px;
+                border-left: 2px solid #FF0066;
+            }
+            
+            .sidebar .dropdown_sidebar.active .dropdown_sidebar_content {
+                max-height: 500px;
+                display: flex;
+            }
+            /* Dropdown arrow */
+            
+            .sidebar .dropdown_sidebar>a .dropdown-icon {
+                font-size: 12px;
+                color: #FF0066;
+                transition: transform 0.3s ease;
+            }
+            
+            .sidebar .dropdown_sidebar.active>a .dropdown-icon {
+                transform: rotate(-180deg);
+            }
+            /* Overlay for sidebar */
+            
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.4);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease;
+                z-index: 1400;
+            }
+            
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+        </style>
+
+        <header class="header_main">
+            <div class="header_container">
+                <a href="/index.html" class="logo">
+                    <img src="/assets/logo.png" alt="Company Logo" />
+                </a>
+
+                <nav class="nav_links">
+                    <a href="/about.html">About</a>
+                    <div class="dropdown">
+                        <a href="/under-construction.html" class="dropbtn">
+                        Solution
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                        <div class="dropdown_content">
+                            <a href="/Mobile-App-Development.html">Mobile Application Development</a>
+                            <a href="/under-construction.html">Web App Development</a>
+                            <a href="/under-construction.html">CMS & Custom Website Development</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="/servies.html" class="dropbtn">
+                        Case Studies
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                        <div class="dropdown_content">
+                            <a href="/under-construction.html">Pay Point</a>
+                            <a href="/under-construction.html">Recovery Master</a>
+                            <a href="/under-construction.html">Bazaristan</a>
+                            <a href="/under-construction.html">Sindh Health Comission</a>
+                            <a href="/under-construction.html">Tax Doctor</a>
+                            <a href="/under-construction.html">OS Bazar</a>
+                            <a href="/under-construction.html">Currency Convertor</a>
+                            <a href="/under-construction.html">Cargo Managment Sytstem</a>
+                        </div>
+                    </div>
+
+                    <a href="/under-construction.html">Blogs</a>
+                </nav>
+
+                <a href="/under-construction.html" class="cta_button">Get Quote</a>
+
+                <button class="mobile_menu_btn" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            </div>
+        </header>
+
+        <!-- Sidebar Menu -->
+        <div class="sidebar" id="sidebar">
+            <button class="close_btn" id="closeSidebar" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+            <nav>
+                <a href="/under-construction.html">About</a>
+                <div class="dropdown_sidebar" id="solutionDropdown">
+                    <a href="javascript:void(0)">
+                    Solution
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </a>
+                    <div class="dropdown_sidebar_content">
+                        <a href="/Mobile-App-Development.html">Mobile Application Development</a>
+                        <a href="/under-construction.html">Web App Development</a>
+                        <a href="/under-construction.html">CMS & Custom Website Development</a>
+                    </div>
+                </div>
+                <div class="dropdown_sidebar" id="caseStudiesDropdown">
+                    <a href="javascript:void(0)">
+                    Case Studies
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </a>
+                    <div class="dropdown_sidebar_content">
+                        <a href="/under-construction.html">Pay Point</a>
+                        <a href="/under-construction.html">Recovery Master</a>
+                        <a href="/under-construction.html">Bazaristan</a>
+                        <a href="/under-construction.html">Sindh Health Comission</a>
+                        <a href="/under-construction.html">Tax Doctor</a>
+                        <a href="/under-construction.html">OS Bazar</a>
+                        <a href="/under-construction.html">Currency Convertor</a>
+                        <a href="/under-construction.html">Cargo Managment Sytstem</a>
+                    </div>
+                </div>
+                <a href="/under-construction.html">Blogs</a>
+                <a href="/under-construction.html" class="cta_button" style="margin-top: 20px; display: inline-block; text-align: center; color:white;">
+                Get Quote
+            </a>
+            </nav>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
+
+        <script>
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const mobileMenuBtn = document.querySelector('.mobile_menu_btn');
+            const closeBtn = document.getElementById('closeSidebar');
+            const solutionDropdown = document.getElementById('solutionDropdown');
+            const caseStudiesDropdown = document.getElementById('caseStudiesDropdown');
+
+            function openSidebar() {
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeSidebarFunc() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                // close any open dropdowns
+                solutionDropdown.classList.remove('active');
+                caseStudiesDropdown.classList.remove('active');
+            }
+
+            mobileMenuBtn.addEventListener('click', openSidebar);
+            closeBtn.addEventListener('click', closeSidebarFunc);
+            overlay.addEventListener('click', closeSidebarFunc);
+
+            // Toggle dropdowns inside sidebar
+            solutionDropdown.querySelector('a').addEventListener('click', () => {
+                solutionDropdown.classList.toggle('active');
+                // Close other dropdown if open
+                if (caseStudiesDropdown.classList.contains('active')) {
+                    caseStudiesDropdown.classList.remove('active');
+                }
+            });
+
+            caseStudiesDropdown.querySelector('a').addEventListener('click', () => {
+                caseStudiesDropdown.classList.toggle('active');
+                // Close other dropdown if open
+                if (solutionDropdown.classList.contains('active')) {
+                    solutionDropdown.classList.remove('active');
+                }
+            });
+
+            // Optional: close sidebar when resizing to large screens
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    closeSidebarFunc();
+                }
+            });
+
+            // Close sidebar when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!sidebar.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                    closeSidebarFunc();
+                }
+            });
+        </script>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>CMS & Custom Website Development</h1>
+            <p>We build powerful, scalable websites with the perfect blend of content management flexibility and custom functionality tailored to your business needs.</p>
+            <a href="#contact" class="cta-button">Get Your Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- CMS Platforms Section -->
+    <section class="cms-platforms">
+        <div class="section-title">
+            <h2>Our CMS Expertise</h2>
+            <p>We work with the leading content management systems to deliver the perfect solution for your needs.</p>
+        </div>
+
+        <div class="platforms-grid">
+            <div class="platform-card">
+                <div class="platform-icon">
+                    <i class="fab fa-wordpress"></i>
+                </div>
+                <h3>WordPress</h3>
+                <p>The world's most popular CMS, perfect for blogs, business websites, and eCommerce.</p>
+                <ul class="platform-features">
+                    <li>Custom theme development</li>
+                    <li>Plugin customization</li>
+                    <li>WooCommerce integration</li>
+                    <li>Performance optimization</li>
+                </ul>
+            </div>
+
+            <div class="platform-card">
+                <div class="platform-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>Shopify</h3>
+                <p>Powerful eCommerce platform for businesses that want to sell online.</p>
+                <ul class="platform-features">
+                    <li>Custom store design</li>
+                    <li>App integration</li>
+                    <li>Payment gateway setup</li>
+                    <li>Inventory management</li>
+                </ul>
+            </div>
+
+
+
+            <div class="platform-card">
+                <div class="platform-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Custom CMS</h3>
+                <p>Tailored solutions built specifically for your unique business requirements.</p>
+                <ul class="platform-features">
+                    <li>Fully bespoke development</li>
+                    <li>Custom admin interfaces</li>
+                    <li>API integrations</li>
+                    <li>Scalable architecture</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Development Section -->
+    <section class="custom-dev">
+        <div class="dev-container">
+            <div class="dev-content">
+                <h2>Custom Website Development</h2>
+                <p>For businesses that need more than what standard CMS platforms offer, we create completely custom websites with unique functionality tailored to your specific needs.</p>
+
+                <ul class="feature-list">
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Bespoke Solutions:</strong> Websites built from scratch to match your exact requirements
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Modern Technologies:</strong> React, Vue.js, Node.js, and more
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <strong>API Integrations:</strong> Connect with your existing systems and third-party services
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Performance Optimized:</strong> Lightning-fast load times and smooth user experiences
+                    </li>
+                </ul>
+
+                <a href="#contact" class="cta-button">Discuss Your Project</a>
+            </div>
+
+            <div class="dev-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Custom Website Development">
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="section-title">
+            <h2>Our Website Development Portfolio</h2>
+            <p>Some of our recent CMS and custom website development projects.</p>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="/assets/Banish - banish webberners com/laptop.png" alt="Corporate Website" class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3>Sindh Health Commission</h3>
+                    <p>Government health portal with complex content structure</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="/assets/banish.png" alt="E-commerce Website" class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3>Tax Doctor</h3>
+                    <p>Custom eCommerce solution for tax professionals</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="/assets/ban.png" alt="News Portal" class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3>OS Bazar</h3>
+                    <p>High-traffic news portal with custom CMS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to Build Your Website?</h2>
+        <p>Whether you need a CMS-powered site or a completely custom solution, we have the expertise to bring your vision to life.</p>
+        <a href="/contact.html" class="secondary-button">Get Started Today</a>
+    </section>
+
+    <!-- Footer - Start -->
+
+    <footer class="footer">
+        <style>
+            .footer {
+                background: #f9f9f9;
+                padding: 60px 0 20px;
+                /* padding: 60px 0 20px; */
+                color: #333;
+                font-family: 'Segoe UI', sans-serif;
+                border-top: 1px solid #eee;
+            }
+            
+            .footer-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 40px;
+            }
+            
+            .footer-logo {
+                max-width: 380px;
+                height: auto;
+                margin-bottom: 20px;
+                display: block;
+            }
+            
+            .footer-about p {
+                color: #666;
+                line-height: 1.6;
+                margin-bottom: 25px;
+                font-size: 15px;
+                text-align: left;
+            }
+            
+            .footer-social {
+                display: flex;
+                gap: 12px;
+            }
+            
+            .social-icon {
+                width: 56px;
+                height: 36px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                color: white;
+                font-size: 26px;
+                text-decoration: none;
+            }
+            /* Genuine social media colors */
+            
+            .fa-github {
+                background: #333;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .fa-linkedin-in {
+                background: rgb(0, 119, 181);
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .fa-facebook {
+                background: #1da1f2;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .fa-instagram {
+                background: #e1306c;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .fa-envelope {
+                background: #D44638;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .fa-whatsapp {
+                background: #25D366;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .social-icon:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            
+            .footer-links h3 {
+                font-size: 18px;
+                margin-bottom: 20px;
+                color: #222;
+                font-weight: 600;
+                position: relative;
+                padding-bottom: 8px;
+                text-align: left;
+            }
+            
+            .footer-links h3::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 40px;
+                height: 2px;
+                background: linear-gradient(90deg, #ff6b00, #ff0080);
+                text-align: left;
+            }
+            
+            .footer-links ul {
+                list-style: none;
+                text-align: left;
+                padding: 0;
+            }
+            
+            .footer-links li {
+                margin-bottom: 12px;
+            }
+            
+            .footer-links a {
+                color: #666;
+                text-decoration: none;
+                transition: all 0.2s ease;
+                font-size: 15px;
+            }
+            
+            .footer-links a:hover {
+                color: #ff6b00;
+                padding-left: 5px;
+            }
+            
+            .footer-newsletter p {
+                color: #666;
+                margin-bottom: 20px;
+                font-size: 15px;
+                line-height: 1.6;
+                text-align: left;
+            }
+            
+            .newsletter-form {
+                display: flex;
+                margin-bottom: 15px;
+            }
+            
+            .newsletter-input {
+                flex: 1;
+                padding: 12px 15px;
+                border: 1px solid #ddd;
+                border-radius: 4px 0 0 4px;
+                background: #fff;
+                color: #333;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            }
+            
+            .newsletter-input:focus {
+                outline: none;
+                border-color: #ff6b00;
+                box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.1);
+            }
+            
+            .newsletter-input::placeholder {
+                color: #999;
+            }
+            
+            .newsletter-btn {
+                padding: 0 20px;
+                background: linear-gradient(135deg, #000000, #ff0080);
+                color: white;
+                border: none;
+                border-radius: 0 4px 4px 0;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-weight: 500;
+            }
+            
+            .newsletter-btn:hover {
+                opacity: 0.9;
+                transform: scale(1.02);
+            }
+            
+            .footer-bottom {
+                text-align: center;
+                padding-top: 30px;
+                margin-top: 50px;
+                border-top: 1px solid #eee;
+                font-size: 14px;
+                color: #888;
+            }
+            /* Mobile-specific styles */
+            
+            .mobile-footer {
+                /* display: none; */
+                text-align: center;
+                padding: 30px 20px;
+            }
+            
+            .mobile-footer .footer-logo {
+                margin: 0 auto 20px;
+            }
+            
+            .mobile-footer .footer-social {
+                justify-content: center;
+                /* margin-bottom: 30px; */
+            }
+            
+            .mobile-footer .footer-bottom {
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+            }
+            
+            .mobile-divider {
+                height: 1px;
+                background: #eee;
+                width: 80%;
+                margin: 20px auto;
+            }
+            
+            .mobile-footer p {
+                font-size: 20px;
+                padding: 0px 250px;
+                color: #000000aa;
+            }
+            
+            @media (max-width: 768px) {
+                .footer {
+                    background: #f9f9f9;
+                    padding: 0px;
+                    /* padding: 60px 0 20px; */
+                    color: #333;
+                    font-family: 'Segoe UI', sans-serif;
+                    border-top: 1px solid #eee;
+                }
+                .footer-container {
+                    display: none;
+                }
+                .mobile-footer {
+                    display: block;
+                }
+                .mobile-footer p {
+                    font-size: 14px;
+                    padding: 0px 10px;
+                    color: #000000aa;
+                }
+                .footer-bottom {
+                    display: none;
+                }
+                .footer-logo {
+                    max-width: 180px;
+                }
+                .social-icon {
+                    height: 36px;
+                    width: 36px;
+                    font-size: 16px;
+                }
+            }
+        </style>
+
+        <!-- Desktop Footer -->
+        <div class="footer-container">
+
+            <!-- <div class="footer-section footer-about">
+                <img src="/assets/logo.png" alt="Portfolio Logo" class="footer-logo">
+                <p>Creating innovative digital experiences with cutting-edge technology and creative design.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/web-berners/" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/web_berners/" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/webberners" class="social-icon"><i
+                                class="fab fa-facebook"></i></a>
+                    <a href="mailto:info@webberners.com" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/+923293005959" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/under-construction.html">Home</a></li>
+                    <li><a href="/under-construction.html">Projects</a></li>
+                    <li><a href="/under-construction.html">About</a></li>
+                    <li><a href="/under-construction.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="/Web Design.html">Web Design</a></li>
+                    <li><a href="/App Development.html">App
+                                Development</a></li>
+                    <li><a href="/UX Development.html">UI/UX</a></li>
+                    <li><a href="/Branding.html">Branding</a></li>
+                </ul>
+            </div> 
+
+            <div class="footer-section footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Get the latest updates and offers directly to your inbox.
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div> -->
+        </div>
+
+        <!-- <div class="footer-bottom">
+            <p>&copy; 2025 Portfolio. All rights reserved.</p>
+        </div> -->
+
+        <!-- Mobile Footer -->
+        <div class="mobile-footer">
+            <img src="/assets/logo.png" alt="Portfolio Logo" class="footer-logo">
+            <!-- <img src="/assets/logo.png" alt="Portfolio Logo" class="footer-logo"> -->
+            <p style="">We aim to build a strong digital presence for your brand on all fronts, turning all the complex processes into simple solutions, providing you with the right digital products for your business to thrive.
+
+            </p>
+            <!-- <p>Creating innovative digital experiences with cutting-edge technology and creative design.</p> -->
+
+            <div class="mobile-divider"></div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/web-berners/" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/web_berners/" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/webberners" class="social-icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="mailto:info@webberners.com" class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/+923293005959" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+            </div>
+            <div class="mobile-divider"></div>
+
+            <p style="color: black;">&copy; 2025 Portfolio. All rights reserved.</p>
+
+            <!-- <div class="footer-bottom">
+                <p>&copy; 2025 Portfolio. All rights reserved.</p>
+            </div> -->
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Footer - End -->
+</body>
+
+</html>
