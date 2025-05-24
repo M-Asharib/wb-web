@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App Development | Web Berners</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         :root {
+            --primary: #FF0066;
+            --secondary: #000000;
+            --accent: #3a3a3a;
+            --light: #f9f9f9;
+            --dark: #222222;
+            --text: #333333;
+            --text-light: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* Hero Section */
+        
+        .hero {
+            padding: 180px 5% 100px;
+            /* background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.98) 100%), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat; */
+            background-image: url('/assets/wb-bg-abstract.png');
+            background-position: right;
+            /* text-align: center; */
+            color: white;
+            position: relative;
+        }
+        /* .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 0, 102, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%);
+        } */
+        
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2rem;
+            /* font-size: 3.5rem; */
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, white, white);
+            /* background: linear-gradient(90deg, var(--primary), var(--accent)); */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.642);
+            /* color: var(--text-light); */
+            max-width: 550px;
+            /* margin: 0 auto 40px; */
+            margin-bottom: 30px;
+            margin-left: 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 7px 30px;
+            background: linear-gradient(90deg, white, rgba(255, 255, 255, 0.681));
+            /* background: linear-gradient(90deg, var(--primary), var(--secondary)); */
+            color: black;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+        }
+        /* Services Section */
+        
+        .services {
+            padding: 100px 5%;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            text-align: left;
+            margin-top: 20px;
+        }
+        
+        .service-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+            color: var(--text-light);
+        }
+        
+        .service-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        /* Technologies Section */
+        
+        .technologies {
+            padding: 100px 5%;
+            background-color: var(--light);
+        }
+        
+        .tech-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .tech-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .tech-content p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .tech-item {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tech-item img {
+            height: 50px;
+            margin-bottom: 10px;
+            object-fit: contain;
+        }
+        
+        .tech-item p {
+            font-weight: 600;
+            color: var(--dark);
+            margin: 0;
+        }
+        /* Process Section */
+        
+        .process {
+            padding: 100px 5%;
+            background-color: white;
+        }
+        
+        .process-steps {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .process-step {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-right: 30px;
+        }
+        
+        .step-content {
+            padding-top: 10px;
+        }
+        
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .step-content p {
+            color: var(--text-light);
+        }
+        /* CTA Section */
+        
+        .cta-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .secondary-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        /* Footer */
+        
+        .footer {
+            padding: 60px 5% 30px;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        /* Responsive Styles */
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p,
+            .section-title p,
+            .cta-section p {
+                font-size: 1rem;
+            }
+            .section-title h2,
+            .cta-section h2,
+            .tech-content h2 {
+                font-size: 2rem;
+            }
+            .tech-container {
+                grid-template-columns: 1fr;
+            }
+            .tech-stack {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .process-step {
+                flex-direction: column;
+            }
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <!-- Add Font Awesome CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <style>
+            /* Base Header Styles */
+            
+            .header_main {
+                position: fixed;
+                width: 100%;
+                z-index: 1000;
+                padding: 10px 0;
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+            }
+            
+            .header_container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            /* Logo */
+            
+            .logo img {
+                height: 40px;
+                transition: transform 0.3s ease;
+            }
+            
+            .logo:hover img {
+                transform: scale(1.05);
+            }
+            /* Navigation */
+            
+            .nav_links {
+                display: flex;
+                gap: 30px;
+                position: relative;
+            }
+            
+            .nav_links a {
+                color: #333;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 16px;
+                position: relative;
+                padding: 5px 0;
+                margin-top: -5px;
+                transition: color 0.3s ease;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            
+            .nav_links a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background: linear-gradient(90deg, #000000, #3a3a3a);
+                transition: width 0.3s ease;
+            }
+            
+            .nav_links a:hover {
+                color: #FF0066;
+            }
+            
+            .nav_links a:hover::after {
+                width: 100%;
+            }
+            /* Dropdown */
+            
+            .dropdown {
+                position: relative;
+            }
+            
+            .dropdown>a .dropdown-icon {
+                font-size: 12px;
+                margin-left: 5px;
+                transition: transform 0.3s ease;
+            }
+            
+            .dropdown:hover>a .dropdown-icon {
+                transform: rotate(180deg);
+            }
+            
+            .dropdown_content {
+                position: absolute;
+                top: 35px;
+                left: 0;
+                background: #fff;
+                min-width: 250px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+                border-radius: 8px;
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px);
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            .dropdown:hover .dropdown_content {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+            
+            .dropdown_content a {
+                display: block;
+                padding: 12px 20px;
+                color: #333333be;
+                text-decoration: none;
+                background: white;
+                font-weight: 400;
+                transition: background 0.3s ease, color 0.3s ease;
+                border: 1px solid rgba(0, 0, 0, 0.07);
+                line-height: 20px;
+            }
+            
+            .dropdown_content a:hover {
+                background: linear-gradient(90deg, #FF0066, #e5005cda);
+                color: #fff;
+            }
+            /* CTA Button */
+            
+            .cta_button {
+                background: linear-gradient(90deg, #000000, #000000);
+                color: white;
+                padding: 10px 25px;
+                border-radius: 4px;
+                font-weight: 500;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+            
+            .cta_button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 1px rgba(0, 0, 0, 0.3);
+            }
+            /* Mobile Menu Button */
+            
+            .mobile_menu_btn {
+                display: none;
+                background: transparent;
+                color: #333;
+                border: none;
+                font-size: 28px;
+                cursor: pointer;
+                padding: 5px;
+            }
+            /* Responsive */
+            
+            @media (max-width: 768px) {
+                .nav_links {
+                    display: none;
+                }
+                .cta_button {
+                    display: none;
+                }
+                .mobile_menu_btn {
+                    display: block;
+                }
+                .header_container {
+                    padding: 0 15px;
+                }
+            }
+            /* Sidebar Styles */
+            
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -280px;
+                width: 280px;
+                height: 100vh;
+                background: #fff;
+                box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                z-index: 1500;
+                padding-top: 60px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            
+            .sidebar.active {
+                left: 0;
+            }
+            
+            .sidebar .close_btn {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                font-size: 24px;
+                cursor: pointer;
+                background: transparent;
+                border: none;
+                color: #333;
+            }
+            
+            .sidebar nav {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 0 20px;
+            }
+            
+            .sidebar nav a {
+                color: #333;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 18px;
+                padding: 10px 5px;
+                border-radius: 4px;
+                transition: background 0.3s ease, color 0.3s ease;
+            }
+            
+            .sidebar nav a:hover {
+                background: linear-gradient(90deg, #FF0066, #ffffff1f);
+                color: #fff;
+            }
+            /* Sidebar Dropdown */
+            
+            .sidebar .dropdown_sidebar>a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+            }
+            
+            .sidebar .dropdown_sidebar .dropdown_sidebar_content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                flex-direction: column;
+                gap: 10px;
+                padding-left: 10px;
+                margin-top: 8px;
+                border-left: 2px solid #FF0066;
+            }
+            
+            .sidebar .dropdown_sidebar.active .dropdown_sidebar_content {
+                max-height: 500px;
+                display: flex;
+            }
+            /* Dropdown arrow */
+            
+            .sidebar .dropdown_sidebar>a .dropdown-icon {
+                font-size: 12px;
+                color: #FF0066;
+                transition: transform 0.3s ease;
+            }
+            
+            .sidebar .dropdown_sidebar.active>a .dropdown-icon {
+                transform: rotate(-180deg);
+            }
+            /* Overlay for sidebar */
+            
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.4);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease;
+                z-index: 1400;
+            }
+            
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+        </style>
+
+        <header class="header_main">
+            <div class="header_container">
+                <a href="/index.html" class="logo">
+                    <img src="/assets/logo.png" alt="Company Logo" />
+                </a>
+
+                <nav class="nav_links">
+                    <a href="/about.html">About</a>
+                    <div class="dropdown">
+                        <a href="/under-construction.html" class="dropbtn">
+                        Solution
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                        <div class="dropdown_content">
+                            <a href="/Mobile-App-Development.html">Mobile Application Development</a>
+                            <a href="/under-construction.html">Web App Development</a>
+                            <a href="/CMS-&-Custom-Website-Development.html">CMS & Custom Website Development</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="/servies.html" class="dropbtn">
+                        Case Studies
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                        <div class="dropdown_content">
+                            <a href="/under-construction.html">Pay Point</a>
+                            <a href="/under-construction.html">Recovery Master</a>
+                            <a href="/under-construction.html">Bazaristan</a>
+                            <a href="/under-construction.html">Sindh Health Comission</a>
+                            <a href="/under-construction.html">Tax Doctor</a>
+                            <a href="/under-construction.html">OS Bazar</a>
+                            <a href="/under-construction.html">Currency Convertor</a>
+                            <a href="/under-construction.html">Cargo Managment Sytstem</a>
+                        </div>
+                    </div>
+
+                    <a href="/under-construction.html">Blogs</a>
+                </nav>
+
+                <a href="/under-construction.html" class="cta_button">Get Quote</a>
+
+                <button class="mobile_menu_btn" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            </div>
+        </header>
+
+        <!-- Sidebar Menu -->
+        <div class="sidebar" id="sidebar">
+            <button class="close_btn" id="closeSidebar" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+            <nav>
+                <a href="/under-construction.html">About</a>
+                <div class="dropdown_sidebar" id="solutionDropdown">
+                    <a href="javascript:void(0)">
+                    Solution
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </a>
+                    <div class="dropdown_sidebar_content">
+                        <a href="/Mobile-App-Development.html">Mobile Application Development</a>
+                        <a href="/under-construction.html">Web App Development</a>
+                        <a href="/CMS-&-Custom-Website-Development.html">CMS & Custom Website Development</a>
+                    </div>
+                </div>
+                <div class="dropdown_sidebar" id="caseStudiesDropdown">
+                    <a href="javascript:void(0)">
+                    Case Studies
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </a>
+                    <div class="dropdown_sidebar_content">
+                        <a href="/under-construction.html">Pay Point</a>
+                        <a href="/under-construction.html">Recovery Master</a>
+                        <a href="/under-construction.html">Bazaristan</a>
+                        <a href="/under-construction.html">Sindh Health Comission</a>
+                        <a href="/under-construction.html">Tax Doctor</a>
+                        <a href="/under-construction.html">OS Bazar</a>
+                        <a href="/under-construction.html">Currency Convertor</a>
+                        <a href="/under-construction.html">Cargo Managment Sytstem</a>
+                    </div>
+                </div>
+                <a href="/under-construction.html">Blogs</a>
+                <a href="/under-construction.html" class="cta_button" style="margin-top: 20px; display: inline-block; text-align: center; color:white;">
+                Get Quote
+            </a>
+            </nav>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
+
+        <script>
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const mobileMenuBtn = document.querySelector('.mobile_menu_btn');
+            const closeBtn = document.getElementById('closeSidebar');
+            const solutionDropdown = document.getElementById('solutionDropdown');
+            const caseStudiesDropdown = document.getElementById('caseStudiesDropdown');
+
+            function openSidebar() {
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeSidebarFunc() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                // close any open dropdowns
+                solutionDropdown.classList.remove('active');
+                caseStudiesDropdown.classList.remove('active');
+            }
+
+            mobileMenuBtn.addEventListener('click', openSidebar);
+            closeBtn.addEventListener('click', closeSidebarFunc);
+            overlay.addEventListener('click', closeSidebarFunc);
+
+            // Toggle dropdowns inside sidebar
+            solutionDropdown.querySelector('a').addEventListener('click', () => {
+                solutionDropdown.classList.toggle('active');
+                // Close other dropdown if open
+                if (caseStudiesDropdown.classList.contains('active')) {
+                    caseStudiesDropdown.classList.remove('active');
+                }
+            });
+
+            caseStudiesDropdown.querySelector('a').addEventListener('click', () => {
+                caseStudiesDropdown.classList.toggle('active');
+                // Close other dropdown if open
+                if (solutionDropdown.classList.contains('active')) {
+                    solutionDropdown.classList.remove('active');
+                }
+            });
+
+            // Optional: close sidebar when resizing to large screens
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    closeSidebarFunc();
+                }
+            });
+
+            // Close sidebar when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!sidebar.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                    closeSidebarFunc();
+                }
+            });
+        </script>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Custom Web Application Development</h1>
+            <p>We build powerful, scalable web applications that solve complex business problems and deliver exceptional user experiences.</p>
+            <a href="#contact" class="cta-button">Get Your Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="section-title">
+            <h2>Our Web App Development Services</h2>
+            <p>We create custom web applications tailored to your specific business needs and user requirements.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Custom Web Applications</h3>
+                <p>Bespoke solutions built from scratch to address your unique business challenges.</p>
+                <ul class="service-features">
+                    <li>Tailored to your workflows</li>
+                    <li>Scalable architecture</li>
+                    <li>Secure data handling</li>
+                    <li>Continuous integration</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>E-Commerce Solutions</h3>
+                <p>Feature-rich online stores with seamless payment integrations and inventory management.</p>
+                <ul class="service-features">
+                    <li>Custom shopping experiences</li>
+                    <li>Payment gateway integration</li>
+                    <li>Product management</li>
+                    <li>Order processing</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Business Applications</h3>
+                <p>Enterprise-grade solutions to streamline operations and improve productivity.</p>
+                <ul class="service-features">
+                    <li>CRM systems</li>
+                    <li>ERP solutions</li>
+                    <li>Project management</li>
+                    <li>Data analytics</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>API Development</h3>
+                <p>Robust APIs to connect your web app with other services and platforms.</p>
+                <ul class="service-features">
+                    <li>RESTful API design</li>
+                    <li>GraphQL implementation</li>
+                    <li>Third-party integrations</li>
+                    <li>Webhook support</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Progressive Web Apps</h3>
+                <p>Web applications that deliver app-like experiences with offline capabilities.</p>
+                <ul class="service-features">
+                    <li>Offline functionality</li>
+                    <li>Push notifications</li>
+                    <li>Home screen installation</li>
+                    <li>Fast loading</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Cloud-Based Solutions</h3>
+                <p>Scalable web applications hosted on cloud platforms for maximum reliability.</p>
+                <ul class="service-features">
+                    <li>AWS deployment</li>
+                    <li>Azure integration</li>
+                    <li>Google Cloud setup</li>
+                    <li>Serverless architecture</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="technologies">
+        <div class="tech-container">
+            <div class="tech-content">
+                <h2>Our Technology Stack</h2>
+                <p>We use cutting-edge technologies to build high-performance web applications that stand the test of time.</p>
+
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" alt="React">
+                        <p>React</p>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png" alt="Vue">
+                        <p>Vue.js</p>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png" alt="Node.js">
+                        <p>Node.js</p>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" alt="TypeScript">
+                        <p>TypeScript</p>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png" alt="PostgreSQL">
+                        <p>PostgreSQL</p>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png" alt="MongoDB">
+                        <p>MongoDB</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Technology Stack" style="width:100%; border-radius:12px; box-shadow:0 15px 30px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="section-title">
+            <h2>Our Development Process</h2>
+            <p>A proven methodology to ensure your web application meets all requirements and delivers real value.</p>
+        </div>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Discovery & Planning</h3>
+                    <p>We start by understanding your business goals, target audience, and technical requirements to create a comprehensive project plan.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>UI/UX Design</h3>
+                    <p>Our designers create intuitive, beautiful interfaces that provide exceptional user experiences.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Development</h3>
+                    <p>Using agile methodologies, we build your app with clean, maintainable code and regular progress updates.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Testing & QA</h3>
+                    <p>Rigorous testing across devices and scenarios ensures a bug-free, high-performance application.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Deployment & Support</h3>
+                    <p>We handle deployment and provide ongoing maintenance and updates to keep your app performing at its best.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to Build Your Web Application?</h2>
+        <p>Let's discuss your project and how we can help bring your vision to life with a custom web application.</p>
+        <a href="/contact.html" class="secondary-button">Get Started Today</a>
+    </section>
+    <!-- Footer - Start -->
+
+    <footer class="footer">
+        <style>
+            .footer {
+                background: #f9f9f9;
+                padding: 60px 0 20px;
+                /* padding: 60px 0 20px; */
+                color: #333;
+                font-family: 'Segoe UI', sans-serif;
+                border-top: 1px solid #eee;
+            }
+            
+            .footer-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 40px;
+            }
+            
+            .footer-logo {
+                max-width: 380px;
+                height: auto;
+                margin-bottom: 20px;
+                display: block;
+            }
+            
+            .footer-about p {
+                color: #666;
+                line-height: 1.6;
+                margin-bottom: 25px;
+                font-size: 15px;
+                text-align: left;
+            }
+            
+            .footer-social {
+                display: flex;
+                gap: 12px;
+            }
+            
+            .social-icon {
+                width: 56px;
+                height: 36px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                color: white;
+                font-size: 26px;
+                text-decoration: none;
+            }
+            /* Genuine social media colors */
+            
+            .fa-github {
+                background: #333;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .fa-linkedin-in {
+                background: rgb(0, 119, 181);
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .fa-facebook {
+                background: #1da1f2;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .fa-instagram {
+                background: #e1306c;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .fa-envelope {
+                background: #D44638;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .fa-whatsapp {
+                background: #25D366;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .social-icon:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            
+            .footer-links h3 {
+                font-size: 18px;
+                margin-bottom: 20px;
+                color: #222;
+                font-weight: 600;
+                position: relative;
+                padding-bottom: 8px;
+                text-align: left;
+            }
+            
+            .footer-links h3::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 40px;
+                height: 2px;
+                background: linear-gradient(90deg, #ff6b00, #ff0080);
+                text-align: left;
+            }
+            
+            .footer-links ul {
+                list-style: none;
+                text-align: left;
+                padding: 0;
+            }
+            
+            .footer-links li {
+                margin-bottom: 12px;
+            }
+            
+            .footer-links a {
+                color: #666;
+                text-decoration: none;
+                transition: all 0.2s ease;
+                font-size: 15px;
+            }
+            
+            .footer-links a:hover {
+                color: #ff6b00;
+                padding-left: 5px;
+            }
+            
+            .footer-newsletter p {
+                color: #666;
+                margin-bottom: 20px;
+                font-size: 15px;
+                line-height: 1.6;
+                text-align: left;
+            }
+            
+            .newsletter-form {
+                display: flex;
+                margin-bottom: 15px;
+            }
+            
+            .newsletter-input {
+                flex: 1;
+                padding: 12px 15px;
+                border: 1px solid #ddd;
+                border-radius: 4px 0 0 4px;
+                background: #fff;
+                color: #333;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            }
+            
+            .newsletter-input:focus {
+                outline: none;
+                border-color: #ff6b00;
+                box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.1);
+            }
+            
+            .newsletter-input::placeholder {
+                color: #999;
+            }
+            
+            .newsletter-btn {
+                padding: 0 20px;
+                background: linear-gradient(135deg, #000000, #ff0080);
+                color: white;
+                border: none;
+                border-radius: 0 4px 4px 0;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-weight: 500;
+            }
+            
+            .newsletter-btn:hover {
+                opacity: 0.9;
+                transform: scale(1.02);
+            }
+            
+            .footer-bottom {
+                text-align: center;
+                padding-top: 30px;
+                margin-top: 50px;
+                border-top: 1px solid #eee;
+                font-size: 14px;
+                color: #888;
+            }
+            /* Mobile-specific styles */
+            
+            .mobile-footer {
+                /* display: none; */
+                text-align: center;
+                padding: 30px 20px;
+            }
+            
+            .mobile-footer .footer-logo {
+                margin: 0 auto 20px;
+            }
+            
+            .mobile-footer .footer-social {
+                justify-content: center;
+                /* margin-bottom: 30px; */
+            }
+            
+            .mobile-footer .footer-bottom {
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+            }
+            
+            .mobile-divider {
+                height: 1px;
+                background: #eee;
+                width: 80%;
+                margin: 20px auto;
+            }
+            
+            .mobile-footer p {
+                font-size: 20px;
+                padding: 0px 250px;
+                color: #000000aa;
+            }
+            
+            @media (max-width: 768px) {
+                .footer {
+                    background: #f9f9f9;
+                    padding: 0px;
+                    /* padding: 60px 0 20px; */
+                    color: #333;
+                    font-family: 'Segoe UI', sans-serif;
+                    border-top: 1px solid #eee;
+                }
+                .footer-container {
+                    display: none;
+                }
+                .mobile-footer {
+                    display: block;
+                }
+                .mobile-footer p {
+                    font-size: 14px;
+                    padding: 0px 10px;
+                    color: #000000aa;
+                }
+                .footer-bottom {
+                    display: none;
+                }
+                .footer-logo {
+                    max-width: 180px;
+                }
+                .social-icon {
+                    height: 36px;
+                    width: 36px;
+                    font-size: 16px;
+                }
+            }
+        </style>
+
+        <!-- Desktop Footer -->
+        <div class="footer-container">
+
+            <!-- <div class="footer-section footer-about">
+                <img src="/assets/logo.png" alt="Portfolio Logo" class="footer-logo">
+                <p>Creating innovative digital experiences with cutting-edge technology and creative design.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/web-berners/" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/web_berners/" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/webberners" class="social-icon"><i
+                                class="fab fa-facebook"></i></a>
+                    <a href="mailto:info@webberners.com" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/+923293005959" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/under-construction.html">Home</a></li>
+                    <li><a href="/under-construction.html">Projects</a></li>
+                    <li><a href="/under-construction.html">About</a></li>
+                    <li><a href="/under-construction.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="/Web Design.html">Web Design</a></li>
+                    <li><a href="/App Development.html">App
+                                Development</a></li>
+                    <li><a href="/UX Development.html">UI/UX</a></li>
+                    <li><a href="/Branding.html">Branding</a></li>
+                </ul>
+            </div> 
+
+            <div class="footer-section footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Get the latest updates and offers directly to your inbox.
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div> -->
+        </div>
+
+        <!-- <div class="footer-bottom">
+            <p>&copy; 2025 Portfolio. All rights reserved.</p>
+        </div> -->
+
+        <!-- Mobile Footer -->
+        <div class="mobile-footer">
+            <img src="/assets/logo.png" alt="Portfolio Logo" class="footer-logo">
+            <!-- <img src="/assets/logo.png" alt="Portfolio Logo" class="footer-logo"> -->
+            <p style="">We aim to build a strong digital presence for your brand on all fronts, turning all the complex processes into simple solutions, providing you with the right digital products for your business to thrive.
+
+            </p>
+            <!-- <p>Creating innovative digital experiences with cutting-edge technology and creative design.</p> -->
+
+            <div class="mobile-divider"></div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/web-berners/" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/web_berners/" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/webberners" class="social-icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="mailto:info@webberners.com" class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/+923293005959" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+            </div>
+            <div class="mobile-divider"></div>
+
+            <p style="color: black;">&copy; 2025 Portfolio. All rights reserved.</p>
+
+            <!-- <div class="footer-bottom">
+                <p>&copy; 2025 Portfolio. All rights reserved.</p>
+            </div> -->
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Footer - End -->
+
+</body>
+
+</html>
